@@ -154,6 +154,295 @@ function Get-RecentCommits {
     return @()
 }
 
+function Scan-ProjectsForTech {
+    <#
+    .SYNOPSIS
+        Deeply scans all projects that use a given tech and extracts real patterns.
+    #>
+    param(
+        [string]$Tech,
+        [array]$Projects
+    )
+
+    $relevantProjects = $Projects | Where-Object { $Tech -in $_.techStack }
+    $findings = @{
+        libraries     = @()
+        configPatterns = @()
+        fileStructure = @()
+        codePatterns  = @()
+        devDeps       = @()
+    }
+
+    foreach ($proj in $relevantProjects) {
+        $rp = $proj.path
+
+        # ── Read package.json deeply ──
+        $pkgPath = Join-Path $rp "package.json"
+        if (Test-Path $pkgPath) {
+            try {
+                $pkg = Get-Content $pkgPath -Raw | ConvertFrom-Json
+                $deps = @()
+                $devD = @()
+                if ($pkg.dependencies) { $deps = ($pkg.dependencies | Get-Member -MemberType NoteProperty).Name }
+                if ($pkg.devDependencies) { $devD = ($pkg.devDependencies | Get-Member -MemberType NoteProperty).Name }
+
+                # Categorize libs relevant to this tech
+                switch ($Tech) {
+                    "React" {
+                        $reactLibs = $deps | Where-Object { $_ -match 'react|redux|zustand|jotai|recoil|mobx|framer|@radix|@tanstack|@clerk|cmdk|vaul|sonner|lucide|recharts' }
+                        $findings.libraries += $reactLibs
+                        # Detect state management
+                        if ("zustand" -in $deps) { $findings.codePatterns += "Uses Zustand for state management" }
+                        if ($deps -match "redux") { $findings.codePatterns += "Uses Redux for state management" }
+                        if ("jotai" -in $deps) { $findings.codePatterns += "Uses Jotai for state management" }
+                        if ("@tanstack/react-query" -in $deps) { $findings.codePatterns += "Uses TanStack Query for data fetching" }
+                        if ("react-hook-form" -in $deps) { $findings.codePatterns += "Uses React Hook Form for forms" }
+                        if ("react-router-dom" -in $deps) { $findings.codePatterns += "Uses React Router for routing" }
+                        if ("framer-motion" -in $deps -or "motion" -in $deps) { $findings.codePatterns += "Uses Framer Motion for animations" }
+                        if ($deps -match "@radix") { $findings.codePatterns += "Uses Radix UI primitives for accessible components" }
+                        if ($deps -match "@clerk") { $findings.codePatterns += "Uses Clerk for authentication" }
+                        if ("recharts" -in $deps) { $findings.codePatterns += "Uses Recharts for data visualization" }
+                    }
+                    "Three.js" {
+                        $threeLibs = $deps | Where-Object { $_ -match 'three|@react-three|drei|fiber|postprocessing|cannon|rapier' }
+                        $findings.libraries += $threeLibs
+                        if ("@react-three/fiber" -in $deps) { $findings.codePatterns += "Uses React Three Fiber (R3F) — declarative Three.js" }
+                        if ("@react-three/drei" -in $deps) { $findings.codePatterns += "Uses Drei helpers for common 3D patterns" }
+                        if ("gsap" -in $deps -or "@gsap/react" -in $deps) { $findings.codePatterns += "Uses GSAP for advanced animations alongside Three.js" }
+                    }
+                    "Next.js" {
+                        # Check app router vs pages
+                        if (Test-Path (Join-Path $rp "app")) { $findings.codePatterns += "Uses App Router (app/ directory)" }
+                        if (Test-Path (Join-Path $rp "pages")) { $findings.codePatterns += "Uses Pages Router (pages/ directory)" }
+                        # Read next.config
+                        $nextConfigs = @("next.config.ts", "next.config.js", "next.config.mjs")
+                        foreach ($nc in $nextConfigs) {
+                            $ncPath = Join-Path $rp $nc
+                            if (Test-Path $ncPath) {
+                                $ncContent = Get-Content $ncPath -Raw
+                                if ($ncContent -match "reactStrictMode:\s*false") { $findings.configPatterns += "Strict mode disabled" }
+                                if ($ncContent -match "images") { $findings.configPatterns += "Custom image configuration" }
+                                if ($ncContent -match "env:") { $findings.configPatterns += "Environment variables configured in next.config" }
+                                if ($ncContent -match "i18n") { $findings.configPatterns += "Internationalization configured" }
+                            }
+                        }
+                        if ("@next/third-parties" -in $deps) { $findings.codePatterns += "Uses @next/third-parties for analytics/scripts" }
+                    }
+                    "TypeScript" {
+                        $tsPath = Join-Path $rp "tsconfig.json"
+                        if (Test-Path $tsPath) {
+                            try {
+                                $ts = Get-Content $tsPath -Raw | ConvertFrom-Json
+                                $co = $ts.compilerOptions
+                                if ($co.strict -eq $true) { $findings.configPatterns += "Strict mode enabled" }
+                                if ($co.target) { $findings.configPatterns += "Target: $($co.target)" }
+                                if ($co.paths) {
+                                    $aliases = ($co.paths | Get-Member -MemberType NoteProperty).Name -join ", "
+                                    $findings.configPatterns += "Path aliases: $aliases"
+                                }
+                                if ($co.jsx) { $findings.configPatterns += "JSX: $($co.jsx)" }
+                            } catch {}
+                        }
+                        if ("zod" -in $deps) { $findings.codePatterns += "Uses Zod for runtime type validation" }
+                    }
+                    "Tailwind CSS" {
+                        $twConfigs = @("tailwind.config.ts", "tailwind.config.js")
+                        foreach ($tw in $twConfigs) {
+                            $twPath = Join-Path $rp $tw
+                            if (Test-Path $twPath) {
+                                $twContent = Get-Content $twPath -Raw
+                                if ($twContent -match "fontFamily") { $findings.configPatterns += "Custom font families configured" }
+                                if ($twContent -match "colors") { $findings.configPatterns += "Custom color palette via CSS variables" }
+                                if ($twContent -match "plugins") { $findings.configPatterns += "Tailwind plugins used" }
+                            }
+                        }
+                        if ("tailwind-merge" -in $deps) { $findings.codePatterns += "Uses tailwind-merge for class deduplication" }
+                        if ("class-variance-authority" -in $deps) { $findings.codePatterns += "Uses CVA (class-variance-authority) for component variants" }
+                        if ("tailwindcss-animate" -in $deps -or "tailwindcss-animate" -in $devD) { $findings.codePatterns += "Uses tailwindcss-animate for animation utilities" }
+                        if ("clsx" -in $deps) { $findings.codePatterns += "Uses clsx for conditional class names" }
+                    }
+                    "Express" {
+                        $expressLibs = $deps | Where-Object { $_ -match 'express|cors|helmet|morgan|dotenv|rate-limit|cookie|session|passport|jwt|bcrypt|multer|libsql|prisma|drizzle|mongoose|pg|mysql' }
+                        $findings.libraries += $expressLibs
+                        if ("cors" -in $deps) { $findings.codePatterns += "CORS enabled" }
+                        if ("dotenv" -in $deps) { $findings.codePatterns += "Environment variables via dotenv" }
+                        if ("express-rate-limit" -in $deps) { $findings.codePatterns += "Rate limiting configured" }
+                        if ("@libsql/client" -in $deps) { $findings.codePatterns += "Uses LibSQL/Turso for database" }
+                        if ("helmet" -in $deps) { $findings.codePatterns += "Security headers via Helmet" }
+                    }
+                    "Node.js" {
+                        # General Node patterns
+                        if ("dotenv" -in $deps) { $findings.codePatterns += "Uses dotenv for env management" }
+                        if ($pkg.type -eq "module") { $findings.codePatterns += "ES modules (type: module)" }
+                        if ($pkg.scripts) {
+                            $scripts = ($pkg.scripts | Get-Member -MemberType NoteProperty).Name
+                            if ("dev" -in $scripts) { $findings.codePatterns += "Has dev script" }
+                            if ("build" -in $scripts) { $findings.codePatterns += "Has build script" }
+                            if ("lint" -in $scripts) { $findings.codePatterns += "Has lint script" }
+                        }
+                    }
+                    "Vite" {
+                        $viteConfigs = @("vite.config.ts", "vite.config.js")
+                        foreach ($vc in $viteConfigs) {
+                            $vcPath = Join-Path $rp $vc
+                            if (Test-Path $vcPath) {
+                                $vcContent = Get-Content $vcPath -Raw
+                                if ($vcContent -match "@vitejs/plugin-react") { $findings.codePatterns += "Using Vite React plugin" }
+                                if ($vcContent -match "proxy") { $findings.configPatterns += "Dev proxy configured" }
+                            }
+                        }
+                    }
+                    "Python" {
+                        $reqPath = Join-Path $rp "requirements.txt"
+                        if (Test-Path $reqPath) {
+                            $reqs = Get-Content $reqPath | Where-Object { $_ -match '^\w' } | ForEach-Object { ($_ -split '[>=<]')[0].Trim().ToLower() }
+                            $findings.libraries += $reqs
+                            if ("flask" -in $reqs) { $findings.codePatterns += "Uses Flask web framework" }
+                            if ("django" -in $reqs) { $findings.codePatterns += "Uses Django web framework" }
+                            if ("fastapi" -in $reqs) { $findings.codePatterns += "Uses FastAPI" }
+                            if ("tensorflow" -in $reqs -or "tensorflow-cpu" -in $reqs) { $findings.codePatterns += "Uses TensorFlow for ML" }
+                            if ("pytorch" -in $reqs -or "torch" -in $reqs) { $findings.codePatterns += "Uses PyTorch for ML" }
+                            if ("numpy" -in $reqs) { $findings.codePatterns += "Uses NumPy for numerical computing" }
+                            if ("flask-cors" -in $reqs) { $findings.codePatterns += "CORS enabled via Flask-CORS" }
+                            if ("gunicorn" -in $reqs) { $findings.codePatterns += "Uses Gunicorn for production serving" }
+                            if ("pillow" -in $reqs) { $findings.codePatterns += "Uses Pillow for image processing" }
+                            if ("scipy" -in $reqs) { $findings.codePatterns += "Uses SciPy for scientific computing" }
+                        }
+                        # Check for pyproject.toml
+                        $pyProjPath = Join-Path $rp "pyproject.toml"
+                        if (Test-Path $pyProjPath) { $findings.configPatterns += "Uses pyproject.toml for project config" }
+                    }
+                    "Bun" {
+                        if (Test-Path (Join-Path $rp "bun.lockb")) { $findings.codePatterns += "Uses Bun as package manager (bun.lockb detected)" }
+                        if (Test-Path (Join-Path $rp "bunfig.toml")) {
+                            $findings.configPatterns += "Custom Bun configuration via bunfig.toml"
+                        }
+                    }
+                }
+
+                $findings.devDeps += $devD
+
+            } catch {}
+        }
+
+        # ── Detect file structure patterns ──
+        $srcDir = $null
+        if (Test-Path (Join-Path $rp "src")) { $srcDir = Join-Path $rp "src" }
+        elseif (Test-Path (Join-Path $rp "app")) { $srcDir = Join-Path $rp "app" }
+
+        if ($srcDir) {
+            $topDirs = Get-ChildItem $srcDir -Directory -ErrorAction SilentlyContinue | ForEach-Object { $_.Name }
+            if ($topDirs.Count -gt 0) {
+                $findings.fileStructure += "Project '$($proj.name)' structure: $($topDirs -join ', ')"
+            }
+        }
+
+        # ── Detect component patterns (React/Next) ──
+        if ($Tech -in @("React", "Next.js")) {
+            $compDir = Get-ChildItem $rp -Directory -Recurse -Depth 2 -ErrorAction SilentlyContinue | Where-Object { $_.Name -eq "components" } | Select-Object -First 1
+            if ($compDir) {
+                $compFiles = Get-ChildItem $compDir.FullName -File -Filter "*.tsx" -ErrorAction SilentlyContinue
+                if (-not $compFiles) { $compFiles = Get-ChildItem $compDir.FullName -File -Filter "*.jsx" -ErrorAction SilentlyContinue }
+                if ($compFiles) {
+                    $sampleComp = $compFiles | Select-Object -First 3
+                    foreach ($cf in $sampleComp) {
+                        $content = Get-Content $cf.FullName -Raw -ErrorAction SilentlyContinue
+                        if ($content) {
+                            if ($content -match "export default function") { $findings.codePatterns += "Uses default function exports for components" }
+                            elseif ($content -match "export function") { $findings.codePatterns += "Uses named function exports for components" }
+                            elseif ($content -match "export const.*=.*=>") { $findings.codePatterns += "Uses arrow function exports for components" }
+                            if ($content -match "use client") { $findings.codePatterns += "Uses 'use client' directive (client components)" }
+                            if ($content -match "use server") { $findings.codePatterns += "Uses 'use server' directive (server actions)" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    # Deduplicate everything
+    $findings.libraries = @($findings.libraries | Select-Object -Unique | Sort-Object)
+    $findings.configPatterns = @($findings.configPatterns | Select-Object -Unique)
+    $findings.fileStructure = @($findings.fileStructure | Select-Object -Unique)
+    $findings.codePatterns = @($findings.codePatterns | Select-Object -Unique)
+
+    return $findings
+}
+
+function Build-SkillContent {
+    param(
+        [string]$Tech,
+        [string]$ProjectsList,
+        [hashtable]$Findings
+    )
+
+    $lines = @()
+    $lines += "# $Tech"
+    $lines += ""
+    $lines += "> Auto-generated by brain-sync from scanning your actual projects."
+    $lines += "> Used in: $ProjectsList"
+    $lines += "> Last scanned: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+    $lines += ""
+
+    # Code patterns
+    if ($Findings.codePatterns.Count -gt 0) {
+        $lines += "## Your Patterns (detected from your code)"
+        $lines += ""
+        foreach ($p in $Findings.codePatterns) {
+            $lines += "- $p"
+        }
+        $lines += ""
+    }
+
+    # Libraries
+    if ($Findings.libraries.Count -gt 0) {
+        $lines += "## Libraries You Use"
+        $lines += ""
+        foreach ($lib in $Findings.libraries) {
+            $lines += "- ``$lib``"
+        }
+        $lines += ""
+    }
+
+    # Config patterns
+    if ($Findings.configPatterns.Count -gt 0) {
+        $lines += "## Configuration"
+        $lines += ""
+        foreach ($c in $Findings.configPatterns) {
+            $lines += "- $c"
+        }
+        $lines += ""
+    }
+
+    # File structure
+    if ($Findings.fileStructure.Count -gt 0) {
+        $lines += "## Project Structure"
+        $lines += ""
+        foreach ($f in $Findings.fileStructure) {
+            $lines += "- $f"
+        }
+        $lines += ""
+    }
+
+    # Manual sections
+    $lines += "## Your Preferences (edit this)"
+    $lines += ""
+    $lines += "- *(add things you always want AI to do with $Tech)*"
+    $lines += ""
+    $lines += "## Anti-Patterns (edit this)"
+    $lines += ""
+    $lines += "- *(add things you DON'T want AI to do with $Tech)*"
+    $lines += ""
+
+    # Online reference section placeholder
+    $lines += "## Reference (from official docs)"
+    $lines += ""
+    $lines += "> Run ``brain-learn $($Tech.ToLower() -replace '[^a-z0-9]','-' -replace '-+','-')`` or wait for next brain-sync to populate this section."
+    $lines += ""
+
+    return $lines -join "`n"
+}
+
 # ─── Main ─────────────────────────────────────────────────────────────
 
 # Ensure log directory exists
@@ -363,39 +652,19 @@ foreach ($tech in $uniqueTech) {
     if ($techSlug -notin $existingSkillFiles) {
         $undocumentedTech += $tech
 
-        # Auto-create skill file
+        # Auto-create skill file by scanning actual code
         $skillFilePath = Join-Path $SkillsDir "$techSlug.md"
-        
+
         # Find which projects use this tech
         $usingProjects = $projects | Where-Object { $tech -in $_.techStack } | ForEach-Object { $_.name }
         $projectsList = if ($usingProjects) { $usingProjects -join ", " } else { "detected in projects" }
 
-        $codeBlock = '```'
-        $skillContent = @"
-# $tech
+        Write-Log "  Scanning projects for $tech patterns..."
+        $findings = Scan-ProjectsForTech -Tech $tech -Projects $projects
+        $skillContent = Build-SkillContent -Tech $tech -ProjectsList $projectsList -Findings $findings
 
-> Auto-generated by brain-sync. Customize with your preferred patterns.
-> Used in: $projectsList
-
-## Preferred Patterns
-- *(add your go-to patterns here)*
-
-## Anti-Patterns (Avoid)
-- *(add things you don't want AI to do with $tech)*
-
-## Preferred Libraries
-- *(add libraries you reach for first)*
-
-## Conventions
-- *(add naming, file structure, or other conventions specific to $tech)*
-
-## Snippets
-$codeBlock
-// Add commonly used code snippets here
-$codeBlock
-"@
         Set-Content -Path $skillFilePath -Value $skillContent -Encoding UTF8
-        Write-Log "  CREATED: skills/$techSlug.md"
+        Write-Log "  CREATED: skills/$techSlug.md ($(($findings.codePatterns).Count) patterns, $(($findings.libraries).Count) libraries detected)"
     }
 }
 

@@ -85,19 +85,6 @@
       "isActive": false,
       "daysSinceCommit": 24.9,
       "lastCommit": {
-        "message": ".",
-        "date": "2026-02-11T19:11:15+05:30"
-      },
-      "recentCommits": [],
-      "name": "Quotes/quote.web",
-      "branch": "main",
-      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web"
-    },
-    {
-      "techStack": [],
-      "isActive": false,
-      "daysSinceCommit": 24.9,
-      "lastCommit": {
         "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
         "date": "2026-02-11T19:27:53+05:30"
       },
@@ -105,6 +92,19 @@
       "name": "tsrow",
       "branch": "main",
       "path": "C:\\Users\\Maithil\\Projects\\tsrow"
+    },
+    {
+      "techStack": [],
+      "isActive": false,
+      "daysSinceCommit": 25.0,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-02-11T19:11:15+05:30"
+      },
+      "recentCommits": [],
+      "name": "Quotes/quote.web",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web"
     },
     {
       "techStack": [],
@@ -196,5 +196,5 @@
   ],
   "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T17:53:21Z"
+  "lastSynced": "2026-03-08T18:02:56Z"
 }
