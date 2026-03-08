@@ -27,6 +27,73 @@
       "path": "C:\\Users\\Maithil\\Projects\\myportfolio"
     },
     {
+      "techStack": [
+        "Bun",
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 19.8,
+      "lastCommit": {
+        "message": "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
+        "date": "2026-02-16T23:06:31+05:30"
+      },
+      "recentCommits": [],
+      "name": "SkillShorts/SkillShorts",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts"
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "Three.js",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 24.8,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-02-11T23:25:56+05:30"
+      },
+      "recentCommits": [],
+      "name": "algox/AlgoLabX",
+      "branch": "master",
+      "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX"
+    },
+    {
+      "techStack": [
+        "Python"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 24.9,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-02-11T19:16:21+05:30"
+      },
+      "recentCommits": [],
+      "name": "neuralnetwork/neural-visualizer",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer"
+    },
+    {
+      "techStack": [],
+      "isActive": false,
+      "daysSinceCommit": 24.9,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-02-11T19:11:15+05:30"
+      },
+      "recentCommits": [],
+      "name": "Quotes/quote.web",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web"
+    },
+    {
       "techStack": [],
       "isActive": false,
       "daysSinceCommit": 24.9,
@@ -42,6 +109,19 @@
     {
       "techStack": [],
       "isActive": false,
+      "daysSinceCommit": 26.8,
+      "lastCommit": {
+        "message": "feat: Implement mobile navigation and expand recipe data with new entries and details.",
+        "date": "2026-02-09T22:55:59+05:30"
+      },
+      "recentCommits": [],
+      "name": "foodbook/recipe-book",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book"
+    },
+    {
+      "techStack": [],
+      "isActive": false,
       "daysSinceCommit": 27.8,
       "lastCommit": {
         "message": "some chnages",
@@ -51,6 +131,41 @@
       "name": "eatwise",
       "branch": "main",
       "path": "C:\\Users\\Maithil\\Projects\\eatwise"
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "Express"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 29.1,
+      "lastCommit": {
+        "message": "feat: Implement rate limiting, add Quote of the Day and search endpoints, and refactor quote-related logic into dedicated controllers and routes.",
+        "date": "2026-02-07T14:46:09+05:30"
+      },
+      "recentCommits": [],
+      "name": "Quotes/quote.api",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api"
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Next.js"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 41.1,
+      "lastCommit": {
+        "message": "Merge branch 'main' of https://github.com/SC136/Quotation",
+        "date": "2026-01-26T14:57:08+05:30"
+      },
+      "recentCommits": [],
+      "name": "Quotationnn/Quotation",
+      "branch": "master",
+      "path": "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation"
     },
     {
       "techStack": [],
@@ -64,9 +179,22 @@
       "name": "Chronos778-profile",
       "branch": "main",
       "path": "C:\\Users\\Maithil\\Projects\\Chronos778-profile"
+    },
+    {
+      "techStack": [],
+      "isActive": false,
+      "daysSinceCommit": 90.9,
+      "lastCommit": {
+        "message": "some changes",
+        "date": "2025-12-07T19:42:56+05:30"
+      },
+      "recentCommits": [],
+      "name": "lifetrack/lifetrack",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack"
     }
   ],
-  "totalRepos": 4,
+  "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T17:47:05Z"
+  "lastSynced": "2026-03-08T17:49:51Z"
 }

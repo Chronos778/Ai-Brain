@@ -170,10 +170,14 @@ if (-not (Test-Path $ProjectsRoot)) {
     exit 1
 }
 
-# Find all git repos
-$repos = Get-ChildItem -Path $ProjectsRoot -Directory -ErrorAction SilentlyContinue | Where-Object {
-    Test-Path (Join-Path $_.FullName ".git")
-}
+# Find all git repos (recursive — handles nested project structures)
+$gitDirs = Get-ChildItem -Path $ProjectsRoot -Recurse -Directory -Filter ".git" -Force -Depth 3 -ErrorAction SilentlyContinue
+$repos = $gitDirs | ForEach-Object {
+    [PSCustomObject]@{
+        FullName     = $_.Parent.FullName
+        RelativeName = $_.Parent.FullName.Replace("$ProjectsRoot\", "").Replace("\", "/")
+    }
+} | Sort-Object RelativeName
 
 Write-Log "Found $($repos.Count) git repositories"
 
@@ -182,7 +186,7 @@ $allDetectedTech = @()
 
 foreach ($repo in $repos) {
     $repoPath = $repo.FullName
-    $repoName = $repo.Name
+    $repoName = $repo.RelativeName
 
     Write-Log "Processing: $repoName"
 
