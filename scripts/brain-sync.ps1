@@ -170,8 +170,8 @@ if (-not (Test-Path $ProjectsRoot)) {
     exit 1
 }
 
-# Find all git repos (recursive — handles nested project structures)
-$gitDirs = Get-ChildItem -Path $ProjectsRoot -Recurse -Directory -Filter ".git" -Force -Depth 3 -ErrorAction SilentlyContinue
+# Find all git repos (recursive — searches deep until it finds .git)
+$gitDirs = Get-ChildItem -Path $ProjectsRoot -Recurse -Directory -Filter ".git" -Force -ErrorAction SilentlyContinue
 $repos = $gitDirs | ForEach-Object {
     [PSCustomObject]@{
         FullName     = $_.Parent.FullName
@@ -179,7 +179,17 @@ $repos = $gitDirs | ForEach-Object {
     }
 } | Sort-Object RelativeName
 
+# Find top-level folders that have NO git repo anywhere inside them
+$topLevelFolders = Get-ChildItem -Path $ProjectsRoot -Directory -ErrorAction SilentlyContinue
+$repoTopFolders = $repos | ForEach-Object { ($_.RelativeName -split "/")[0] } | Select-Object -Unique
+$noGitFolders = $topLevelFolders | Where-Object { $_.Name -notin $repoTopFolders }
+
 Write-Log "Found $($repos.Count) git repositories"
+if ($noGitFolders.Count -gt 0) {
+    foreach ($folder in $noGitFolders) {
+        Write-Log "  NO GIT: $($folder.Name) — no .git found anywhere inside"
+    }
+}
 
 $projects = @()
 $allDetectedTech = @()
