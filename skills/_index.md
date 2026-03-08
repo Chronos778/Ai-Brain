@@ -1,21 +1,21 @@
 # Skills Registry
 
-> This file is auto-updated by `brain-sync.ps1` when new tech is detected in your projects.
-> Add skill files manually for any tech you want to document patterns for.
+> Auto-updated by brain-sync.ps1 when new tech is detected.
+> Last synced: 2026-03-08 17:46
 
 ## Registered Skills
 
 | Skill | File | Status |
 |-------|------|--------|
-| *(none yet — run brain-sync to detect tech from your projects)* | | |
-
-## How to Add a Skill
-1. Create a new file in `skills/` named `<tech>.md` (e.g., `react.md`, `python.md`)
-2. Document your preferred patterns, anti-patterns, libraries, and conventions
-3. Run `brain-sync` to update this index
+| *(none yet)* | | |
 
 ## Detected Tech (Not Yet Documented)
-> These were found in your projects but don't have skill files yet.
-> Consider creating skill files for the ones you use frequently.
 
-*(updated by brain-sync)*
+> Consider creating skill files for tech you use frequently:
+
+- **Next.js** → create `skills/next-js.md`
+- **Node.js** → create `skills/node-js.md`
+- **React** → create `skills/react.md`
+- **Tailwind CSS** → create `skills/tailwind-css.md`
+- **Three.js** → create `skills/three-js.md`
+- **TypeScript** → create `skills/typescript.md`
