@@ -665,6 +665,18 @@ foreach ($tech in $uniqueTech) {
 
         Set-Content -Path $skillFilePath -Value $skillContent -Encoding UTF8
         Write-Log "  CREATED: skills/$techSlug.md ($(($findings.codePatterns).Count) patterns, $(($findings.libraries).Count) libraries detected)"
+
+        # Auto-run brain-learn to add online docs knowledge
+        $brainLearnScript = Join-Path $BrainRoot "scripts\brain-learn.ps1"
+        if (Test-Path $brainLearnScript) {
+            Write-Log "  Fetching online docs for $tech..."
+            try {
+                & $brainLearnScript -Tech $techSlug 2>$null
+                Write-Log "  Added online docs to skills/$techSlug.md"
+            } catch {
+                Write-Log "  WARNING: Could not fetch online docs for $tech"
+            }
+        }
     }
 }
 
