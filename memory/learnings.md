@@ -1,14 +1,17 @@
 # Learnings
 
-> Cross-project insights and things you've figured out.
-> Append here whenever you learn something worth remembering.
-> You can also tell Copilot: "add this learning to my brain"
+Things I've figured out that are worth remembering. Not documentation — insights.
+Each entry should save future-me at least 30 minutes.
 
 ---
 
-<!--
-Example format:
+<!-- To add a learning:
 
-### 2026-03-08 | Topic title
-What you learned and why it matters.
+### 2026-03-08 | R3F Performance
+useFrame runs every frame (60fps). Creating objects inside it allocates memory 60 times per second. The GC pauses became visible as frame drops in the portfolio 3D scene.
+Fix: Pre-allocate vectors with useMemo, mutate them in useFrame.
+
+### 2026-03-08 | Firestore Cold Starts
+Cloud Functions with heavy top-level imports (like @google-cloud/vision) add 2-3s to cold starts.
+Fix: Lazy-import inside the function handler. Cold start dropped to ~400ms.
 -->

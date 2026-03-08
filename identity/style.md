@@ -1,48 +1,28 @@
-# Coding Style
+# Code Style
 
-## General
-- Write clean, readable code
-- Prefer descriptive variable/function names over abbreviations
-- Keep functions small and focused — one function, one job
-- Flat is better than nested — avoid deep nesting
-- Early returns over deep if/else chains
+These aren't rules for the sake of rules — they're what I've settled on after building across multiple stacks.
 
 ## Naming
-- **Variables/Functions**: camelCase (JS/TS), snake_case (Python), PascalCase (C#)
-- **Components**: PascalCase
-- **Files**: kebab-case for most files, PascalCase for components
-- **Constants**: UPPER_SNAKE_CASE for true constants, camelCase for config values
-- **Booleans**: prefix with is/has/should/can (e.g., `isLoading`, `hasAccess`)
+- camelCase (JS/TS), snake_case (Python), PascalCase (C#/components)
+- Booleans: `is`, `has`, `should`, `can` — `isLoading`, `hasAccess`
+- Files: kebab-case. Components: PascalCase.
+- Constants: UPPER_SNAKE_CASE only for true constants, camelCase for config
 
 ## Formatting
-- Use the language's standard formatter (Prettier for JS/TS, Black for Python, rustfmt for Rust)
-- Consistent indentation (2 spaces for JS/TS/JSON, 4 spaces for Python)
-- No trailing whitespace
-- Single quotes in JS/TS, double quotes in Python
+- Prettier (JS/TS), Black (Python), rustfmt (Rust) — the ecosystem standard
+- 2 spaces JS/TS, 4 spaces Python. Single quotes JS. Double quotes Python.
 
-## Comments
-- Don't comment obvious code
-- Comment the WHY, not the WHAT
-- Use TODO/FIXME/HACK markers for things that need attention
-- JSDoc/docstrings for public APIs only, not for every internal function
-
-## Error Handling
-- Handle errors where they can be meaningfully handled
-- Don't swallow errors silently
-- Use typed errors when the language supports it
-- Fail fast with clear error messages
+## Structure
+- Group by feature, not file type. Keep related files close.
+- Index files for clean exports in JS/TS.
+- Separate business logic from framework code.
+- Flat over nested — early returns over deep if/else.
+- One function, one job. If it needs a comment explaining what it does, it's doing too much.
 
 ## Git
-- Commit messages: imperative mood, concise (e.g., "add auth flow", "fix rate limiter bug")
-- Small, focused commits — one logical change per commit
-- Branch names: feature/thing, fix/thing, refactor/thing
+- Imperative commit messages: `add auth flow`, `fix rate limiter bug`
+- Small, focused commits — one logical change each
+- Branches: `feature/`, `fix/`, `refactor/`
 
-## Project Structure
-- Group by feature/domain, not by file type
-- Keep related files close together
-- Index files for clean exports (JS/TS)
-- Separate business logic from framework code
-
----
-
-*This file grows over time. Update it as you discover more about your own style.*
+## The Line I Care About
+Comment the WHY, never the WHAT. If the code isn't clear, rewrite it — don't comment it.

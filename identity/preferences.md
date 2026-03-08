@@ -1,30 +1,22 @@
-# Preferences
+# How to Work With Me
 
-## Editor
-- Primary: VS Code
-- Secondary: Antigravity
-- Theme: (update this)
-- Font: (update this)
+Write code, not explanations. I'll ask if I don't understand.
 
-## Terminal
-- Shell: PowerShell (pwsh)
-- I prefer running commands directly, not through npm scripts unless necessary
-- I like short aliases for frequent commands
+Complete implementations only — never `// ...rest of code` or partial snippets.
+If a better approach exists than what I asked for, use it and tell me why in one line.
 
-## Workflow
-- Git for version control on everything
-- I prefer starting from scratch over using heavy boilerplate generators
-- I want AI to write complete, working code — not partial snippets with "...rest of code"
-- Don't explain what the code does unless I ask — just write the code
-- Don't add comments that state the obvious
+## Don't
+- Add obvious comments
+- Wrap everything in try-catch without reason
+- Over-abstract before there's a real need — start concrete
+- Use `any` in TypeScript — figure out the type
+- Add libraries for things that are 5 lines of code
+- Ask if I want you to proceed — just do it
 
-## Tools
-- Package managers: npm/pnpm (JS), pip (Python), cargo (Rust), dotnet (C#) — depends on project
-- I use GitHub for remote repos
-- I prefer minimal dependencies — don't add a library for something that's 5 lines of code
+## Do
+- Use my existing patterns when you can see them in the codebase
+- Fail fast with clear errors, not silent fallbacks
+- Prefer composition over inheritance, flat over nested, explicit over clever
+- Match whatever formatter and style is already in the project
 
-## Pet Peeves
-- Don't wrap everything in try-catch for no reason
-- Don't over-abstract early — start concrete, refactor later
-- Don't add TypeScript types that add no value (e.g., typing every intermediate variable)
-- Don't use `any` in TypeScript — if you don't know the type, figure it out
+When choices exist: pick the one with fewer dependencies, better types, and less magic.

@@ -1,27 +1,23 @@
-# Skills Registry
+# Skills
 
-> Auto-updated by brain-sync.ps1 when new tech is detected.
-> Last synced: 2026-03-08 18:34
+Quick reference for what I know and how I use it.
 
-## Registered Skills
+## Primary Stack (daily use)
+- **React** — Server Components, Zustand, TanStack Query, Radix UI, Framer Motion
+- **TypeScript** — Strict mode, Zod schemas, discriminated unions, branded types
+- **Next.js** — App Router, Server Actions, ISR, deploy to Vercel
+- **Tailwind CSS** — Dark-first, CVA variants, CSS variables, cn() utility
+- **Three.js/R3F** — Declarative 3D, GSAP camera timelines, Drei helpers, Draco models
 
-| Skill | File | Status |
-|-------|------|--------|
-| bun | `bun.md` | documented |
-| express | `express.md` | documented |
-| firebase | `firebase.md` | documented |
-| frontend-design | `frontend-design.md` | documented |
-| next-js | `next-js.md` | documented |
-| node-js | `node-js.md` | documented |
-| python | `python.md` | documented |
-| react | `react.md` | documented |
-| tailwind-css | `tailwind-css.md` | documented |
-| three-js | `three-js.md` | documented |
-| typescript | `typescript.md` | documented |
-| vite | `vite.md` | documented |
+## Backend & Infrastructure
+- **Node.js** — ES modules, async/await, streams, structured logging
+- **Express** — Layered architecture, Zod validation, centralized error handling
+- **Firebase** — Firestore, Auth, Cloud Functions, Storage, Google Cloud AI
+- **Python** — Type-hinted, Pydantic, Flask/FastAPI, pandas, ML pipelines
 
-## Notes
+## Build Tools
+- **Vite** — Non-Next.js React projects, TypeScript config, manual chunks
+- **Bun** — Fast installs, native TS, use when Node compat isn't critical
 
-- Skill files are auto-created when new tech is detected in your projects.
-- Customize the auto-generated files with your patterns, anti-patterns, and conventions.
-- Once you customize a file, its status stays as `documented` on next sync.
+## Design
+- **Frontend Design** — Dark + neon aesthetic, glassmorphism, motion-first, accessibility-first

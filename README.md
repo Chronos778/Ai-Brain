@@ -1,20 +1,48 @@
 # AI Brain
 
-Your personal, global AI knowledge base. Every project you open in VS Code automatically loads your coding style, preferences, and current context — no setup needed per project.
+A global knowledge base that makes every AI interaction aware of how I think, what I know, and what I'm building. Opens in any VS Code project — zero per-project setup.
+
+## Architecture
+
+```
+AI-Brain/
+├── identity/              ← Who I am as a builder
+│   ├── profile.md             Background, stack, environment
+│   ├── preferences.md         How AI should work with me
+│   └── style.md               Code decisions, not formatting rules
+│
+├── skills/                ← Expert-level patterns per technology
+│   ├── _index.md              Quick reference across all skills
+│   ├── react.md               ┐
+│   ├── typescript.md          │
+│   ├── next-js.md             │  Each file: How I Build,
+│   ├── tailwind-css.md        │  Expert Decisions,
+│   ├── three-js.md            │  Mistakes That Cost Hours
+│   ├── node-js.md             │
+│   ├── express.md             │
+│   ├── python.md              │
+│   ├── firebase.md            │
+│   ├── vite.md                │
+│   ├── bun.md                 │
+│   └── frontend-design.md    ┘
+│
+├── memory/                ← Current context + accumulated knowledge
+│   ├── active-context.md      What changed since last sync (auto-generated)
+│   ├── active-projects.json   Machine-readable project state
+│   ├── decisions.md           Architecture choices with reasoning
+│   └── learnings.md           Hard-won insights worth remembering
+│
+├── scripts/
+│   ├── brain-sync.ps1         Scan projects, update memory, push
+│   └── brain-learn.ps1        Record learnings and decisions
+│
+└── logs/                  ← Sync history (git-ignored)
+```
 
 ## How It Works
 
-```
-You open any project in VS Code
-        ↓
-VS Code global settings point to brain files
-        ↓
-Copilot reads your identity, style, preferences, and active context
-        ↓
-Every response already knows how you code. Zero effort.
-```
+VS Code global settings point to brain files as live pointers:
 
-The wiring lives in your VS Code **user settings** (`%APPDATA%\Code\User\settings.json`):
 ```json
 "github.copilot.chat.codeGeneration.instructions": [
     { "file": "C:/Users/Maithil/AI-Brain/identity/profile.md" },
@@ -24,129 +52,54 @@ The wiring lives in your VS Code **user settings** (`%APPDATA%\Code\User\setting
 ]
 ```
 
-These are **live file pointers** — update the brain, and every project sees the changes on the next prompt.
-
----
-
-## Folder Structure
-
-```
-AI-Brain/
-├── identity/          ← WHO YOU ARE (edit these to refine your AI experience)
-│   ├── profile.md         Your name, OS, editors, general work approach
-│   ├── preferences.md     Editor prefs, workflow habits, pet peeves
-│   └── style.md           Naming conventions, formatting, commit style, patterns
-│
-├── skills/            ← WHAT YOU KNOW (grows over time)
-│   ├── _index.md          Auto-updated registry of all detected tech
-│   └── <tech>.md          One file per tech (react.md, python.md, etc.)
-│
-├── memory/            ← WHAT YOU'RE DOING (auto-updated by brain-sync)
-│   ├── active-projects.json   Machine-readable project data
-│   ├── active-context.md      AI-readable summary (auto-generated)
-│   ├── decisions.md           Your architectural decisions log
-│   └── learnings.md           Cross-project insights
-│
-├── scripts/
-│   └── brain-sync.ps1    The sync script
-│
-├── logs/              ← Sync logs (git-ignored)
-└── .gitignore
-```
-
----
+Update the brain → every project sees the changes on next prompt.
 
 ## Commands
 
 ### `brain-sync`
-Scans your projects folder, updates memory, commits, and pushes to GitHub.
+
+Scans `C:\Users\Maithil\Projects`, detects tech stacks, updates memory, commits and pushes.
 
 ```powershell
-brain-sync              # Full sync + git push
+brain-sync              # Full sync + push
 brain-sync -NoPush      # Sync without pushing
 ```
 
-**What it does:**
-1. Recursively finds every git repo inside `C:\Users\Maithil\Projects`
-2. Detects tech stack (package.json, requirements.txt, Cargo.toml, etc.)
-3. Identifies active projects (committed to in last 14 days)
-4. Reports any folders with no git repo found
-5. Rebuilds `memory/active-projects.json` and `memory/active-context.md`
-6. Updates `skills/_index.md` with newly detected tech
-7. Commits and pushes to GitHub
+What happens:
+1. Finds every git repo in Projects folder
+2. Detects tech from package.json, requirements.txt, Cargo.toml, etc.
+3. Builds `active-context.md` with meaningful change summary — not git log dumps
+4. Creates minimal skill stubs for newly detected tech
+5. Syncs VS Code settings to point at brain files
+6. Commits with descriptive message and pushes
 
-The `brain-sync` command works from any directory — it's aliased in your PowerShell profile.
+### `brain-learn`
 
----
-
-## How to Use Each Part
-
-### Identity (edit manually)
-These files define how AI interacts with you. Edit them anytime:
-- **profile.md** — Update if your setup or workflow changes
-- **preferences.md** — Add pet peeves, tool preferences, things AI should/shouldn't do
-- **style.md** — Refine your naming conventions, patterns, project structure rules
-
-### Skills (add as needed)
-When brain-sync detects new tech in your projects, it flags it in `skills/_index.md`. To document your patterns for a tech:
-
-1. Create `skills/<tech>.md` (e.g., `skills/react.md`)
-2. Write your preferred patterns, anti-patterns, libraries, conventions
-3. Run `brain-sync` to update the index
-
-Skill files are not auto-loaded by Copilot (that would be too much context). They're a reference for you and can be manually added to specific projects if needed.
-
-### Memory (mostly automatic)
-- **active-context.md** — Auto-generated every sync. Don't edit manually.
-- **decisions.md** — Append your decisions here. Format:
-  ```markdown
-  ### 2026-03-08 | project-name | What you decided
-  **Context**: Why this came up.
-  **Decision**: What you chose and why.
-  ```
-- **learnings.md** — Append insights. Format:
-  ```markdown
-  ### 2026-03-08 | Topic
-  What you learned and why it matters.
-  ```
-
-You can also tell Copilot: *"add this decision to my brain"* or *"save this as a learning"* and it'll know what you mean.
-
----
-
-## GitHub Setup
-
-This brain is designed to live in a private GitHub repo so it's backed up and accessible:
+Records learnings and decisions, connected to relevant skills.
 
 ```powershell
-cd C:\Users\Maithil\AI-Brain
-git remote add origin https://github.com/YOUR_USERNAME/ai-brain.git
-git branch -M main
-git push -u origin main
+brain-learn react "useFrame allocates every frame — pre-allocate with useMemo"
+brain-learn --decide myproject "Switched from REST to tRPC for type safety"
+brain-learn --list              # View all learnings
+brain-learn --recent            # Last 10 entries
 ```
 
-After this, `brain-sync` auto-pushes on every run.
+Learnings are auto-categorized by scanning for skill keywords and tagged accordingly.
 
----
+## Design Principles
+
+**Every file earns its place.** No filler, no textbook content, no auto-generated walls of text.
+
+- Identity files are personality, not rulebooks
+- Skill files capture expert decisions, not documentation
+- Memory captures real context and reasoning, not timestamps
+- Scripts produce signal, not noise
 
 ## Customization
 
-### Change projects folder
-Edit `$ProjectsRoot` in `scripts/brain-sync.ps1`
-
-### Change active window
-Default is 14 days. Override with:
-```powershell
-brain-sync -ActiveDays 30
-```
-
-### Add more tech detection
-Edit the `$markers` and `$jsFrameworks` hashtables in `brain-sync.ps1`
-
----
-
-## Tips
-- Run `brain-sync` after a productive day to capture what you worked on
-- Update `identity/style.md` when you notice AI making style choices you don't like
-- Keep `decisions.md` updated — future-you will thank past-you
-- Skill files are optional but powerful for tech you use daily
+| Setting | Location |
+|---------|----------|
+| Projects folder | `$ProjectsRoot` in brain-sync.ps1 |
+| Active window | `brain-sync -ActiveDays 30` |
+| Tech detection | `$markers` / `$jsFrameworks` in brain-sync.ps1 |
+| Skill keywords | `$SkillKeywords` in brain-learn.ps1 |

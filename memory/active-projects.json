@@ -3,24 +3,24 @@
     {
       "techStack": [
         "Node.js",
-        "React",
+        "Next.js",
         "Three.js",
-        "TypeScript",
+        "React",
         "Tailwind CSS",
-        "Next.js"
+        "TypeScript"
       ],
       "isActive": true,
-      "daysSinceCommit": 6.8,
+      "daysSinceCommit": 6.9,
       "lastCommit": {
         "message": ".",
         "date": "2026-03-01T22:15:24+05:30"
       },
       "recentCommits": [
-        "8201bde .",
-        "1fc40ca .",
-        "6d3df5a .",
-        "bef3b96 .",
-        "2596622 ."
+        "65138e3 feat: add footer link constants for social media and resume.",
+        "372db2f chore: Remove resume PDF and add OpenGraph image.",
+        "4c281ea feat: add opengraph image",
+        "00f367e feat: add new opengraph image.",
+        "6f22e48 feat: Add `FOOTER_LINKS` constant to define social media and resume links for the footer."
       ],
       "name": "myportfolio",
       "branch": "main",
@@ -30,10 +30,10 @@
       "techStack": [
         "Bun",
         "Node.js",
-        "React",
-        "TypeScript",
         "Vite",
-        "Tailwind CSS"
+        "React",
+        "Tailwind CSS",
+        "TypeScript"
       ],
       "isActive": false,
       "daysSinceCommit": 19.8,
@@ -49,9 +49,9 @@
     {
       "techStack": [
         "Node.js",
-        "React",
         "Three.js",
         "Vite",
+        "React",
         "Tailwind CSS"
       ],
       "isActive": false,
@@ -122,7 +122,7 @@
     {
       "techStack": [],
       "isActive": false,
-      "daysSinceCommit": 27.8,
+      "daysSinceCommit": 27.9,
       "lastCommit": {
         "message": "some chnages",
         "date": "2026-02-08T22:41:00+05:30"
@@ -151,10 +151,10 @@
     {
       "techStack": [
         "Node.js",
+        "Next.js",
         "React",
-        "TypeScript",
         "Tailwind CSS",
-        "Next.js"
+        "TypeScript"
       ],
       "isActive": false,
       "daysSinceCommit": 41.2,
@@ -196,5 +196,5 @@
   ],
   "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T18:34:38Z"
+  "lastSynced": "2026-03-08T19:12:23Z"
 }
