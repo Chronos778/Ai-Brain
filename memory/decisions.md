@@ -1,11 +1,9 @@
 # Decisions
 
 Architecture choices, technology picks, and the reasoning behind them.
-When future-you or an AI wonders "why was it done this way?" — the answer is here.
+When future-you or an AI wonders "why was it done this way?" - the answer is here.
 
 ---
-
-<!-- To add a decision:
 
 ### 2026-03-08 | myportfolio | Switched from Framer Motion to GSAP for camera
 **Why it came up**: Camera flythrough needed precise timeline control with ScrollTrigger.

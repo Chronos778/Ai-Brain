@@ -9,7 +9,9 @@
 
 param(
     [switch]$NoPush,
-    [int]$ActiveDays = 14
+    [int]$ActiveDays = 14,
+    [int]$ContextDays = 30,
+    [int]$SkillStaleDays = 45
 )
 
 $ErrorActionPreference = "Stop"
@@ -92,6 +94,104 @@ function Detect-TechStack {
     return $stack | Select-Object -Unique
 }
 
+function Get-MarkdownDatedEntries {
+    param([string]$Path)
+    if (-not (Test-Path $Path)) { return @() }
+
+    $raw = Get-Content -Path $Path -Raw -Encoding UTF8
+    $pattern = '(?ms)^###\s+(?<date>\d{4}-\d{2}-\d{2})\s+\|\s*(?<title>[^\r\n]+)\r?\n(?<body>.*?)(?=^###\s+\d{4}-\d{2}-\d{2}\s+\||\z)'
+    $matches = [regex]::Matches($raw, $pattern)
+
+    $entries = @()
+    foreach ($m in $matches) {
+        try {
+            $entryDate = [DateTime]::ParseExact($m.Groups['date'].Value, 'yyyy-MM-dd', $null)
+        } catch {
+            continue
+        }
+        $entries += [PSCustomObject]@{
+            Date = $entryDate
+            DateText = $m.Groups['date'].Value
+            Title = $m.Groups['title'].Value.Trim()
+            Body = $m.Groups['body'].Value.Trim()
+        }
+    }
+    return $entries
+}
+
+function Compress-MemoryFile {
+    param(
+        [string]$Path,
+        [DateTime]$Cutoff,
+        [int]$MaxEntries = 80
+    )
+
+    $entries = @(Get-MarkdownDatedEntries -Path $Path)
+    if ($entries.Count -eq 0) {
+        return [PSCustomObject]@{ Removed = 0; Duplicates = 0; Total = 0 }
+    }
+
+    $kept = @()
+    $seen = @{}
+    $duplicates = 0
+    foreach ($e in ($entries | Sort-Object Date)) {
+        if ($e.Date -lt $Cutoff) { continue }
+        $fingerprint = (($e.Title + '|' + $e.Body) -replace '\s+', ' ').ToLower().Trim()
+        if ($seen.ContainsKey($fingerprint)) {
+            $duplicates++
+            continue
+        }
+        $seen[$fingerprint] = $true
+        $kept += $e
+    }
+
+    if ($kept.Count -gt $MaxEntries) {
+        $kept = $kept | Sort-Object Date | Select-Object -Last $MaxEntries
+    }
+
+    $header = if ($Path.ToLower().EndsWith('decisions.md')) {
+@"
+# Decisions
+
+Architecture choices, technology picks, and the reasoning behind them.
+When future-you or an AI wonders "why was it done this way?" - the answer is here.
+
+---
+"@
+    } else {
+@"
+# Learnings
+
+Things I've figured out that are worth remembering. Not documentation - insights.
+Each entry should save future-me at least 30 minutes.
+
+---
+"@
+    }
+
+    $lines = @($header)
+    foreach ($e in ($kept | Sort-Object Date)) {
+        $lines += ""
+        $lines += "### $($e.DateText) | $($e.Title)"
+        if ($e.Body) { $lines += $e.Body }
+    }
+
+    Set-Content -Path $Path -Value ($lines -join "`n") -Encoding UTF8
+
+    return [PSCustomObject]@{
+        Removed = [Math]::Max(0, $entries.Count - $kept.Count)
+        Duplicates = $duplicates
+        Total = $kept.Count
+    }
+}
+
+function Get-Score {
+    param([double]$Value)
+    if ($Value -lt 0) { return 0 }
+    if ($Value -gt 100) { return 100 }
+    return [Math]::Round($Value, 0)
+}
+
 # ─── Main ─────────────────────────────────────────────────────────────
 
 if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir -Force | Out-Null }
@@ -133,6 +233,15 @@ if (Test-Path $prevProjectsPath) {
         $prevData = Get-Content $prevProjectsPath -Raw | ConvertFrom-Json
         foreach ($p in $prevData.projects) { $prevProjects[$p.name] = $p }
     } catch {}
+}
+
+$contextCutoff = $Now.AddDays(-$ContextDays)
+$decisionsPath = Join-Path $MemoryDir "decisions.md"
+$learningsPath = Join-Path $MemoryDir "learnings.md"
+$decisionStats = Compress-MemoryFile -Path $decisionsPath -Cutoff $contextCutoff
+$learningStats = Compress-MemoryFile -Path $learningsPath -Cutoff $contextCutoff
+if ($decisionStats.Removed -gt 0 -or $learningStats.Removed -gt 0) {
+    Write-Log "Compressed memory: decisions -$($decisionStats.Removed), learnings -$($learningStats.Removed)"
 }
 
 foreach ($repo in $repos) {
@@ -219,6 +328,22 @@ if ($changes.Count -gt 0) {
     $ctx += ""
 }
 
+$priorityItems = @()
+foreach ($p in ($activeProjects | Sort-Object daysSinceCommit)) {
+    if ($p.lastCommit.message -and $p.lastCommit.message -ne ".") {
+        $priorityItems += "**$($p.name)** - $($p.lastCommit.message)"
+    } else {
+        $priorityItems += "**$($p.name)** - keep momentum on current branch ($($p.branch))"
+    }
+}
+$priorityItems = $priorityItems | Select-Object -First 5
+if ($priorityItems.Count -gt 0) {
+    $ctx += "## Top Current Priorities"
+    $ctx += ""
+    foreach ($item in $priorityItems) { $ctx += "- $item" }
+    $ctx += ""
+}
+
 if ($activeProjects.Count -gt 0) {
     $ctx += "## Active Projects"
     $ctx += ""
@@ -302,6 +427,41 @@ if ($pendingReviews.Count -gt 0) {
     $ctx += ""
 }
 
+# Quality metrics for maintaining a high-signal brain
+$latestMemoryDate = $null
+$decisionEntries = @(Get-MarkdownDatedEntries -Path $decisionsPath)
+$learningEntries = @(Get-MarkdownDatedEntries -Path $learningsPath)
+$allMemoryEntries = @($decisionEntries + $learningEntries)
+if ($allMemoryEntries.Count -gt 0) {
+    $latestMemoryDate = ($allMemoryEntries | Sort-Object Date -Descending | Select-Object -First 1).Date
+}
+
+$freshnessDays = if ($latestMemoryDate) { ($Now - $latestMemoryDate).TotalDays } else { 999 }
+$activeRatio = if ($projects.Count -gt 0) { $activeProjects.Count / $projects.Count } else { 0 }
+$contextFreshnessScore = Get-Score -Value (100 - ($freshnessDays * 2.2) + ($activeRatio * 20))
+
+$decisionRaw = if (Test-Path $decisionsPath) { Get-Content $decisionsPath -Raw -Encoding UTF8 } else { "" }
+$unresolvedDecisions = ([regex]::Matches($decisionRaw, '(?im)\b(todo|tbd|revisit)\b')).Count
+
+$skillFiles = @(Get-ChildItem -Path $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne "_index.md" -and $_.Name -ne "review-playbook.md" -and $_.Name -ne "testing-playbook.md" })
+$staleCutoff = $Now.AddDays(-$SkillStaleDays)
+$staleSkills = @($skillFiles | Where-Object { $_.LastWriteTime -lt $staleCutoff })
+
+$knownStackRatio = if ($projects.Count -gt 0) { (@($projects | Where-Object { $_.techStack.Count -gt 0 }).Count) / $projects.Count } else { 0 }
+$recentCommitRatio = if ($projects.Count -gt 0) { (@($projects | Where-Object { $_.daysSinceCommit -le $ActiveDays }).Count) / $projects.Count } else { 0 }
+$activeProjectConfidence = Get-Score -Value ((($knownStackRatio * 0.6) + ($recentCommitRatio * 0.4)) * 100)
+
+$duplicateInsights = $decisionStats.Duplicates + $learningStats.Duplicates
+
+$ctx += "## Quality Metrics"
+$ctx += ""
+$ctx += "- **Context Freshness Score**: $contextFreshnessScore/100"
+$ctx += "- **Duplicate Insight Count**: $duplicateInsights"
+$ctx += "- **Unresolved Decision Markers**: $unresolvedDecisions"
+$ctx += "- **Stale Skills**: $($staleSkills.Count) (older than $SkillStaleDays days)"
+$ctx += "- **Active Project Confidence**: $activeProjectConfidence/100"
+$ctx += ""
+
 Set-Content -Path (Join-Path $MemoryDir "active-context.md") -Value ($ctx -join "`n") -Encoding UTF8
 Write-Log "Updated active-context.md"
 
@@ -372,40 +532,60 @@ foreach ($tech in $uniqueTech) {
 
 $settingsPath = Join-Path $env:APPDATA "Code\User\settings.json"
 if (Test-Path $settingsPath) {
-    $brainFiles = @()
-
-    # Identity
-    $identityDir = Join-Path $BrainRoot "identity"
-    if (Test-Path $identityDir) {
-        Get-ChildItem $identityDir -Filter "*.md" | Sort-Object Name | ForEach-Object { $brainFiles += $_.FullName }
+    function Build-InstructionBlock {
+        param(
+            [string]$SettingKey,
+            [string[]]$Files
+        )
+        $unique = @($Files | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)
+        $rows = $unique | ForEach-Object { "        { `"file`": `"$($_.Replace('\\', '/'))`" }" }
+        $body = $rows -join ",`n"
+        return "    `"$SettingKey`": [`n$body`n    ]"
     }
 
-    # Memory (.md only)
-    if (Test-Path $MemoryDir) {
-        Get-ChildItem $MemoryDir -Filter "*.md" | Sort-Object Name | ForEach-Object { $brainFiles += $_.FullName }
-    }
+    $coreRules = Join-Path $BrainRoot "identity\core-rules.md"
+    $preferences = Join-Path $BrainRoot "identity\preferences.md"
+    $profile = Join-Path $BrainRoot "identity\profile.md"
+    $style = Join-Path $BrainRoot "identity\style.md"
+    $activeContext = Join-Path $MemoryDir "active-context.md"
+    $decisions = Join-Path $MemoryDir "decisions.md"
+    $learnings = Join-Path $MemoryDir "learnings.md"
+    $skillIndex = Join-Path $SkillsDir "_index.md"
+    $reviewPlaybook = Join-Path $SkillsDir "review-playbook.md"
+    $testingPlaybook = Join-Path $SkillsDir "testing-playbook.md"
 
-    # Skills
+    $allSkillFiles = @()
     if (Test-Path $SkillsDir) {
-        $idx = Join-Path $SkillsDir "_index.md"
-        if (Test-Path $idx) { $brainFiles += $idx }
-        Get-ChildItem $SkillsDir -Filter "*.md" | Where-Object { $_.Name -ne "_index.md" } | Sort-Object Name | ForEach-Object { $brainFiles += $_.FullName }
+        $allSkillFiles = @(Get-ChildItem $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue | Sort-Object Name | ForEach-Object { $_.FullName })
     }
 
-    $instructions = $brainFiles | ForEach-Object {
-        "        { `"file`": `"$($_.Replace('\', '/'))`" }"
-    }
-    $block = $instructions -join ",`n"
-    $newBlock = "    `"github.copilot.chat.codeGeneration.instructions`": [`n$block`n    ]"
+    $chatFiles = @($coreRules, $preferences, $profile, $style, $activeContext, $decisions, $learnings, $skillIndex)
+    $codegenFiles = @($chatFiles + $allSkillFiles)
+    $testFiles = @($coreRules, $preferences, $style, $skillIndex, $testingPlaybook)
+    $reviewFiles = @($coreRules, $preferences, $style, $skillIndex, $reviewPlaybook)
+
+    $blocks = @(
+        (Build-InstructionBlock -SettingKey "github.copilot.chat.instructions" -Files $chatFiles),
+        (Build-InstructionBlock -SettingKey "github.copilot.chat.codeGeneration.instructions" -Files $codegenFiles),
+        (Build-InstructionBlock -SettingKey "github.copilot.chat.testGeneration.instructions" -Files $testFiles),
+        (Build-InstructionBlock -SettingKey "github.copilot.chat.reviewSelection.instructions" -Files $reviewFiles)
+    )
 
     $raw = Get-Content $settingsPath -Raw -Encoding UTF8
-    if ($raw -match 'github\.copilot\.chat\.codeGeneration\.instructions') {
-        $raw = $raw -replace '(?s)    "github\.copilot\.chat\.codeGeneration\.instructions"\s*:\s*\[.*?\]', $newBlock
-    } else {
-        $raw = $raw -replace '\}(\s*)$', ",`n$newBlock`n}`$1"
+    foreach ($block in $blocks) {
+        if ($block -match '"([^"]+)"') {
+            $key = $Matches[1]
+            $escapedKey = [regex]::Escape($key)
+            if ($raw -match $escapedKey) {
+                $raw = $raw -replace "(?s)    `"$escapedKey`"\s*:\s*\[.*?\]", $block
+            } else {
+                $raw = $raw -replace '\}(\s*)$', ",`n$block`n}`$1"
+            }
+        }
     }
+
     Set-Content -Path $settingsPath -Value $raw -Encoding UTF8 -NoNewline
-    Write-Log "VS Code settings synced ($($brainFiles.Count) files)"
+    Write-Log "VS Code settings synced (chat/codegen/test/review instruction sets)"
 }
 
 # ─── Git commit + push ────────────────────────────────────────────────

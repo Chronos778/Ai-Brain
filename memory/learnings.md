@@ -1,11 +1,9 @@
 # Learnings
 
-Things I've figured out that are worth remembering. Not documentation — insights.
+Things I've figured out that are worth remembering. Not documentation - insights.
 Each entry should save future-me at least 30 minutes.
 
 ---
-
-<!-- To add a learning:
 
 ### 2026-03-08 | R3F Performance
 useFrame runs every frame (60fps). Creating objects inside it allocates memory 60 times per second. The GC pauses became visible as frame drops in the portfolio 3D scene.

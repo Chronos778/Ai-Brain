@@ -20,3 +20,7 @@ Quick reference for what I know and how I use it.
 
 ## Design
 - **Frontend Design** — Dark + neon aesthetic, glassmorphism, motion-first, accessibility-first
+
+## Playbooks
+- **Review Playbook** — Severity-first code review checklist for risk, regressions, and test gaps
+- **Testing Playbook** — Behavior-first testing strategy, baseline coverage, and quality gates
