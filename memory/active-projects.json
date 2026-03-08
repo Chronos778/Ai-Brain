@@ -1,10 +1,24 @@
 {
-  "totalRepos": 12,
-  "lastSynced": "2026-03-08T20:10:10Z",
   "activeRepos": 8,
+  "lastSynced": "2026-03-08T20:19:33Z",
+  "totalRepos": 12,
   "projects": [
     {
+      "path": "C:\\Users\\Maithil\\Projects\\myportfolio",
       "branch": "main",
+      "daysSinceCommit": 6.9,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-03-01T22:15:24+05:30"
+      },
+      "techStack": [
+        "Node.js",
+        "Three.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "Next.js"
+      ],
       "recentCommits": [
         "65138e3 feat: add footer link constants for social media and resume.",
         "372db2f chore: Remove resume PDF and add OpenGraph image.",
@@ -12,189 +26,175 @@
         "00f367e feat: add new opengraph image.",
         "6f22e48 feat: Add `FOOTER_LINKS` constant to define social media and resume links for the footer."
       ],
-      "isActive": true,
-      "daysSinceCommit": 6.9,
-      "path": "C:\\Users\\Maithil\\Projects\\myportfolio",
-      "lastCommit": {
-        "message": ".",
-        "date": "2026-03-01T22:15:24+05:30"
-      },
       "name": "myportfolio",
-      "techStack": [
-        "Node.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "React",
-        "Next.js",
-        "Three.js"
-      ]
+      "isActive": true
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 19.9,
       "path": "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts",
+      "branch": "main",
+      "daysSinceCommit": 19.9,
       "lastCommit": {
         "message": "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
         "date": "2026-02-16T23:06:31+05:30"
       },
-      "name": "SkillShorts/SkillShorts",
       "techStack": [
         "Bun",
         "Node.js",
         "Vite",
-        "TypeScript",
+        "React",
         "Tailwind CSS",
-        "React"
-      ]
+        "TypeScript"
+      ],
+      "recentCommits": [],
+      "name": "SkillShorts/SkillShorts",
+      "isActive": false
     },
     {
-      "branch": "master",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 24.9,
       "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX",
+      "branch": "master",
+      "daysSinceCommit": 24.9,
       "lastCommit": {
         "message": ".",
         "date": "2026-02-11T23:25:56+05:30"
       },
-      "name": "algox/AlgoLabX",
       "techStack": [
         "Node.js",
+        "Three.js",
         "Vite",
-        "Tailwind CSS",
         "React",
-        "Three.js"
-      ]
+        "Tailwind CSS"
+      ],
+      "recentCommits": [],
+      "name": "algox/AlgoLabX",
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 25.0,
       "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
+      "branch": "main",
+      "daysSinceCommit": 25.0,
       "lastCommit": {
         "message": ".",
         "date": "2026-02-11T19:16:21+05:30"
       },
-      "name": "neuralnetwork/neural-visualizer",
       "techStack": [
         "Python"
-      ]
+      ],
+      "recentCommits": [],
+      "name": "neuralnetwork/neural-visualizer",
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 25.0,
       "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
+      "branch": "main",
+      "daysSinceCommit": 25.0,
       "lastCommit": {
         "message": ".",
         "date": "2026-02-11T19:11:15+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "Quotes/quote.web",
-      "techStack": []
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 25.0,
       "path": "C:\\Users\\Maithil\\Projects\\tsrow",
+      "branch": "main",
+      "daysSinceCommit": 25.0,
       "lastCommit": {
         "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
         "date": "2026-02-11T19:27:53+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "tsrow",
-      "techStack": []
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 26.9,
       "path": "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
+      "branch": "main",
+      "daysSinceCommit": 26.9,
       "lastCommit": {
         "message": "feat: Implement mobile navigation and expand recipe data with new entries and details.",
         "date": "2026-02-09T22:55:59+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "foodbook/recipe-book",
-      "techStack": []
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 27.9,
       "path": "C:\\Users\\Maithil\\Projects\\eatwise",
+      "branch": "main",
+      "daysSinceCommit": 27.9,
       "lastCommit": {
         "message": "some chnages",
         "date": "2026-02-08T22:41:00+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "eatwise",
-      "techStack": []
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 29.2,
       "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
+      "branch": "main",
+      "daysSinceCommit": 29.2,
       "lastCommit": {
         "message": "feat: Implement rate limiting, add Quote of the Day and search endpoints, and refactor quote-related logic into dedicated controllers and routes.",
         "date": "2026-02-07T14:46:09+05:30"
       },
-      "name": "Quotes/quote.api",
       "techStack": [
         "Node.js",
         "Express"
-      ]
+      ],
+      "recentCommits": [],
+      "name": "Quotes/quote.api",
+      "isActive": false
     },
     {
-      "branch": "master",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 41.2,
       "path": "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
+      "branch": "master",
+      "daysSinceCommit": 41.2,
       "lastCommit": {
         "message": "Merge branch 'main' of https://github.com/SC136/Quotation",
         "date": "2026-01-26T14:57:08+05:30"
       },
-      "name": "Quotationnn/Quotation",
       "techStack": [
         "Node.js",
-        "TypeScript",
-        "Tailwind CSS",
         "React",
+        "Tailwind CSS",
+        "TypeScript",
         "Next.js"
-      ]
+      ],
+      "recentCommits": [],
+      "name": "Quotationnn/Quotation",
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 53.3,
       "path": "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+      "branch": "main",
+      "daysSinceCommit": 53.3,
       "lastCommit": {
         "message": "fix: remove habits and achievements plugins to ensure stability",
         "date": "2026-01-14T12:03:01+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "Chronos778-profile",
-      "techStack": []
+      "isActive": false
     },
     {
-      "branch": "main",
-      "recentCommits": [],
-      "isActive": false,
-      "daysSinceCommit": 91.0,
       "path": "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack",
+      "branch": "main",
+      "daysSinceCommit": 91.0,
       "lastCommit": {
         "message": "some changes",
         "date": "2025-12-07T19:42:56+05:30"
       },
+      "techStack": [],
+      "recentCommits": [],
       "name": "lifetrack/lifetrack",
-      "techStack": []
+      "isActive": false
     }
   ]
 }

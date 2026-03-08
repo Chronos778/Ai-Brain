@@ -599,7 +599,15 @@ if (Test-Path $settingsTarget.Path) {
 Set-Location $BrainRoot
 
 if (Test-Path (Join-Path $BrainRoot ".git")) {
-    git add -A 2>$null
+    # Route through cmd so git stderr warnings are treated as plain output, not PowerShell errors.
+    $gitAddOutput = @(cmd /d /c "git add -A 2>&1")
+    $gitAddExit = $LASTEXITCODE
+
+    if ($gitAddExit -ne 0) {
+        $details = ($gitAddOutput -join [Environment]::NewLine).Trim()
+        if (-not $details) { $details = "(no git output)" }
+        throw "git add failed: $details"
+    }
     $status = git status --porcelain 2>$null
     if ($status) {
         # Build meaningful commit message
