@@ -24,3 +24,13 @@ Quick reference for what I know and how I use it.
 ## Playbooks
 - **Review Playbook** — Severity-first code review checklist for risk, regressions, and test gaps
 - **Testing Playbook** — Behavior-first testing strategy, baseline coverage, and quality gates
+
+## Imported Skills
+- Imported collection from `affaan-m/everything-claude-code` has been merged into top-level `skills/` as directory-based skills.
+- Each imported skill lives at `skills/<skill-name>/SKILL.md`.
+- Quick discovery: use `skills/*/SKILL.md` to browse all imported skill definitions.
+- Examples:
+	- `skills/security-review/SKILL.md`
+	- `skills/e2e-testing/SKILL.md`
+	- `skills/springboot-patterns/SKILL.md`
+	- `skills/swiftui-patterns/SKILL.md`

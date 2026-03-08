@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    brain-sync — scan projects, update memory, sync VS Code, push to GitHub.
+    brain-sync - scan projects, update memory, sync VS Code, push to GitHub.
 .USAGE
     brain-sync              # Full sync + push
     brain-sync -NoPush      # Sync without pushing
@@ -286,14 +286,14 @@ foreach ($repo in $repos) {
         $prev = $prevProjects[$repoName]
         $prevDays = if ($prev.daysSinceCommit) { $prev.daysSinceCommit } else { 999 }
         if ($daysSince -lt $prevDays -and $isActive) {
-            $changes += "$repoName — new work ($($techStack -join ', '))"
+            $changes += "$repoName - new work ($($techStack -join ', '))"
         }
     } else {
-        $changes += "$repoName — new repo detected ($($techStack -join ', '))"
+        $changes += "$repoName - new repo detected ($($techStack -join ', '))"
     }
 
     $status = if ($isActive) { "ACTIVE" } else { "inactive" }
-    Write-Log "  [$status] $repoName — $($techStack -join ', ') — ${daysSince}d ago"
+    Write-Log "  [$status] $repoName - $($techStack -join ', ') - ${daysSince}d ago"
 }
 
 $projects = $projects | Sort-Object { $_.daysSinceCommit }
@@ -354,7 +354,7 @@ if ($activeProjects.Count -gt 0) {
 
         $ctx += "### $($p.name)"
         $ctx += "- **Stack**: $stack"
-        $ctx += "- **Branch**: $($p.branch) — last commit $daysAgo"
+        $ctx += "- **Branch**: $($p.branch) - last commit $daysAgo"
         if ($msg) { $ctx += "- **Working on**: $msg" }
         if ($p.recentCommits.Count -gt 0) {
             $ctx += "- **Recent**:"
@@ -369,7 +369,7 @@ if ($inactiveProjects.Count -gt 0) {
     $ctx += ""
     foreach ($p in $inactiveProjects) {
         $stack = if ($p.techStack.Count -gt 0) { $p.techStack -join ", " } else { "unknown" }
-        $ctx += "- **$($p.name)** ($stack) — $([math]::Floor($p.daysSinceCommit))d ago"
+        $ctx += "- **$($p.name)** ($stack) - $([math]::Floor($p.daysSinceCommit))d ago"
     }
     $ctx += ""
 }
@@ -421,7 +421,7 @@ if ($pendingReviews.Count -gt 0) {
     foreach ($pf in $pendingReviews) {
         $content = Get-Content $pf.FullName -Raw -ErrorAction SilentlyContinue
         $detectedIn = ""
-        if ($content -match 'Detected in: (.+)') { $detectedIn = " — used in $($Matches[1])" }
+        if ($content -match 'Detected in: (.+)') { $detectedIn = " - used in $($Matches[1])" }
         $ctx += "- **$($pf.BaseName)**$detectedIn → ``skills/review/$($pf.Name)``"
     }
     $ctx += ""
@@ -510,18 +510,18 @@ foreach ($tech in $uniqueTech) {
 > Detected in: $usingProjects
 > Auto-created by brain-sync on $($Now.ToString('yyyy-MM-dd'))$pkgLine
 >
-> **STATUS: PENDING REVIEW** — Ask the AI agent to fill this with real patterns.
+> **STATUS: PENDING REVIEW** - Ask the AI agent to fill this with real patterns.
 > Reference existing skills in skills/ for the expected format:
 > How I Build → Expert Decisions → Mistakes That Cost Hours
 
 ## How I Build
-- *(pending — AI will fill based on your projects and usage)*
+- *(pending - AI will fill based on your projects and usage)*
 
 ## Expert Decisions
-- *(pending — AI will research and add non-obvious choices)*
+- *(pending - AI will research and add non-obvious choices)*
 
 ## Mistakes That Cost Hours
-- *(pending — AI will add real anti-patterns)*
+- *(pending - AI will add real anti-patterns)*
 "@
         Set-Content -Path (Join-Path $ReviewDir "$slug.md") -Value $stub -Encoding UTF8
         Write-Log "  NEW SKILL: review/$slug.md (pending AI review)"
@@ -607,7 +607,7 @@ if (Test-Path (Join-Path $BrainRoot ".git")) {
         if ($changes.Count -gt 0) { $parts += "$($changes.Count) project updates" }
         if ($newSkills.Count -gt 0) { $parts += "new skills: $($newSkills -join ', ')" }
         $summary = if ($parts.Count -gt 0) { $parts -join ", " } else { "routine sync" }
-        $commitMsg = "sync: $summary — $($Now.ToString('yyyy-MM-dd HH:mm'))"
+        $commitMsg = "sync: $summary - $($Now.ToString('yyyy-MM-dd HH:mm'))"
 
         git commit -m $commitMsg 2>$null
         Write-Log "Committed: $commitMsg"
@@ -620,7 +620,7 @@ if (Test-Path (Join-Path $BrainRoot ".git")) {
                     if ($LASTEXITCODE -ne 0) { git push origin master 2>$null }
                     Write-Log "Pushed to GitHub"
                 } catch {
-                    Write-Log "WARNING: Push failed — $($_.Exception.Message)"
+                    Write-Log "WARNING: Push failed - $($_.Exception.Message)"
                 }
             }
         }
