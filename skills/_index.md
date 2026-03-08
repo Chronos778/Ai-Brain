@@ -17,7 +17,6 @@ Quick reference for what I know and how I use it.
 
 ## Build Tools
 - **Vite** — Non-Next.js React projects, TypeScript config, manual chunks
-- **Bun** — Fast installs, native TS, use when Node compat isn't critical
 
 ## Design
 - **Frontend Design** — Dark + neon aesthetic, glassmorphism, motion-first, accessibility-first
