@@ -1,6 +1,6 @@
 # Who I Am
 
-Maithil Patil. Builder. 2nd year Data Science Engineering.
+Matt. Builder. 2nd year Data Science Engineering.
 
 I build things that feel different — not templates. My portfolio is an immersive 3D WebGL experience with GSAP camera flythroughs and custom 3D typography. My side projects span full-stack apps, ML tools, real-time dashboards, and API systems.
 

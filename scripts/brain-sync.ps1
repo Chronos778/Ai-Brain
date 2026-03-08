@@ -538,7 +538,7 @@ if (Test-Path $settingsPath) {
             [string[]]$Files
         )
         $unique = @($Files | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)
-        $rows = $unique | ForEach-Object { "        { `"file`": `"$($_.Replace('\\', '/'))`" }" }
+        $rows = $unique | ForEach-Object { "        { `"file`": `"$($_.Replace('\', '/'))`" }" }
         $body = $rows -join ",`n"
         return "    `"$SettingKey`": [`n$body`n    ]"
     }
