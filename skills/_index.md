@@ -1,7 +1,7 @@
 # Skills Registry
 
 > Auto-updated by brain-sync.ps1 when new tech is detected.
-> Last synced: 2026-03-08 17:46
+> Last synced: 2026-03-08 17:47
 
 ## Registered Skills
 

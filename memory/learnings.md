@@ -6,8 +6,9 @@
 
 ---
 
-<!-- Example:
-### 2026-03-08 | PowerShell profile aliases
-Learned that PowerShell profile is at `$PROFILE` and you can add functions/aliases there
-that are available in every new terminal session.
+<!--
+Example format:
+
+### 2026-03-08 | Topic title
+What you learned and why it matters.
 -->
