@@ -373,6 +373,93 @@ $DocsKnowledge = @{
 - Don't use ``bun.lockb`` if team uses npm — pick one package manager
 - Don't ignore that some npm packages use Node-specific internals
 "@
+
+    "firebase" = @"
+
+## Reference (from official docs)
+
+### Core Architecture
+- Firebase is Google Cloud's app platform — Authentication, Database, Storage, Hosting, Functions
+- Firestore: NoSQL document database — collections → documents → fields
+- Cloud Functions: Serverless Node.js — triggered by HTTP, Firestore events, Auth events, schedules
+- Firebase Hosting: CDN-backed static hosting with SSL — preview channels for staging
+- Firebase Storage: Object storage backed by Google Cloud Storage — for user uploads
+
+### Firestore Patterns
+- Denormalize for read performance — reads are cheap, joins don't exist
+- Use subcollections for 1-to-many relationships
+- Document size limit: 1MB — keep lean, use subcollections for large data
+- Always use ``serverTimestamp()`` — client clocks aren't reliable
+- ``writeBatch()`` for atomic multi-document operations (max 500 ops)
+- ``runTransaction()`` when reads and writes must be atomic
+
+### Cloud Functions
+- Keep bundles small — cold starts are the biggest performance issue
+- Use ``functions.region()`` to deploy closest to users
+- Firestore triggers can fire multiple times — always idempotent
+- ``functions.https.onCall()`` for authenticated client-to-function calls
+- Lazy-load heavy dependencies inside the function handler
+
+### Security Rules
+- Default deny — open access explicitly per collection
+- ``request.auth != null`` for authenticated operations
+- ``request.auth.uid == resource.data.userId`` for owner-only access
+- Validate data shape in rules — ``request.resource.data.title is string``
+- Admin via custom claims — ``request.auth.token.admin == true``
+
+### Anti-Patterns
+- Don't skip security rules — test mode is for development only
+- Don't use Firestore as a relational database — denormalize
+- Don't read entire collections — always query with filters and limits
+- Don't expose Google Cloud API keys in client code — proxy through Functions
+- Don't use ``firebase.firestore()`` (v8) — use modular v9+ imports
+"@
+
+    "frontend-design" = @"
+
+## Reference (from official docs)
+
+### Design Principles
+- NEVER use generic AI-generated aesthetics — every interface must be intentional
+- Before any UI: consider Purpose, Tone, Constraints, Differentiation
+- Dark themes with vibrant accents — not safe and corporate
+- Glassmorphism, noise textures, gradient meshes for depth
+
+### Typography
+- Never use default system fonts — always deliberate font choice
+- Font pairing: one display + one body font — max 2 families
+- Proper punctuation: ``...`` not ``...``, curly quotes not straight
+- ``font-variant-numeric: tabular-nums`` for number columns
+- ``text-wrap: balance`` on headings to prevent widows
+
+### Color System
+- CSS variables for all colors — define in HSL for easy manipulation
+- ``color-scheme: dark`` on ``<html>`` for native dark mode
+- WCAG AA contrast ratios — 4.5:1 text, 3:1 large text
+- Never rely on color alone — use icons or text alongside
+
+### Motion
+- Honor ``prefers-reduced-motion`` always
+- Animate only ``transform`` and ``opacity`` — compositor-friendly
+- Never ``transition: all`` — list properties explicitly
+- CSS-only transitions before reaching for JS animation libraries
+- Micro-interactions: 150-200ms, page transitions: 300-400ms
+
+### Accessibility (Critical)
+- Icon-only buttons need ``aria-label``
+- ``<button>`` for actions, ``<a>`` for navigation — never ``<div onClick>``
+- Visible focus states — never ``outline-none`` without replacement
+- Semantic HTML before ARIA — ``<button>``, ``<a>``, ``<label>``, ``<table>``
+- Every form input needs a label
+
+### Anti-Patterns to Flag
+- ``user-scalable=no`` — disables zoom, breaks accessibility
+- ``transition: all`` — performance killer
+- ``outline-none`` without focus-visible replacement
+- ``<div onClick>`` — should be ``<button>``
+- Images without dimensions — layout shift
+- Form inputs without labels — inaccessible
+"@
 }
 
 # ─── Main Logic ───────────────────────────────────────────────────────

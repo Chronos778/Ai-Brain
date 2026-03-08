@@ -717,6 +717,72 @@ $indexLines += "- Once you customize a file, its status stays as ``documented`` 
 Set-Content -Path $SkillsIndex -Value ($indexLines -join "`n") -Encoding UTF8
 Write-Log "Updated: skills/_index.md ($($existingSkillFiles.Count) documented, $($undocumentedTech.Count) undocumented)"
 
+# ─── Sync VS Code Settings (wire all brain files) ────────────────────
+
+function Sync-VSCodeSettings {
+    $settingsPath = Join-Path $env:APPDATA "Code\User\settings.json"
+    if (-not (Test-Path $settingsPath)) {
+        Write-Log "WARNING: VS Code settings.json not found at $settingsPath"
+        return
+    }
+
+    # Collect all brain files to wire
+    $brainFiles = @()
+
+    # Identity files
+    $identityDir = Join-Path $BrainRoot "identity"
+    if (Test-Path $identityDir) {
+        Get-ChildItem -Path $identityDir -Filter "*.md" | Sort-Object Name | ForEach-Object {
+            $brainFiles += $_.FullName
+        }
+    }
+
+    # Memory files (only .md — skip .json)
+    $memoryDir = Join-Path $BrainRoot "memory"
+    if (Test-Path $memoryDir) {
+        Get-ChildItem -Path $memoryDir -Filter "*.md" | Sort-Object Name | ForEach-Object {
+            $brainFiles += $_.FullName
+        }
+    }
+
+    # Skills files
+    if (Test-Path $SkillsDir) {
+        # _index.md first, then alphabetical
+        $indexFile = Join-Path $SkillsDir "_index.md"
+        if (Test-Path $indexFile) { $brainFiles += $indexFile }
+        Get-ChildItem -Path $SkillsDir -Filter "*.md" | Where-Object { $_.Name -ne "_index.md" } | Sort-Object Name | ForEach-Object {
+            $brainFiles += $_.FullName
+        }
+    }
+
+    # Build the instructions array entries
+    $instructions = $brainFiles | ForEach-Object {
+        $path = $_.Replace('\', '/')
+        "        { `"file`": `"$path`" }"
+    }
+
+    # Read current settings
+    $settingsRaw = Get-Content $settingsPath -Raw -Encoding UTF8
+
+    # Build the replacement block
+    $instructionsBlock = $instructions -join ",`n"
+    $newBlock = "    `"github.copilot.chat.codeGeneration.instructions`": [`n$instructionsBlock`n    ]"
+
+    # Replace existing block or add it
+    if ($settingsRaw -match 'github\.copilot\.chat\.codeGeneration\.instructions') {
+        # Remove existing block (handles multiline with nested objects)
+        $settingsRaw = $settingsRaw -replace '(?s)    "github\.copilot\.chat\.codeGeneration\.instructions"\s*:\s*\[.*?\]', $newBlock
+    } else {
+        # Add before the final closing brace
+        $settingsRaw = $settingsRaw -replace '\}(\s*)$', ",`n$newBlock`n}`$1"
+    }
+
+    Set-Content -Path $settingsPath -Value $settingsRaw -Encoding UTF8 -NoNewline
+    Write-Log "Synced VS Code settings: $($brainFiles.Count) brain files wired into Copilot"
+}
+
+Sync-VSCodeSettings
+
 # ─── Git commit and push ─────────────────────────────────────────────
 
 Set-Location $BrainRoot

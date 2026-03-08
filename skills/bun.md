@@ -7,18 +7,69 @@
 ## Your Patterns (detected from your code)
 
 - Uses Bun as package manager (bun.lockb detected)
+- Uses alongside Vite + React for frontend development
+- Faster install times over npm for project setup
 
 ## Project Structure
 
 - Project 'SkillShorts/SkillShorts' structure: components, data, hooks, lib, pages, services, types
 
-## Your Preferences (edit this)
+## Your Preferences
 
-- *(add things you always want AI to do with Bun)*
+- Bun for package management in new projects — faster installs than npm
+- `bunx` over `npx` for running binaries
+- Keep `bun.lockb` committed — binary lockfile for reproducible installs
+- Use Bun's native `.env` loading — no dotenv needed in Bun projects
+- Fallback to npm when Bun has compatibility issues with specific packages
 
-## Anti-Patterns (edit this)
+---
 
-- *(add things you DON'T want AI to do with Bun)*
+## Elite Best Practices
+
+### Package Management
+- **`bun install`**: 10-100x faster than npm — use for all install operations
+- **`bun add <pkg>`**: Adds dependency and updates lockfile atomically
+- **`bun add -d <pkg>`**: Dev dependencies separated properly
+- **`bunx`**: Run binaries without global install — replaces `npx`
+- **`bun.lockb`**: Binary lockfile — commit always, smaller + faster than `package-lock.json`
+- **Workspace support**: `"workspaces"` in package.json for monorepo management
+
+### Runtime Features
+- **`Bun.serve()`**: Ultra-fast HTTP server — faster than Express, matches Rust frameworks
+- **`Bun.file()`**: Fast file I/O — lazy, only handles I/O when consumed
+- **`Bun.sql`** / **`bun:sqlite`**: Built-in SQLite — no external dependency needed
+- **Native `.env`**: Automatic loading of `.env` files — no dotenv package needed
+- **Native TypeScript**: Run `.ts` files directly — zero config, no transpilation step
+- **Native JSX**: Run `.tsx` / `.jsx` directly — Bun understands JSX natively
+- **`Bun.password`**: Built-in bcrypt-compatible password hashing
+- **`Bun.CryptoHasher`**: Fast native hashing — SHA-256, MD5, etc.
+
+### Testing
+- **`bun test`**: Built-in test runner — Jest-compatible API
+- **`expect()`**: Full Jest matchers available — `toEqual`, `toBe`, `toThrow`, etc.
+- **`describe` / `it` / `test`**: Standard test structure works out of the box
+- **`--watch`**: `bun test --watch` for auto-rerunning on file changes
+- **No config needed**: Tests found automatically in `*.test.ts`, `*.spec.ts` files
+
+### Bundling
+- **`bun build`**: Built-in bundler — alternative to Vite/Rollup for simple builds
+- **Tree shaking**: Automatic dead code elimination
+- **Minification**: `--minify` flag for production builds
+- **Target selection**: `--target=browser` or `--target=node` for output format
+
+### When to Use Bun vs npm
+- **Use Bun**: New projects, personal projects, fast iteration, when Node compat isn't an issue
+- **Use npm**: CI environments with limited Bun support, team projects where Bun isn't adopted, packages with known Bun issues
+- **Don't mix**: Pick one package manager per project — never have both `bun.lockb` and `package-lock.json`
+
+## Anti-Patterns (NEVER do these)
+
+- Don't assume 100% Node.js compatibility — check Bun docs for gaps
+- Don't use `bun.lockb` if team uses npm — pick one package manager
+- Don't ignore that some npm packages use Node-specific internals
+- Don't mix lockfiles — either `bun.lockb` OR `package-lock.json`, never both
+- Don't use Bun runtime features if the project needs to run on Node.js too
+- Don't skip testing Bun-specific code with `bun test` — Jest doesn't understand Bun APIs
 
 ## Reference (from official docs)
 
@@ -27,22 +78,4 @@
 - Drop-in Node.js replacement — most Node APIs work
 - Native TypeScript/JSX support (no transpilation step needed)
 - Uses `bun.lockb` (binary lockfile) for faster installs
-
-### Package Management
-- `bun install` — faster than npm/yarn/pnpm
-- `bun add <pkg>` / `bun remove <pkg>`
-- Compatible with `package.json` and npm registry
-- Use `bunx` instead of `npx` for running binaries
-
-### Runtime Features
-- `Bun.serve()` for high-performance HTTP servers
-- `Bun.file()` for fast file I/O
-- `Bun.sql` for SQLite (built-in)
-- Native `.env` loading (no dotenv needed)
-- `bun test` for built-in testing (Jest-compatible API)
-
-### Anti-Patterns
-- Don't assume 100% Node.js compatibility — check Bun docs for gaps
-- Don't use `bun.lockb` if team uses npm — pick one package manager
-- Don't ignore that some npm packages use Node-specific internals
 
