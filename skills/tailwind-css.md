@@ -34,5 +34,33 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn tailwind-css` or wait for next brain-sync to populate this section.
+### Core Principles
+- Utility-first: compose designs directly in markup
+- Don't abstract too early — duplicate utility classes are fine initially
+- Extract components (React/Vue/etc.) before extracting CSS classes
+- Use `@apply` sparingly — it defeats the purpose of utility-first
+
+### Patterns
+- Use Tailwind's design system (spacing scale, color palette) consistently
+- Responsive design: mobile-first with `sm:`, `md:`, `lg:` prefixes
+- Dark mode: `dark:` variant with class strategy
+- Group hover/focus: `group` and `group-hover:` for parent-child interactions
+- Use `prose` class (typography plugin) for rich text content
+
+### Customization
+- Extend (don't override) the default theme in `tailwind.config`
+- Use CSS variables for dynamic theming
+- Use `@layer` for proper specificity ordering
+- Define custom colors as CSS variables for light/dark mode switching
+
+### With React
+- Use `clsx` or `tailwind-merge` for conditional classes
+- Use `class-variance-authority` (CVA) for component variant patterns
+- Keep utility strings readable — break long class lists across lines
+
+### Anti-Patterns
+- Don't fight Tailwind with custom CSS unless absolutely necessary
+- Don't use `@apply` to recreate component classes (use actual components)
+- Don't override Tailwind's reset — work with it
+- Don't use arbitrary values `[...]` when a design token exists
 

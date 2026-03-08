@@ -22,5 +22,27 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn bun` or wait for next brain-sync to populate this section.
+### Core Concepts
+- All-in-one: runtime, bundler, package manager, and test runner
+- Drop-in Node.js replacement — most Node APIs work
+- Native TypeScript/JSX support (no transpilation step needed)
+- Uses `bun.lockb` (binary lockfile) for faster installs
+
+### Package Management
+- `bun install` — faster than npm/yarn/pnpm
+- `bun add <pkg>` / `bun remove <pkg>`
+- Compatible with `package.json` and npm registry
+- Use `bunx` instead of `npx` for running binaries
+
+### Runtime Features
+- `Bun.serve()` for high-performance HTTP servers
+- `Bun.file()` for fast file I/O
+- `Bun.sql` for SQLite (built-in)
+- Native `.env` loading (no dotenv needed)
+- `bun test` for built-in testing (Jest-compatible API)
+
+### Anti-Patterns
+- Don't assume 100% Node.js compatibility — check Bun docs for gaps
+- Don't use `bun.lockb` if team uses npm — pick one package manager
+- Don't ignore that some npm packages use Node-specific internals
 

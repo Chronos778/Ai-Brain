@@ -27,5 +27,26 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn vite` or wait for next brain-sync to populate this section.
+### Core Concepts
+- Native ES modules in dev — no bundling, instant server start
+- Rollup-based production build with tree shaking
+- Hot Module Replacement (HMR) that actually works fast
+- Plugin-based architecture (Rollup-compatible plugins)
+
+### Configuration
+- `vite.config.ts` for project configuration
+- Use `resolve.alias` for path aliases (match tsconfig paths)
+- Use `define` for compile-time constants
+- Environment variables: `.env` files with `VITE_` prefix
+
+### Patterns
+- Use `import.meta.env` for environment variables
+- Dynamic imports for code splitting: `import('./module')`
+- CSS modules supported out of the box: `*.module.css`
+- Use `import.meta.glob` for bulk file imports
+
+### Anti-Patterns
+- Don't use `process.env` — use `import.meta.env`
+- Don't use CommonJS (`require()`) — use ES modules
+- Don't put secrets without `VITE_` prefix (they won't be exposed)
 

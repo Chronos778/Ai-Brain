@@ -66,21 +66,6 @@
       "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX"
     },
     {
-      "techStack": [
-        "Python"
-      ],
-      "isActive": false,
-      "daysSinceCommit": 24.9,
-      "lastCommit": {
-        "message": ".",
-        "date": "2026-02-11T19:16:21+05:30"
-      },
-      "recentCommits": [],
-      "name": "neuralnetwork/neural-visualizer",
-      "branch": "main",
-      "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer"
-    },
-    {
       "techStack": [],
       "isActive": false,
       "daysSinceCommit": 24.9,
@@ -92,6 +77,21 @@
       "name": "tsrow",
       "branch": "main",
       "path": "C:\\Users\\Maithil\\Projects\\tsrow"
+    },
+    {
+      "techStack": [
+        "Python"
+      ],
+      "isActive": false,
+      "daysSinceCommit": 25.0,
+      "lastCommit": {
+        "message": ".",
+        "date": "2026-02-11T19:16:21+05:30"
+      },
+      "recentCommits": [],
+      "name": "neuralnetwork/neural-visualizer",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer"
     },
     {
       "techStack": [],
@@ -170,7 +170,7 @@
     {
       "techStack": [],
       "isActive": false,
-      "daysSinceCommit": 53.2,
+      "daysSinceCommit": 53.3,
       "lastCommit": {
         "message": "fix: remove habits and achievements plugins to ensure stability",
         "date": "2026-01-14T12:03:01+05:30"
@@ -196,5 +196,5 @@
   ],
   "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T18:02:56Z"
+  "lastSynced": "2026-03-08T18:04:55Z"
 }

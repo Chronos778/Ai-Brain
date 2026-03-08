@@ -32,5 +32,37 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn next-js` or wait for next brain-sync to populate this section.
+### App Router Patterns
+- Use Server Components by default — add `'use client'` only when needed
+- Server Components can fetch data directly (no useEffect needed)
+- Use `loading.tsx` for streaming/suspense UI per route segment
+- Use `error.tsx` for error boundaries per route segment
+- Use `layout.tsx` for shared UI that preserves state across navigations
+
+### Data Fetching
+- Fetch data in Server Components — it runs on the server, zero client JS
+- Use `fetch` with caching: `fetch(url, { cache: 'force-cache' })` (default)
+- Revalidate with `next.revalidate` or `revalidatePath`/`revalidateTag`
+- For mutations, use Server Actions (`'use server'` functions)
+- Don't fetch data in `layout.tsx` for child-specific data — fetch in the page
+
+### Routing
+- File-based routing in `app/` directory
+- Dynamic routes: `[slug]/page.tsx`
+- Route groups: `(group)/` — organize without affecting URL
+- Parallel routes: `@slot/` — render multiple pages in same layout
+- Intercepting routes: `(..)photo/` — modal patterns
+
+### Performance
+- Use `next/image` for automatic image optimization
+- Use `next/font` for zero-layout-shift font loading
+- Use `next/link` for client-side navigation with prefetching
+- Metadata API for SEO (`generateMetadata` or `metadata` export)
+- Use `dynamic` imports for heavy client components
+
+### Anti-Patterns
+- Don't use `useEffect` for data fetching — use Server Components
+- Don't put database/API secrets in client components
+- Don't create API routes just to fetch data from Server Components
+- Don't use `getServerSideProps`/`getStaticProps` — those are Pages Router
 

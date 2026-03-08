@@ -32,5 +32,35 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn three-js` or wait for next brain-sync to populate this section.
+### Core Concepts
+- Scene graph: Scene → Meshes (Geometry + Material) → rendered by Camera via Renderer
+- Always dispose of geometries, materials, and textures when done
+- Use `requestAnimationFrame` for the render loop (or R3F handles it)
+- BufferGeometry for custom geometry (more performant than legacy Geometry)
+
+### With React (R3F)
+- React Three Fiber makes Three.js declarative — components map to Three objects
+- `<Canvas>` sets up scene, camera, and renderer automatically
+- Use Drei helpers: `OrbitControls`, `Environment`, `Text`, `Html`
+- `useFrame` hook for per-frame updates (animation loop)
+- `useLoader` / `useTexture` / `useGLTF` for asset loading
+
+### Performance
+- Use instancing (`<instancedMesh>`) for many identical objects
+- Reduce draw calls by merging geometries where possible
+- Use LOD (Level of Detail) for complex scenes
+- Compress textures (KTX2 format)
+- Use `<Suspense>` for async asset loading
+
+### Animation
+- GSAP for timeline-based animations
+- Spring physics via `@react-spring/three`
+- `useFrame` for simple per-frame animations
+- Morph targets for shape animations
+
+### Anti-Patterns
+- Don't create new objects in the render loop — reuse with `useMemo`/`useRef`
+- Don't forget to dispose resources on unmount
+- Don't load uncompressed textures
+- Don't skip frustum culling for large scenes
 

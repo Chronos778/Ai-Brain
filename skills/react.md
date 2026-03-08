@@ -89,5 +89,37 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn react` or wait for next brain-sync to populate this section.
+### Core Principles
+- Components are the building blocks — each component should do one thing
+- State should be minimal — derive everything you can from existing state
+- Lift state up to the nearest common ancestor that needs it
+- Use composition over inheritance — pass components as children/props
+- Keep components pure — same inputs should give same outputs
+
+### Hooks Best Practices
+- Only call hooks at the top level (not inside loops, conditions, or nested functions)
+- `useState` for simple local state, `useReducer` for complex state logic
+- `useEffect` is for synchronizing with external systems, not for transforming data
+- `useMemo` and `useCallback` are for optimization — don't use them everywhere
+- Custom hooks should start with `use` and encapsulate reusable stateful logic
+
+### Patterns to Follow
+- Controlled components for forms (state drives the input value)
+- Error boundaries for graceful error handling in component trees
+- React.lazy + Suspense for code splitting
+- Keys should be stable, unique IDs — never array indexes for dynamic lists
+- Avoid setting state during rendering — use effects or event handlers
+
+### Performance
+- React.memo only when profiling shows a component re-renders too often
+- Avoid creating objects/arrays inline in JSX props (causes re-renders)
+- Use `useTransition` for non-urgent state updates
+- Virtualize long lists (react-window or tanstack-virtual)
+
+### Anti-Patterns
+- Don't copy props into state — use the prop directly
+- Don't use effects for things that can be computed during render
+- Don't mutate state directly — always create new objects/arrays
+- Don't overuse context — it causes all consumers to re-render
+- Don't create components inside other components
 

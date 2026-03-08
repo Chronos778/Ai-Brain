@@ -30,5 +30,29 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn node-js` or wait for next brain-sync to populate this section.
+### Core Principles
+- Event-driven, non-blocking I/O — don't block the event loop
+- Prefer async/await over raw callbacks or .then() chains
+- Use ES modules (`import/export`) over CommonJS (`require`) for new projects
+- Handle all Promise rejections (`unhandledRejection` event)
+
+### Patterns
+- Use `process.env` for configuration, never hardcode
+- Use `path.join()` / `path.resolve()` for cross-platform file paths
+- Use streams for large file processing
+- Use `crypto` module for hashing and random values
+- Use `child_process.spawn` over `exec` for long-running processes
+
+### Package Management
+- Lock file (`package-lock.json` or `bun.lockb`) must be committed
+- Use exact versions for critical dependencies
+- Separate devDependencies from production dependencies
+- Audit dependencies regularly: `npm audit`
+
+### Anti-Patterns
+- Don't block the event loop with synchronous operations
+- Don't use `eval()` or `Function()` constructor
+- Don't store secrets in code — use environment variables
+- Don't use `var` — use `const`/`let`
+- Don't ignore errors in callbacks
 

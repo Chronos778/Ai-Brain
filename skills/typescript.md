@@ -32,5 +32,31 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn typescript` or wait for next brain-sync to populate this section.
+### Core Principles
+- Use strict mode (`strict: true`) — it catches more bugs at compile time
+- Prefer `interface` for object shapes that may be extended, `type` for unions/intersections
+- Use `unknown` over `any` — it forces you to narrow the type before using it
+- Leverage type inference — don't annotate what TypeScript can figure out
+
+### Type Patterns
+- Use discriminated unions for state machines and complex conditional types
+- Use `as const` for literal types and readonly arrays
+- Template literal types for string pattern matching
+- Use `satisfies` operator to validate types while preserving inference
+- Generics for reusable functions/components — constrain with `extends`
+
+### Utility Types to Know
+- `Partial<T>` — all properties optional
+- `Required<T>` — all properties required
+- `Pick<T, K>` / `Omit<T, K>` — select/exclude properties
+- `Record<K, V>` — object with known key type
+- `ReturnType<T>` — extract return type of a function
+- `Awaited<T>` — unwrap Promise types
+
+### Anti-Patterns
+- Don't use `any` — use `unknown` and narrow
+- Don't use `enum` — use `as const` objects or union types instead
+- Don't use `!` (non-null assertion) — handle null properly
+- Don't overtype — if inference works, don't add annotations
+- Don't use `@ts-ignore` — use `@ts-expect-error` if you must suppress
 

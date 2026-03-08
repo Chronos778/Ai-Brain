@@ -1,22 +1,22 @@
 # Skills Registry
 
 > Auto-updated by brain-sync.ps1 when new tech is detected.
-> Last synced: 2026-03-08 18:02
+> Last synced: 2026-03-08 18:04
 
 ## Registered Skills
 
 | Skill | File | Status |
 |-------|------|--------|
-| bun | `bun.md` | auto-generated |
-| express | `express.md` | auto-generated |
-| next-js | `next-js.md` | auto-generated |
-| node-js | `node-js.md` | auto-generated |
-| python | `python.md` | auto-generated |
-| react | `react.md` | auto-generated |
-| tailwind-css | `tailwind-css.md` | auto-generated |
-| three-js | `three-js.md` | auto-generated |
-| typescript | `typescript.md` | auto-generated |
-| vite | `vite.md` | auto-generated |
+| bun | `bun.md` | documented |
+| express | `express.md` | documented |
+| next-js | `next-js.md` | documented |
+| node-js | `node-js.md` | documented |
+| python | `python.md` | documented |
+| react | `react.md` | documented |
+| tailwind-css | `tailwind-css.md` | documented |
+| three-js | `three-js.md` | documented |
+| typescript | `typescript.md` | documented |
+| vite | `vite.md` | documented |
 
 ## Notes
 

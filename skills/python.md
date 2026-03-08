@@ -14,5 +14,37 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn python` or wait for next brain-sync to populate this section.
+### Core Principles (The Zen of Python)
+- Explicit is better than implicit
+- Simple is better than complex
+- Readability counts
+- There should be one obvious way to do it
+- Errors should never pass silently
+
+### Patterns
+- Use type hints for function signatures and complex variables
+- Use `dataclasses` or `pydantic` for structured data
+- Use context managers (`with` statement) for resource management
+- List/dict comprehensions over `map`/`filter` for readability
+- Use `pathlib.Path` over `os.path` for file operations
+
+### Project Structure
+- Use virtual environments (`venv`) always
+- `requirements.txt` or `pyproject.toml` for dependencies
+- `if __name__ == '__main__':` guard in scripts
+- Separate modules by responsibility
+- Use `logging` module over `print` for production code
+
+### Error Handling
+- Catch specific exceptions, never bare `except:`
+- Use custom exception classes for domain errors
+- `try`/`except` should wrap the minimum code necessary
+- Use `raise ... from ...` to chain exceptions and preserve context
+
+### Anti-Patterns
+- Don't use mutable default arguments (`def f(x=[]):`)
+- Don't use `import *`
+- Don't use global variables
+- Don't suppress exceptions silently with bare `except: pass`
+- Don't use string formatting with `%` — use f-strings
 

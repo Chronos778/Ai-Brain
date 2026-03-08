@@ -33,5 +33,35 @@
 
 ## Reference (from official docs)
 
-> Run `brain-learn express` or wait for next brain-sync to populate this section.
+### Core Patterns
+- Middleware-based architecture — request flows through a chain
+- Use `express.Router()` for modular route organization
+- Error handling middleware has 4 args: `(err, req, res, next)`
+- Parse JSON bodies with `express.json()` middleware
+- Use `express.static()` for serving static files
+
+### Project Structure
+- Group routes by feature/resource, not by HTTP method
+- Keep route handlers thin — delegate to service/controller layer
+- Separate business logic from Express-specific code
+- Use environment variables for all configuration (never hardcode secrets)
+
+### Security
+- Use `helmet` for security headers
+- Use `cors` with specific origins (not `*` in production)
+- Rate limit API endpoints with `express-rate-limit`
+- Validate and sanitize all input
+- Don't expose stack traces in production errors
+
+### Error Handling
+- Create a centralized error handling middleware
+- Use async wrapper or `express-async-errors` for async route handlers
+- Return consistent error response format: `{ error: { message, code } }`
+- Log errors server-side, return safe messages client-side
+
+### Anti-Patterns
+- Don't put business logic in route handlers
+- Don't use synchronous file operations in request handlers
+- Don't trust `req.body` without validation
+- Don't catch errors and silently continue
 
