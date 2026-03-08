@@ -66,19 +66,6 @@
       "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX"
     },
     {
-      "techStack": [],
-      "isActive": false,
-      "daysSinceCommit": 24.9,
-      "lastCommit": {
-        "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
-        "date": "2026-02-11T19:27:53+05:30"
-      },
-      "recentCommits": [],
-      "name": "tsrow",
-      "branch": "main",
-      "path": "C:\\Users\\Maithil\\Projects\\tsrow"
-    },
-    {
       "techStack": [
         "Python"
       ],
@@ -105,6 +92,19 @@
       "name": "Quotes/quote.web",
       "branch": "main",
       "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web"
+    },
+    {
+      "techStack": [],
+      "isActive": false,
+      "daysSinceCommit": 25.0,
+      "lastCommit": {
+        "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
+        "date": "2026-02-11T19:27:53+05:30"
+      },
+      "recentCommits": [],
+      "name": "tsrow",
+      "branch": "main",
+      "path": "C:\\Users\\Maithil\\Projects\\tsrow"
     },
     {
       "techStack": [],
@@ -138,7 +138,7 @@
         "Express"
       ],
       "isActive": false,
-      "daysSinceCommit": 29.1,
+      "daysSinceCommit": 29.2,
       "lastCommit": {
         "message": "feat: Implement rate limiting, add Quote of the Day and search endpoints, and refactor quote-related logic into dedicated controllers and routes.",
         "date": "2026-02-07T14:46:09+05:30"
@@ -157,7 +157,7 @@
         "Next.js"
       ],
       "isActive": false,
-      "daysSinceCommit": 41.1,
+      "daysSinceCommit": 41.2,
       "lastCommit": {
         "message": "Merge branch 'main' of https://github.com/SC136/Quotation",
         "date": "2026-01-26T14:57:08+05:30"
@@ -183,7 +183,7 @@
     {
       "techStack": [],
       "isActive": false,
-      "daysSinceCommit": 90.9,
+      "daysSinceCommit": 91.0,
       "lastCommit": {
         "message": "some changes",
         "date": "2025-12-07T19:42:56+05:30"
@@ -196,5 +196,5 @@
   ],
   "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T18:07:53Z"
+  "lastSynced": "2026-03-08T18:34:38Z"
 }
