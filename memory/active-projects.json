@@ -1,6 +1,6 @@
 ﻿{
     "activeRepos":  8,
-    "lastSynced":  "2026-03-08T20:19:54Z",
+    "lastSynced":  "2026-03-08T20:36:55Z",
     "projects":  [
                      {
                          "branch":  "main",
@@ -74,10 +74,27 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
+                                            "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
+                                            "date":  "2026-02-11T19:27:53+05:30"
+                                        },
+                         "daysSinceCommit":  25,
+                         "isActive":  false,
+                         "name":  "tsrow",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\tsrow",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
                                             "message":  ".",
                                             "date":  "2026-02-11T19:16:21+05:30"
                                         },
-                         "daysSinceCommit":  25,
+                         "daysSinceCommit":  25.1,
                          "isActive":  false,
                          "name":  "neuralnetwork/neural-visualizer",
                          "recentCommits":  [
@@ -94,30 +111,13 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T19:11:15+05:30"
                                         },
-                         "daysSinceCommit":  25,
+                         "daysSinceCommit":  25.1,
                          "isActive":  false,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
 
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
-                                            "date":  "2026-02-11T19:27:53+05:30"
-                                        },
-                         "daysSinceCommit":  25,
-                         "isActive":  false,
-                         "name":  "tsrow",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\tsrow",
                          "techStack":  [
 
                                        ]
@@ -201,7 +201,7 @@
                                             "message":  "fix: remove habits and achievements plugins to ensure stability",
                                             "date":  "2026-01-14T12:03:01+05:30"
                                         },
-                         "daysSinceCommit":  53.3,
+                         "daysSinceCommit":  53.4,
                          "isActive":  false,
                          "name":  "Chronos778-profile",
                          "recentCommits":  [

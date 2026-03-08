@@ -528,70 +528,106 @@ foreach ($tech in $uniqueTech) {
     }
 }
 
-# ─── Sync Editor Settings (VS Code + Antigravity) ───────────────────
+# ─── Sync Editor Settings (VS Code + Antigravity + variants) ────────
+
+function Set-Or-AddProperty {
+    param(
+        [Parameter(Mandatory = $true)][object]$Object,
+        [Parameter(Mandatory = $true)][string]$Name,
+        [Parameter(Mandatory = $true)]$Value
+    )
+
+    if ($Object.PSObject.Properties.Name -contains $Name) {
+        $Object.$Name = $Value
+    } else {
+        $Object | Add-Member -NotePropertyName $Name -NotePropertyValue $Value
+    }
+}
+
+function Build-InstructionEntries {
+    param([string[]]$Files)
+    $unique = @($Files | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)
+    return @($unique | ForEach-Object { [PSCustomObject]@{ file = $_.Replace('\\', '/') } })
+}
+
+function Sync-InstructionSettingsFile {
+    param(
+        [string]$SettingsPath,
+        [string]$EditorName,
+        [string[]]$ChatFiles,
+        [string[]]$CodegenFiles,
+        [string[]]$TestFiles,
+        [string[]]$ReviewFiles
+    )
+
+    $settingsDir = Split-Path -Path $SettingsPath -Parent
+    if (-not (Test-Path $settingsDir)) {
+        Write-Log "$EditorName settings directory not found, skipping"
+        return
+    }
+
+    if (-not (Test-Path $SettingsPath)) {
+        Set-Content -Path $SettingsPath -Value "{}" -Encoding UTF8 -NoNewline
+        Write-Log "$EditorName settings created"
+    }
+
+    $settingsRaw = Get-Content -Path $SettingsPath -Raw -Encoding UTF8
+    try {
+        $settings = ConvertFrom-Json -InputObject $settingsRaw
+    } catch {
+        Write-Log "WARNING: $EditorName settings is not valid JSON, skipping instruction sync"
+        return
+    }
+
+    if (-not $settings) { $settings = [PSCustomObject]@{} }
+
+    Set-Or-AddProperty -Object $settings -Name "github.copilot.chat.instructions" -Value (Build-InstructionEntries -Files $ChatFiles)
+    Set-Or-AddProperty -Object $settings -Name "github.copilot.chat.codeGeneration.instructions" -Value (Build-InstructionEntries -Files $CodegenFiles)
+    Set-Or-AddProperty -Object $settings -Name "github.copilot.chat.testGeneration.instructions" -Value (Build-InstructionEntries -Files $TestFiles)
+    Set-Or-AddProperty -Object $settings -Name "github.copilot.chat.reviewSelection.instructions" -Value (Build-InstructionEntries -Files $ReviewFiles)
+
+    $updated = $settings | ConvertTo-Json -Depth 15
+    Set-Content -Path $SettingsPath -Value $updated -Encoding UTF8 -NoNewline
+    Write-Log "$EditorName settings synced (chat/codegen/test/review instruction sets)"
+}
 
 $settingsTargets = @(
     [PSCustomObject]@{ Name = "VS Code"; Path = (Join-Path $env:APPDATA "Code\User\settings.json") },
+    [PSCustomObject]@{ Name = "VS Code Insiders"; Path = (Join-Path $env:APPDATA "Code - Insiders\User\settings.json") },
+    [PSCustomObject]@{ Name = "Cursor"; Path = (Join-Path $env:APPDATA "Cursor\User\settings.json") },
+    [PSCustomObject]@{ Name = "VSCodium"; Path = (Join-Path $env:APPDATA "VSCodium\User\settings.json") },
     [PSCustomObject]@{ Name = "Antigravity"; Path = (Join-Path $env:APPDATA "Antigravity\User\settings.json") }
 )
 
-foreach ($settingsTarget in $settingsTargets) {
-if (Test-Path $settingsTarget.Path) {
-    function Build-InstructionBlock {
-        param(
-            [string]$SettingKey,
-            [string[]]$Files
-        )
-        $unique = @($Files | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique)
-        $rows = $unique | ForEach-Object { "        { `"file`": `"$($_.Replace('\', '/'))`" }" }
-        $body = $rows -join ",`n"
-        return "    `"$SettingKey`": [`n$body`n    ]"
-    }
+$coreRules = Join-Path $BrainRoot "identity\core-rules.md"
+$preferences = Join-Path $BrainRoot "identity\preferences.md"
+$profile = Join-Path $BrainRoot "identity\profile.md"
+$style = Join-Path $BrainRoot "identity\style.md"
+$activeContext = Join-Path $MemoryDir "active-context.md"
+$decisions = Join-Path $MemoryDir "decisions.md"
+$learnings = Join-Path $MemoryDir "learnings.md"
+$skillIndex = Join-Path $SkillsDir "_index.md"
+$reviewPlaybook = Join-Path $SkillsDir "review-playbook.md"
+$testingPlaybook = Join-Path $SkillsDir "testing-playbook.md"
 
-    $coreRules = Join-Path $BrainRoot "identity\core-rules.md"
-    $preferences = Join-Path $BrainRoot "identity\preferences.md"
-    $profile = Join-Path $BrainRoot "identity\profile.md"
-    $style = Join-Path $BrainRoot "identity\style.md"
-    $activeContext = Join-Path $MemoryDir "active-context.md"
-    $decisions = Join-Path $MemoryDir "decisions.md"
-    $learnings = Join-Path $MemoryDir "learnings.md"
-    $skillIndex = Join-Path $SkillsDir "_index.md"
-    $reviewPlaybook = Join-Path $SkillsDir "review-playbook.md"
-    $testingPlaybook = Join-Path $SkillsDir "testing-playbook.md"
-
-    $allSkillFiles = @()
-    if (Test-Path $SkillsDir) {
-        $allSkillFiles = @(Get-ChildItem $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue | Sort-Object Name | ForEach-Object { $_.FullName })
-    }
-
-    $chatFiles = @($coreRules, $preferences, $profile, $style, $activeContext, $decisions, $learnings, $skillIndex)
-    $codegenFiles = @($chatFiles + $allSkillFiles)
-    $testFiles = @($coreRules, $preferences, $style, $skillIndex, $testingPlaybook)
-    $reviewFiles = @($coreRules, $preferences, $style, $skillIndex, $reviewPlaybook)
-
-    $blocks = @(
-        (Build-InstructionBlock -SettingKey "github.copilot.chat.instructions" -Files $chatFiles),
-        (Build-InstructionBlock -SettingKey "github.copilot.chat.codeGeneration.instructions" -Files $codegenFiles),
-        (Build-InstructionBlock -SettingKey "github.copilot.chat.testGeneration.instructions" -Files $testFiles),
-        (Build-InstructionBlock -SettingKey "github.copilot.chat.reviewSelection.instructions" -Files $reviewFiles)
-    )
-
-    $raw = Get-Content $settingsTarget.Path -Raw -Encoding UTF8
-    foreach ($block in $blocks) {
-        if ($block -match '"([^"]+)"') {
-            $key = $Matches[1]
-            $escapedKey = [regex]::Escape($key)
-            if ($raw -match $escapedKey) {
-                $raw = $raw -replace "(?s)    `"$escapedKey`"\s*:\s*\[.*?\]", $block
-            } else {
-                $raw = $raw -replace '\}(\s*)$', ",`n$block`n}`$1"
-            }
-        }
-    }
-
-    Set-Content -Path $settingsTarget.Path -Value $raw -Encoding UTF8 -NoNewline
-    Write-Log "$($settingsTarget.Name) settings synced (chat/codegen/test/review instruction sets)"
+$allSkillFiles = @()
+if (Test-Path $SkillsDir) {
+    $allSkillFiles = @(Get-ChildItem $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue | Sort-Object Name | ForEach-Object { $_.FullName })
 }
+
+$chatFiles = @($coreRules, $preferences, $profile, $style, $activeContext, $decisions, $learnings, $skillIndex)
+$codegenFiles = @($chatFiles + $allSkillFiles)
+$testFiles = @($coreRules, $preferences, $style, $skillIndex, $testingPlaybook)
+$reviewFiles = @($coreRules, $preferences, $style, $skillIndex, $reviewPlaybook)
+
+foreach ($settingsTarget in $settingsTargets) {
+    Sync-InstructionSettingsFile `
+        -SettingsPath $settingsTarget.Path `
+        -EditorName $settingsTarget.Name `
+        -ChatFiles $chatFiles `
+        -CodegenFiles $codegenFiles `
+        -TestFiles $testFiles `
+        -ReviewFiles $reviewFiles
 }
 
 # ─── Git commit + push ────────────────────────────────────────────────
