@@ -88,6 +88,35 @@ function Show-Learnings {
     Write-Host "$($entries.Count) total learnings" -ForegroundColor DarkGray
 }
 
+function New-DecisionEntry {
+    param(
+        [string]$Date,
+        [string]$Project,
+        [string]$DecisionText
+    )
+
+    $normalized = ($DecisionText -replace '\s+', ' ').Trim()
+    $title = if ($normalized.Length -le 80) { $normalized } else { $normalized.Substring(0, 80).TrimEnd() + '...' }
+
+    $why = "Documented during active work."
+    if ($normalized -match '(?i)\bbecause\b\s+(.+)$') {
+        $why = $Matches[1].Trim()
+    }
+
+    return @"
+
+### $Date | $Project | $title
+**Problem**: $normalized
+**Options considered**:
+- Keep current approach
+- Adopt the chosen approach
+**Chosen approach**: $normalized
+**Tradeoffs**: Better fit for current constraints, but may increase maintenance or migration effort.
+**Revisit trigger**: Re-evaluate if requirements, scale, or performance constraints change.
+**Why this won**: $why
+"@
+}
+
 # ─── Handle flags ─────────────────────────────────────────────────────
 
 if ($List -or $SkillOrFlag -eq "--list") {
@@ -113,18 +142,17 @@ if ($Decide -or $SkillOrFlag -eq "--decide") {
     }
 
     if (-not $decisionText) {
-        Write-Host "Usage: brain-learn --decide <project> <what you decided>" -ForegroundColor Yellow
-        Write-Host "  Example: brain-learn --decide myportfolio 'Switched to GSAP for camera timelines because Framer Motion lacks ScrollTrigger'" -ForegroundColor DarkGray
+        Write-Host "Usage: brain-learn --decide <project> <decision summary>" -ForegroundColor Yellow
+        Write-Host "  Example: brain-learn --decide myportfolio 'Switched to GSAP camera timelines because Framer lacked timeline control'" -ForegroundColor DarkGray
+        Write-Host "  Output is structured with Problem, Options considered, Chosen approach, Tradeoffs, and Revisit trigger." -ForegroundColor DarkGray
         exit 0
     }
 
-    $entry = @"
-
-### $Today | $project | $decisionText
-"@
+    $entry = New-DecisionEntry -Date $Today -Project $project -DecisionText $decisionText
     Add-Content -Path $DecideFile -Value $entry -Encoding UTF8
     Write-Host "Decision recorded: $project" -ForegroundColor Green
     Write-Host "  $decisionText" -ForegroundColor White
+    Write-Host "  Structured template applied." -ForegroundColor DarkGray
 
     # Find related skills
     $related = Find-RelatedSkills -Text "$project $decisionText"
@@ -145,6 +173,7 @@ if (-not $SkillOrFlag) {
     Write-Host ""
     Write-Host "Add a decision:" -ForegroundColor White
     Write-Host '  brain-learn --decide myportfolio "Chose GSAP over Framer for camera"'
+    Write-Host '  # Auto-creates: Problem, Options considered, Chosen approach, Tradeoffs, Revisit trigger'
     Write-Host ""
     Write-Host "View learnings:" -ForegroundColor White
     Write-Host "  brain-learn --list         # All learnings"
