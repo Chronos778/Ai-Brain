@@ -1,25 +1,25 @@
 # Skills Registry
 
 > Auto-updated by brain-sync.ps1 when new tech is detected.
-> Last synced: 2026-03-08 17:50
+> Last synced: 2026-03-08 17:53
 
 ## Registered Skills
 
 | Skill | File | Status |
 |-------|------|--------|
-| *(none yet)* | | |
+| bun | `bun.md` | auto-generated |
+| express | `express.md` | auto-generated |
+| next-js | `next-js.md` | auto-generated |
+| node-js | `node-js.md` | auto-generated |
+| python | `python.md` | auto-generated |
+| react | `react.md` | auto-generated |
+| tailwind-css | `tailwind-css.md` | auto-generated |
+| three-js | `three-js.md` | auto-generated |
+| typescript | `typescript.md` | auto-generated |
+| vite | `vite.md` | auto-generated |
 
-## Detected Tech (Not Yet Documented)
+## Notes
 
-> Consider creating skill files for tech you use frequently:
-
-- **Bun** → create `skills/bun.md`
-- **Express** → create `skills/express.md`
-- **Next.js** → create `skills/next-js.md`
-- **Node.js** → create `skills/node-js.md`
-- **Python** → create `skills/python.md`
-- **React** → create `skills/react.md`
-- **Tailwind CSS** → create `skills/tailwind-css.md`
-- **Three.js** → create `skills/three-js.md`
-- **TypeScript** → create `skills/typescript.md`
-- **Vite** → create `skills/vite.md`
+- Skill files are auto-created when new tech is detected in your projects.
+- Customize the auto-generated files with your patterns, anti-patterns, and conventions.
+- Once you customize a file, its status stays as `documented` on next sync.
