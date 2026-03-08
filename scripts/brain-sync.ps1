@@ -19,6 +19,7 @@ $BrainRoot    = "C:\Users\Maithil\AI-Brain"
 $ProjectsRoot = "C:\Users\Maithil\Projects"
 $MemoryDir    = Join-Path $BrainRoot "memory"
 $SkillsDir    = Join-Path $BrainRoot "skills"
+$ReviewDir    = Join-Path $SkillsDir "review"
 $LogDir       = Join-Path $BrainRoot "logs"
 $Now          = Get-Date
 $LogFile      = Join-Path $LogDir "sync-$($Now.ToString('yyyy-MM-dd')).log"
@@ -282,37 +283,88 @@ if ($uniqueTech.Count -gt 0) {
     $ctx += ""
 }
 
+# Check for skills pending review
+$pendingReviews = @()
+if (Test-Path $ReviewDir) {
+    $pendingReviews = @(Get-ChildItem -Path $ReviewDir -Filter "*.md" -ErrorAction SilentlyContinue)
+}
+if ($pendingReviews.Count -gt 0) {
+    $ctx += "## Skills Pending Review"
+    $ctx += ""
+    $ctx += "These skills were auto-detected but need real content. Ask the AI agent to fill them in."
+    $ctx += ""
+    foreach ($pf in $pendingReviews) {
+        $content = Get-Content $pf.FullName -Raw -ErrorAction SilentlyContinue
+        $detectedIn = ""
+        if ($content -match 'Detected in: (.+)') { $detectedIn = " — used in $($Matches[1])" }
+        $ctx += "- **$($pf.BaseName)**$detectedIn → ``skills/review/$($pf.Name)``"
+    }
+    $ctx += ""
+}
+
 Set-Content -Path (Join-Path $MemoryDir "active-context.md") -Value ($ctx -join "`n") -Encoding UTF8
 Write-Log "Updated active-context.md"
 
-# ─── Auto-create skill stubs for new tech ─────────────────────────────
+# ─── Auto-create skill stubs in review folder ─────────────────────────
 
-$existingSkills = Get-ChildItem -Path $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue |
+if (-not (Test-Path $ReviewDir)) { New-Item -ItemType Directory -Path $ReviewDir -Force | Out-Null }
+
+# Check both skills/ and skills/review/ so we don't recreate existing ones
+$existingSkills = @()
+$existingSkills += Get-ChildItem -Path $SkillsDir -Filter "*.md" -ErrorAction SilentlyContinue |
     Where-Object { $_.Name -ne "_index.md" } | ForEach-Object { $_.BaseName.ToLower() }
+$existingSkills += Get-ChildItem -Path $ReviewDir -Filter "*.md" -ErrorAction SilentlyContinue |
+    ForEach-Object { $_.BaseName.ToLower() }
 
 $newSkills = @()
 foreach ($tech in $uniqueTech) {
     $slug = $tech.ToLower() -replace '[^a-z0-9]', '-' -replace '-+', '-' -replace '^-|-$', ''
     if ($slug -notin $existingSkills) {
         $newSkills += $tech
+
+        # Gather rich context for the AI to fill in later
         $usingProjects = ($projects | Where-Object { $tech -in $_.techStack } | ForEach-Object { $_.name }) -join ", "
+        $detectedPackages = @()
+        foreach ($p in ($projects | Where-Object { $tech -in $_.techStack })) {
+            $pkgJson = Join-Path $p.path "package.json"
+            if (Test-Path $pkgJson) {
+                try {
+                    $pkg = Get-Content $pkgJson -Raw | ConvertFrom-Json
+                    $allDeps = @()
+                    if ($pkg.dependencies) { $allDeps += ($pkg.dependencies | Get-Member -MemberType NoteProperty).Name }
+                    if ($pkg.devDependencies) { $allDeps += ($pkg.devDependencies | Get-Member -MemberType NoteProperty).Name }
+                    $detectedPackages += $allDeps
+                } catch {}
+            }
+            $reqTxt = Join-Path $p.path "requirements.txt"
+            if (Test-Path $reqTxt) {
+                try { $detectedPackages += (Get-Content $reqTxt | Where-Object { $_ -match '^[a-zA-Z]' } | ForEach-Object { ($_ -split '[=<>!]')[0].Trim() }) } catch {}
+            }
+        }
+        $detectedPackages = $detectedPackages | Select-Object -Unique | Sort-Object
+        $pkgLine = if ($detectedPackages.Count -gt 0) { "`n> Packages found: $($detectedPackages -join ', ')" } else { "" }
+
         $stub = @"
 # $tech
 
 > Detected in: $usingProjects
-> Auto-created by brain-sync on $($Now.ToString('yyyy-MM-dd'))
+> Auto-created by brain-sync on $($Now.ToString('yyyy-MM-dd'))$pkgLine
+>
+> **STATUS: PENDING REVIEW** — Ask the AI agent to fill this with real patterns.
+> Reference existing skills in skills/ for the expected format:
+> How I Build → Expert Decisions → Mistakes That Cost Hours
 
-## How I Use It
-- *(add your patterns here)*
+## How I Build
+- *(pending — AI will fill based on your projects and usage)*
 
 ## Expert Decisions
-- *(add the non-obvious choices that save time)*
+- *(pending — AI will research and add non-obvious choices)*
 
 ## Mistakes That Cost Hours
-- *(add real anti-patterns from experience)*
+- *(pending — AI will add real anti-patterns)*
 "@
-        Set-Content -Path (Join-Path $SkillsDir "$slug.md") -Value $stub -Encoding UTF8
-        Write-Log "  NEW SKILL: $slug.md (stub created — customize it)"
+        Set-Content -Path (Join-Path $ReviewDir "$slug.md") -Value $stub -Encoding UTF8
+        Write-Log "  NEW SKILL: review/$slug.md (pending AI review)"
     }
 }
 
@@ -403,6 +455,20 @@ if ($changes.Count -gt 0) {
 }
 if ($newSkills.Count -gt 0) {
     Write-Host ""
-    Write-Host "New skill stubs created (customize them):" -ForegroundColor Yellow
-    foreach ($s in $newSkills) { Write-Host "  skills/$($s.ToLower() -replace '[^a-z0-9]','-').md" -ForegroundColor White }
+    Write-Host "New skills pending review:" -ForegroundColor Yellow
+    foreach ($s in $newSkills) { Write-Host "  skills/review/$($s.ToLower() -replace '[^a-z0-9]','-').md" -ForegroundColor White }
+}
+
+# Show all pending reviews (including pre-existing ones)
+$allPending = @()
+if (Test-Path $ReviewDir) {
+    $allPending = @(Get-ChildItem -Path $ReviewDir -Filter "*.md" -ErrorAction SilentlyContinue)
+}
+if ($allPending.Count -gt 0) {
+    Write-Host ""
+    Write-Host "Skills pending AI review ($($allPending.Count)):" -ForegroundColor Magenta
+    foreach ($pf in $allPending) {
+        Write-Host "  skills/review/$($pf.Name)" -ForegroundColor White
+    }
+    Write-Host "  → Ask Copilot: 'fill in the pending skill reviews'" -ForegroundColor DarkGray
 }

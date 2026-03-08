@@ -109,7 +109,7 @@
     {
       "techStack": [],
       "isActive": false,
-      "daysSinceCommit": 26.8,
+      "daysSinceCommit": 26.9,
       "lastCommit": {
         "message": "feat: Implement mobile navigation and expand recipe data with new entries and details.",
         "date": "2026-02-09T22:55:59+05:30"
@@ -196,5 +196,5 @@
   ],
   "totalRepos": 12,
   "activeRepos": 8,
-  "lastSynced": "2026-03-08T19:16:09Z"
+  "lastSynced": "2026-03-08T19:21:33Z"
 }
