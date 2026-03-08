@@ -528,10 +528,15 @@ foreach ($tech in $uniqueTech) {
     }
 }
 
-# ─── Sync VS Code Settings ───────────────────────────────────────────
+# ─── Sync Editor Settings (VS Code + Antigravity) ───────────────────
 
-$settingsPath = Join-Path $env:APPDATA "Code\User\settings.json"
-if (Test-Path $settingsPath) {
+$settingsTargets = @(
+    [PSCustomObject]@{ Name = "VS Code"; Path = (Join-Path $env:APPDATA "Code\User\settings.json") },
+    [PSCustomObject]@{ Name = "Antigravity"; Path = (Join-Path $env:APPDATA "Antigravity\User\settings.json") }
+)
+
+foreach ($settingsTarget in $settingsTargets) {
+if (Test-Path $settingsTarget.Path) {
     function Build-InstructionBlock {
         param(
             [string]$SettingKey,
@@ -571,7 +576,7 @@ if (Test-Path $settingsPath) {
         (Build-InstructionBlock -SettingKey "github.copilot.chat.reviewSelection.instructions" -Files $reviewFiles)
     )
 
-    $raw = Get-Content $settingsPath -Raw -Encoding UTF8
+    $raw = Get-Content $settingsTarget.Path -Raw -Encoding UTF8
     foreach ($block in $blocks) {
         if ($block -match '"([^"]+)"') {
             $key = $Matches[1]
@@ -584,8 +589,9 @@ if (Test-Path $settingsPath) {
         }
     }
 
-    Set-Content -Path $settingsPath -Value $raw -Encoding UTF8 -NoNewline
-    Write-Log "VS Code settings synced (chat/codegen/test/review instruction sets)"
+    Set-Content -Path $settingsTarget.Path -Value $raw -Encoding UTF8 -NoNewline
+    Write-Log "$($settingsTarget.Name) settings synced (chat/codegen/test/review instruction sets)"
+}
 }
 
 # ─── Git commit + push ────────────────────────────────────────────────

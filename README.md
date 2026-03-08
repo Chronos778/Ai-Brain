@@ -1,6 +1,6 @@
 # AI Brain
 
-A global knowledge base that makes every AI interaction aware of how I think, what I know, and what I'm building. Opens in any VS Code project — zero per-project setup.
+A global knowledge base that makes every AI interaction aware of how I think, what I know, and what I'm building. Opens in any VS Code or Antigravity project — zero per-project setup.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ AI-Brain/
 
 ## How It Works
 
-VS Code global settings point to brain files as live pointers:
+Editor global settings (VS Code + Antigravity) point to brain files as live pointers:
 
 ```json
 "github.copilot.chat.codeGeneration.instructions": [
@@ -70,7 +70,7 @@ What happens:
 2. Detects tech from package.json, requirements.txt, Cargo.toml, etc.
 3. Builds `active-context.md` with meaningful change summary — not git log dumps
 4. Creates minimal skill stubs for newly detected tech
-5. Syncs VS Code settings to point at brain files
+5. Syncs VS Code + Antigravity settings to point at brain files
 6. Commits with descriptive message and pushes
 
 ### `brain-learn`
