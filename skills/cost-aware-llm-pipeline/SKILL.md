@@ -10,7 +10,7 @@ Patterns for controlling LLM API costs while maintaining quality. Combines model
 
 ## When to Activate
 
-- Building applications that call LLM APIs (Claude, GPT, etc.)
+- Building applications that call LLM APIs (OpenAI, Anthropic, local models, etc.)
 - Processing batches of items with varying complexity
 - Need to stay within a budget for API spend
 - Optimizing cost without sacrificing quality on complex tasks
@@ -22,8 +22,8 @@ Patterns for controlling LLM API costs while maintaining quality. Combines model
 Automatically select cheaper models for simple tasks, reserving expensive models for complex ones.
 
 ```python
-MODEL_SONNET = "claude-sonnet-4-6"
-MODEL_HAIKU = "claude-haiku-4-5-20251001"
+MODEL_SONNET = "gpt-5"
+MODEL_HAIKU = "gpt-5-mini"
 
 _SONNET_TEXT_THRESHOLD = 10_000  # chars
 _SONNET_ITEM_THRESHOLD = 30     # items
@@ -81,13 +81,15 @@ class CostTracker:
 Retry only on transient errors. Fail fast on authentication or bad request errors.
 
 ```python
-from anthropic import (
-    APIConnectionError,
-    InternalServerError,
-    RateLimitError,
-)
+from requests import ConnectionError as NetworkError
 
-_RETRYABLE_ERRORS = (APIConnectionError, RateLimitError, InternalServerError)
+class RateLimitError(Exception):
+    pass
+
+class UpstreamServerError(Exception):
+    pass
+
+_RETRYABLE_ERRORS = (NetworkError, RateLimitError, UpstreamServerError)
 _MAX_RETRIES = 3
 
 def call_with_retry(func, *, max_retries: int = _MAX_RETRIES):
@@ -177,7 +179,7 @@ def process(text: str, config: Config, tracker: CostTracker) -> tuple[Result, Co
 
 ## When to Use
 
-- Any application calling Claude, OpenAI, or similar LLM APIs
+- Any application calling one or more LLM providers
 - Batch processing pipelines where cost adds up quickly
 - Multi-model architectures that need intelligent routing
 - Production systems that need budget guardrails

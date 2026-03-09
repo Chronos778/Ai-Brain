@@ -27,7 +27,7 @@ Reference this skill when working on the specific project it's designed for. Pro
 - **Frontend**: Next.js 15 (App Router), TypeScript, React
 - **Backend**: FastAPI (Python), Pydantic models
 - **Database**: Supabase (PostgreSQL)
-- **AI**: Claude API with tool calling and structured output
+- **AI**: LLM API with tool calling and structured output
 - **Deployment**: Google Cloud Run
 - **Testing**: Playwright (E2E), pytest (backend), React Testing Library
 
@@ -49,7 +49,7 @@ Reference this skill when working on the specific project it's designed for. Pro
               ┌───────────────┼───────────────┐
               ▼               ▼               ▼
         ┌──────────┐   ┌──────────┐   ┌──────────┐
-        │ Supabase │   │  Claude  │   │  Redis   │
+        │ Supabase │   │   LLM    │   │  Redis   │
         │ Database │   │   API    │   │  Cache   │
         └──────────┘   └──────────┘   └──────────┘
 ```
@@ -148,10 +148,10 @@ async function fetchApi<T>(
 }
 ```
 
-### Claude AI Integration (Structured Output)
+### LLM Integration (Structured Output)
 
 ```python
-from anthropic import Anthropic
+from openai import OpenAI
 from pydantic import BaseModel
 
 class AnalysisResult(BaseModel):
@@ -159,28 +159,24 @@ class AnalysisResult(BaseModel):
     key_points: list[str]
     confidence: float
 
-async def analyze_with_claude(content: str) -> AnalysisResult:
-    client = Anthropic()
+def analyze_with_llm(content: str) -> AnalysisResult:
+  client = OpenAI()
 
-    response = client.messages.create(
-        model="claude-sonnet-4-5-20250514",
-        max_tokens=1024,
-        messages=[{"role": "user", "content": content}],
-        tools=[{
-            "name": "provide_analysis",
-            "description": "Provide structured analysis",
-            "input_schema": AnalysisResult.model_json_schema()
-        }],
-        tool_choice={"type": "tool", "name": "provide_analysis"}
+  response = client.responses.create(
+    model="gpt-5-mini",
+    input=content,
+    tools=[{
+      "type": "function",
+      "name": "provide_analysis",
+      "description": "Provide structured analysis",
+      "parameters": AnalysisResult.model_json_schema()
+    }],
+    tool_choice={"type": "function", "name": "provide_analysis"}
     )
 
-    # Extract tool use result
-    tool_use = next(
-        block for block in response.content
-        if block.type == "tool_use"
-    )
+  tool_call = next(item for item in response.output if item.type == "function_call")
 
-    return AnalysisResult(**tool_use.input)
+  return AnalysisResult.model_validate_json(tool_call.arguments)
 ```
 
 ### Custom Hooks (React)
@@ -321,7 +317,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 
 # Backend (.env)
 DATABASE_URL=postgresql://...
-ANTHROPIC_API_KEY=sk-ant-...
+LLM_API_KEY=...
 SUPABASE_URL=https://xxx.supabase.co
 SUPABASE_KEY=eyJ...
 ```

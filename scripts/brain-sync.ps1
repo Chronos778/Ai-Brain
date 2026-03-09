@@ -9,6 +9,7 @@
 
 param(
     [switch]$NoPush,
+    [switch]$SkipProjectInit,
     [int]$ActiveDays = 14,
     [int]$ContextDays = 30,
     [int]$SkillStaleDays = 45
@@ -464,6 +465,27 @@ $ctx += ""
 
 Set-Content -Path (Join-Path $MemoryDir "active-context.md") -Value ($ctx -join "`n") -Encoding UTF8
 Write-Log "Updated active-context.md"
+
+# ─── Propagate project instruction files to active repos ─────────────
+
+if (-not $SkipProjectInit) {
+    $projectInitScript = Join-Path $BrainRoot "scripts\project-init.ps1"
+    if (Test-Path $projectInitScript) {
+        try {
+            $projectInitOutput = @(& $projectInitScript -AllActiveProjects -BrainRoot $BrainRoot -ActiveProjectsPath $prevProjectsPath -Quiet)
+            if ($projectInitOutput.Count -gt 0) {
+                foreach ($line in $projectInitOutput) {
+                    if ($line) { Write-Log "project-init: $line" }
+                }
+            }
+            Write-Log "project-init propagation complete for active projects"
+        } catch {
+            Write-Log "WARNING: project-init propagation failed - $($_.Exception.Message)"
+        }
+    } else {
+        Write-Log "WARNING: project-init script not found, skipping active project propagation"
+    }
+}
 
 # ─── Auto-create skill stubs in review folder ─────────────────────────
 

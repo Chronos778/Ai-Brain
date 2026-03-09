@@ -63,6 +63,7 @@ Scans `C:\Users\Maithil\Projects`, detects tech stacks, updates memory, commits 
 ```powershell
 brain-sync              # Full sync + push
 brain-sync -NoPush      # Sync without pushing
+brain-sync -SkipProjectInit  # Skip propagating project .github/copilot-instructions.md
 ```
 
 What happens:
@@ -70,8 +71,22 @@ What happens:
 2. Detects tech from package.json, requirements.txt, Cargo.toml, etc.
 3. Builds `active-context.md` with meaningful change summary — not git log dumps
 4. Creates minimal skill stubs for newly detected tech
-5. Syncs VS Code + Antigravity settings to point at brain files
-6. Commits with descriptive message and pushes
+5. Writes `.github/copilot-instructions.md` into each active project
+6. Syncs VS Code + Antigravity settings to point at brain files
+7. Commits with descriptive message and pushes
+
+### `project-init`
+
+Generates a physical `.github/copilot-instructions.md` file from AI-Brain sources for one project or all active projects.
+
+```powershell
+project-init                                # Current directory
+project-init -ProjectPath C:\path\to\repo
+project-init -AllActiveProjects             # Reads memory/active-projects.json
+project-init -AllActiveProjects -DryRun     # Preview only
+```
+
+Default payload includes identity, active context, decisions, learnings, top-level skills, and directory `SKILL.md` files.
 
 ### `brain-learn`
 
@@ -85,6 +100,15 @@ brain-learn --recent            # Last 10 entries
 ```
 
 Learnings are auto-categorized by scanning for skill keywords and tagged accordingly.
+
+### `brain-adapt`
+
+Audits markdown context for tool-specific drift and applies safe removals for known tool-locked skill directories.
+
+```powershell
+brain-adapt             # Audit only, writes memory/migration-audit.md
+brain-adapt -Apply      # Apply safe removals + refresh audit
+```
 
 ## Design Principles
 

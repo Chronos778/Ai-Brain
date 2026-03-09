@@ -26,7 +26,7 @@ Quick reference for what I know and how I use it.
 - **Testing Playbook** — Behavior-first testing strategy, baseline coverage, and quality gates
 
 ## Imported Skills
-- Imported collection from `affaan-m/everything-claude-code` has been merged into top-level `skills/` as directory-based skills.
+- Imported skill collection has been adapted into top-level `skills/` as directory-based skills.
 - Each imported skill lives at `skills/<skill-name>/SKILL.md`.
 - Quick discovery: use `skills/*/SKILL.md` to browse all imported skill definitions.
 - Examples:
