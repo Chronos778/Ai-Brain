@@ -33,8 +33,12 @@ AI-Brain/
 │   └── learnings.md           Hard-won insights worth remembering
 │
 ├── scripts/
-│   ├── brain-sync.ps1         Scan projects, update memory, push
-│   └── brain-learn.ps1        Record learnings and decisions
+│   ├── brain-sync.ps1         Scan projects, update memory, sync editors, push
+│   ├── brain-learn.ps1        Record learnings and decisions
+│   ├── project-init.ps1       Build .github/copilot-instructions.md per project
+│   ├── brain-adapt.ps1        Audit/apply markdown adaptation cleanup
+│   ├── brain-verify.ps1       Verify editor instruction wiring
+│   └── *.cmd wrappers         Windows command aliases for each script
 │
 └── logs/                  ← Sync history (git-ignored)
 ```
@@ -84,9 +88,11 @@ project-init                                # Current directory
 project-init -ProjectPath C:\path\to\repo
 project-init -AllActiveProjects             # Reads memory/active-projects.json
 project-init -AllActiveProjects -DryRun     # Preview only
+project-init -FullContext                   # Include all nested SKILL.md files (large)
 ```
 
-Default payload includes identity, active context, decisions, learnings, top-level skills, and directory `SKILL.md` files.
+Default mode is compact: identity + active context + trimmed decisions/learnings + relevant top-level skills based on project tech stack.
+Use `-FullContext` only when you explicitly need the complete merged corpus.
 
 ### `brain-learn`
 
@@ -109,6 +115,16 @@ Audits markdown context for tool-specific drift and applies safe removals for kn
 brain-adapt             # Audit only, writes memory/migration-audit.md
 brain-adapt -Apply      # Apply safe removals + refresh audit
 ```
+
+### `brain-verify`
+
+Checks Copilot instruction wiring in supported editor settings files and validates that referenced AI-Brain files exist.
+
+```powershell
+brain-verify
+```
+
+Use this after changing `brain-sync`, editor settings, or AI-Brain file layout.
 
 ## Design Principles
 

@@ -1,14 +1,32 @@
 ﻿{
-    "activeRepos":  8,
-    "lastSynced":  "2026-03-09T23:14:46Z",
+    "activeRepos":  2,
+    "lastSynced":  "2026-03-11T01:02:29Z",
     "projects":  [
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: Introduce advanced analytics, real-time data streaming, and AI insights, coupled with a complete Swiss Grid UI theme overhaul.",
+                                            "date":  "2026-03-11T01:02:07+05:30"
+                                        },
+                         "daysSinceCommit":  0,
+                         "isActive":  true,
+                         "name":  "advanced-data-visualization-playground",
+                         "recentCommits":  [
+                                               "438cac0 feat: Introduce advanced analytics, real-time data streaming, and AI insights, coupled with a complete Swiss Grid UI theme overhaul."
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\advanced-data-visualization-playground",
+                         "techStack":  [
+                                           "Node.js",
+                                           "React"
+                                       ]
+                     },
                      {
                          "branch":  "main",
                          "lastCommit":  {
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  8,
+                         "daysSinceCommit":  9.1,
                          "isActive":  true,
                          "name":  "myportfolio",
                          "recentCommits":  [
@@ -34,7 +52,7 @@
                                             "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
                                             "date":  "2026-02-16T23:06:31+05:30"
                                         },
-                         "daysSinceCommit":  21,
+                         "daysSinceCommit":  22.1,
                          "isActive":  false,
                          "name":  "SkillShorts/SkillShorts",
                          "recentCommits":  [
@@ -56,7 +74,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T23:25:56+05:30"
                                         },
-                         "daysSinceCommit":  26,
+                         "daysSinceCommit":  27.1,
                          "isActive":  false,
                          "name":  "algox/AlgoLabX",
                          "recentCommits":  [
@@ -75,26 +93,9 @@
                          "branch":  "main",
                          "lastCommit":  {
                                             "message":  ".",
-                                            "date":  "2026-02-11T19:16:21+05:30"
-                                        },
-                         "daysSinceCommit":  26.2,
-                         "isActive":  false,
-                         "name":  "neuralnetwork/neural-visualizer",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
-                         "techStack":  [
-                                           "Python"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
                                             "date":  "2026-02-11T19:11:15+05:30"
                                         },
-                         "daysSinceCommit":  26.2,
+                         "daysSinceCommit":  27.2,
                          "isActive":  false,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
@@ -111,7 +112,7 @@
                                             "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
                                             "date":  "2026-02-11T19:27:53+05:30"
                                         },
-                         "daysSinceCommit":  26.2,
+                         "daysSinceCommit":  27.2,
                          "isActive":  false,
                          "name":  "tsrow",
                          "recentCommits":  [
@@ -125,10 +126,27 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
+                                            "message":  ".",
+                                            "date":  "2026-02-11T19:16:21+05:30"
+                                        },
+                         "daysSinceCommit":  27.2,
+                         "isActive":  false,
+                         "name":  "neuralnetwork/neural-visualizer",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
+                         "techStack":  [
+                                           "Python"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
                                             "message":  "feat: Implement mobile navigation and expand recipe data with new entries and details.",
                                             "date":  "2026-02-09T22:55:59+05:30"
                                         },
-                         "daysSinceCommit":  28,
+                         "daysSinceCommit":  29.1,
                          "isActive":  false,
                          "name":  "foodbook/recipe-book",
                          "recentCommits":  [
@@ -145,7 +163,7 @@
                                             "message":  "some chnages",
                                             "date":  "2026-02-08T22:41:00+05:30"
                                         },
-                         "daysSinceCommit":  29,
+                         "daysSinceCommit":  30.1,
                          "isActive":  false,
                          "name":  "eatwise",
                          "recentCommits":  [
@@ -162,7 +180,7 @@
                                             "message":  "feat: Implement rate limiting, add Quote of the Day and search endpoints, and refactor quote-related logic into dedicated controllers and routes.",
                                             "date":  "2026-02-07T14:46:09+05:30"
                                         },
-                         "daysSinceCommit":  30.4,
+                         "daysSinceCommit":  31.4,
                          "isActive":  false,
                          "name":  "Quotes/quote.api",
                          "recentCommits":  [
@@ -180,7 +198,7 @@
                                             "message":  "Merge branch \u0027main\u0027 of https://github.com/SC136/Quotation",
                                             "date":  "2026-01-26T14:57:08+05:30"
                                         },
-                         "daysSinceCommit":  42.3,
+                         "daysSinceCommit":  43.4,
                          "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
@@ -201,7 +219,7 @@
                                             "message":  "fix: remove habits and achievements plugins to ensure stability",
                                             "date":  "2026-01-14T12:03:01+05:30"
                                         },
-                         "daysSinceCommit":  54.5,
+                         "daysSinceCommit":  55.5,
                          "isActive":  false,
                          "name":  "Chronos778-profile",
                          "recentCommits":  [
@@ -218,7 +236,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  92.1,
+                         "daysSinceCommit":  93.2,
                          "isActive":  false,
                          "name":  "lifetrack/lifetrack",
                          "recentCommits":  [
@@ -230,5 +248,5 @@
                                        ]
                      }
                  ],
-    "totalRepos":  12
+    "totalRepos":  13
 }
