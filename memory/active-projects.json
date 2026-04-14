@@ -1,295 +1,301 @@
-﻿{
-    "activeRepos":  6,
-    "lastSynced":  "2026-03-27T20:45:22Z",
-    "projects":  [
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "Update github-metrics.svg - [Skip GitHub Action]",
-                                            "date":  "2026-03-26T13:02:31Z"
-                                        },
-                         "daysSinceCommit":  1.1,
-                         "isActive":  true,
-                         "name":  "Chronos778-profile",
-                         "recentCommits":  [
-                                               "f799c73 Update github-metrics.svg - [Skip GitHub Action]",
-                                               "ff55466 Update github-metrics.svg - [Skip GitHub Action]",
-                                               "17f43b2 Update github-metrics.svg - [Skip GitHub Action]",
-                                               "b7ae5e7 Update github-metrics.svg - [Skip GitHub Action]",
-                                               "b1b14fb Update github-metrics.svg - [Skip GitHub Action]"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-03-26T18:27:33+05:30"
-                                        },
-                         "daysSinceCommit":  1.1,
-                         "isActive":  true,
-                         "name":  "Quotes/quote.web",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
-                                            "date":  "2026-03-26T19:07:12+05:30"
-                                        },
-                         "daysSinceCommit":  1.1,
-                         "isActive":  true,
-                         "name":  "EatWise",
-                         "recentCommits":  [
-                                               "294c8ab Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
-                                               "95c7e93 Add font-family to add-btn class"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\EatWise",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: Add pagination, filtering, and free plan protection to quotes API; enhance rate limiting and database indexing",
-                                            "date":  "2026-03-26T17:00:44+05:30"
-                                        },
-                         "daysSinceCommit":  1.2,
-                         "isActive":  true,
-                         "name":  "Quotes/quote.api",
-                         "recentCommits":  [
-                                               "23c74a2 feat: Add pagination, filtering, and free plan protection to quotes API; enhance rate limiting and database indexing"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
-                         "techStack":  [
-                                           "Node.js",
-                                           "Express"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-03-23T22:29:54+05:30"
-                                        },
-                         "daysSinceCommit":  3.9,
-                         "isActive":  true,
-                         "name":  "techshift-google",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\techshift-google",
-                         "techStack":  [
-                                           "Node.js",
-                                           "Three.js",
-                                           "React",
-                                           "Tailwind CSS",
-                                           "Vite"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "Update SharedReport.jsx and add supabase_schema.sql",
-                                            "date":  "2026-03-14T08:55:17+05:30"
-                                        },
-                         "daysSinceCommit":  13.5,
-                         "isActive":  true,
-                         "name":  "Hackverse/wiet-hackverse-2-0-hackathon-project-submission-healthcare-wh05_just-code-it",
-                         "recentCommits":  [
-                                               "78fdaa5 Update SharedReport.jsx and add supabase_schema.sql",
-                                               "6cca7b0 new",
-                                               "4f83a63 fix",
-                                               "25bd329 user added",
-                                               "2e212e4 ui chnages"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Hackverse\\wiet-hackverse-2-0-hackathon-project-submission-healthcare-wh05_just-code-it",
-                         "techStack":  [
-                                           "Python"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-03-11T23:43:16+05:30"
-                                        },
-                         "daysSinceCommit":  15.9,
-                         "isActive":  false,
-                         "name":  "foodbook/recipe-book",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
-                                            "date":  "2026-03-11T20:33:59+05:30"
-                                        },
-                         "daysSinceCommit":  16,
-                         "isActive":  false,
-                         "name":  "advanced-data-visualization-playground",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\advanced-data-visualization-playground",
-                         "techStack":  [
-                                           "Node.js",
-                                           "React"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-03-01T22:15:24+05:30"
-                                        },
-                         "daysSinceCommit":  25.9,
-                         "isActive":  false,
-                         "name":  "myportfolio",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\myportfolio",
-                         "techStack":  [
-                                           "Node.js",
-                                           "TypeScript",
-                                           "Three.js",
-                                           "React",
-                                           "Tailwind CSS",
-                                           "Next.js"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
-                                            "date":  "2026-02-16T23:06:31+05:30"
-                                        },
-                         "daysSinceCommit":  38.9,
-                         "isActive":  false,
-                         "name":  "SkillShorts/SkillShorts",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts",
-                         "techStack":  [
-                                           "Bun",
-                                           "Node.js",
-                                           "TypeScript",
-                                           "React",
-                                           "Tailwind CSS",
-                                           "Vite"
-                                       ]
-                     },
-                     {
-                         "branch":  "master",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-02-11T23:25:56+05:30"
-                                        },
-                         "daysSinceCommit":  43.9,
-                         "isActive":  false,
-                         "name":  "algox/AlgoLabX",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX",
-                         "techStack":  [
-                                           "Node.js",
-                                           "Three.js",
-                                           "React",
-                                           "Tailwind CSS",
-                                           "Vite"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
-                                            "date":  "2026-02-11T19:27:53+05:30"
-                                        },
-                         "daysSinceCommit":  44.1,
-                         "isActive":  false,
-                         "name":  "tsrow",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\tsrow",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  ".",
-                                            "date":  "2026-02-11T19:16:21+05:30"
-                                        },
-                         "daysSinceCommit":  44.1,
-                         "isActive":  false,
-                         "name":  "neuralnetwork/neural-visualizer",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
-                         "techStack":  [
-                                           "Python"
-                                       ]
-                     },
-                     {
-                         "branch":  "master",
-                         "lastCommit":  {
-                                            "message":  "Merge branch \u0027main\u0027 of https://github.com/SC136/Quotation",
-                                            "date":  "2026-01-26T14:57:08+05:30"
-                                        },
-                         "daysSinceCommit":  60.2,
-                         "isActive":  false,
-                         "name":  "Quotationnn/Quotation",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
-                         "techStack":  [
-                                           "Node.js",
-                                           "TypeScript",
-                                           "React",
-                                           "Tailwind CSS",
-                                           "Next.js"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "some changes",
-                                            "date":  "2025-12-07T19:42:56+05:30"
-                                        },
-                         "daysSinceCommit":  110,
-                         "isActive":  false,
-                         "name":  "lifetrack/lifetrack",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack",
-                         "techStack":  [
-
-                                       ]
-                     }
-                 ],
-    "totalRepos":  15
+{
+  "lastSynced": "2026-04-15T00:17:41Z",
+  "totalRepos": 18,
+  "activeRepos": 3,
+  "projects": [
+    {
+      "techStack": [
+        "Python"
+      ],
+      "name": "Rewind",
+      "isActive": true,
+      "path": "C:\\Users\\Maithil\\Projects\\Rewind",
+      "branch": "master",
+      "recentCommits": [
+        "5253b91 Initial commit: rewind v1.0.0"
+      ],
+      "lastCommit": {
+        "date": "2026-04-07T23:50:20+05:30",
+        "message": "Initial commit: rewind v1.0.0"
+      },
+      "daysSinceCommit": 7.0
+    },
+    {
+      "techStack": [
+        "Dart/Flutter"
+      ],
+      "name": "AudioTrimr",
+      "isActive": true,
+      "path": "C:\\Users\\Maithil\\Projects\\AudioTrimr",
+      "branch": "dev/anti-opus-trimr",
+      "recentCommits": [
+        "2c4cc3c Delete flutter_analyze_results.txt",
+        "c797aac Delete REDESIGN_SUMMARY.md",
+        "ef9782f Delete REDESIGN.md",
+        "0f85ae0 fix: remove unnecessary string interpolation in TinyFadeRow widget",
+        "f72e20a Add TrimmerView and TransportControls for audio trimming functionality"
+      ],
+      "lastCommit": {
+        "date": "2026-04-05T00:44:37+05:30",
+        "message": "Delete flutter_analyze_results.txt"
+      },
+      "daysSinceCommit": 10.0
+    },
+    {
+      "techStack": [
+        "Node.js"
+      ],
+      "name": "Quotes/quote.web",
+      "isActive": true,
+      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
+      "branch": "main",
+      "recentCommits": [
+        "463590b fix: correct casing in URLs for consistency across README and HTML files",
+        "5d48950 fix: standardize quotes in GitHub Actions workflow for consistency",
+        "78fd24a feat: add GitHub Actions workflow for deploying to GitHub Pages",
+        "1ff565c feat: implement dynamic service worker registration and add custom 404 redirect page",
+        "c8ebe23 fix: adjust dock hint arrow positioning for better mobile display"
+      ],
+      "lastCommit": {
+        "date": "2026-04-03T15:21:15+05:30",
+        "message": "fix: correct casing in URLs for consistency across README and HTML files"
+      },
+      "daysSinceCommit": 11.4
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "Express"
+      ],
+      "name": "Quotes/quote.api",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-31T21:59:53+05:30",
+        "message": "feat: Enhance API configuration with CORS, trust proxy, and payload limits; add health check endpoint and improve error handling"
+      },
+      "daysSinceCommit": 14.1
+    },
+    {
+      "techStack": [],
+      "name": "foodbook/recipe-book",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-28T14:56:13+05:30",
+        "message": "Merge pull request #5 from Chronos778/main"
+      },
+      "daysSinceCommit": 17.4
+    },
+    {
+      "techStack": [],
+      "name": "Chronos778-profile",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-26T13:02:31Z",
+        "message": "Update github-metrics.svg - [Skip GitHub Action]"
+      },
+      "daysSinceCommit": 19.2
+    },
+    {
+      "techStack": [],
+      "name": "EatWise",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\EatWise",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-26T19:07:12+05:30",
+        "message": "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture"
+      },
+      "daysSinceCommit": 19.2
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Three.js"
+      ],
+      "name": "techshift-google",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\techshift-google",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-23T22:29:54+05:30",
+        "message": "."
+      },
+      "daysSinceCommit": 22.1
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React"
+      ],
+      "name": "advanced-data-visualization-playground",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\advanced-data-visualization-playground",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-11T20:33:59+05:30",
+        "message": "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage."
+      },
+      "daysSinceCommit": 34.2
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Three.js"
+      ],
+      "name": "myportfolio",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\myportfolio",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-03-01T22:15:24+05:30",
+        "message": "."
+      },
+      "daysSinceCommit": 44.1
+    },
+    {
+      "techStack": [
+        "Bun",
+        "Node.js",
+        "React",
+        "Vite",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "name": "SkillShorts/SkillShorts",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-02-16T23:06:31+05:30",
+        "message": "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI."
+      },
+      "daysSinceCommit": 57.0
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Three.js"
+      ],
+      "name": "algox/AlgoLabX",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX",
+      "branch": "master",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-02-11T23:25:56+05:30",
+        "message": "."
+      },
+      "daysSinceCommit": 62.0
+    },
+    {
+      "techStack": [],
+      "name": "tsrow",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\tsrow",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-02-11T19:27:53+05:30",
+        "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README."
+      },
+      "daysSinceCommit": 62.2
+    },
+    {
+      "techStack": [
+        "Python"
+      ],
+      "name": "neuralnetwork/neural-visualizer",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-02-11T19:16:21+05:30",
+        "message": "."
+      },
+      "daysSinceCommit": 62.2
+    },
+    {
+      "techStack": [
+        "Node.js",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "name": "Quotationnn/Quotation",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
+      "branch": "master",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-01-26T14:57:08+05:30",
+        "message": "Merge branch 'main' of https://github.com/SC136/Quotation"
+      },
+      "daysSinceCommit": 78.4
+    },
+    {
+      "techStack": [],
+      "name": "autoreport",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\autoreport",
+      "branch": "master",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2026-01-21T23:38:26+05:30",
+        "message": "feat: change react motion import and fix long repo name overflow with ellipsis"
+      },
+      "daysSinceCommit": 83.0
+    },
+    {
+      "techStack": [],
+      "name": "LifeTrack-1",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\LifeTrack-1",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2025-12-07T19:42:56+05:30",
+        "message": "some changes"
+      },
+      "daysSinceCommit": 128.2
+    },
+    {
+      "techStack": [],
+      "name": "lifetrack/lifetrack",
+      "isActive": false,
+      "path": "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack",
+      "branch": "main",
+      "recentCommits": [],
+      "lastCommit": {
+        "date": "2025-12-07T19:42:56+05:30",
+        "message": "some changes"
+      },
+      "daysSinceCommit": 128.2
+    }
+  ]
 }
