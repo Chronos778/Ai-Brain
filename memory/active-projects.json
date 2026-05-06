@@ -1,21 +1,64 @@
 ﻿{
-    "activeRepos":  2,
-    "lastSynced":  "2026-04-22T19:28:39Z",
+    "activeRepos":  3,
+    "lastSynced":  "2026-05-07T00:53:39Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "Remove emojis from README",
-                                            "date":  "2026-04-21T01:39:22+05:30"
+                                            "message":  "fix: offset snake schedule to avoid race condition and pull before pushing",
+                                            "date":  "2026-05-06T23:36:17+05:30"
                                         },
-                         "daysSinceCommit":  1.7,
+                         "daysSinceCommit":  0.1,
+                         "isActive":  true,
+                         "name":  "Chronos778-profile",
+                         "recentCommits":  [
+                                               "c5962f6 fix: offset snake schedule to avoid race condition and pull before pushing",
+                                               "b076237 Update github-metrics.svg - [Skip GitHub Action]",
+                                               "82dadc2 Update snake SVGs [skip ci]",
+                                               "7ac4d5e Update github-metrics.svg - [Skip GitHub Action]",
+                                               "519891a Update github-metrics.svg - [Skip GitHub Action]"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "chore: release 1.1.4",
+                                            "date":  "2026-05-06T02:14:31+05:30"
+                                        },
+                         "daysSinceCommit":  0.9,
+                         "isActive":  true,
+                         "name":  "git-rewind",
+                         "recentCommits":  [
+                                               "4cb5896 chore: release 1.1.4",
+                                               "21c0690 ci: allow dirty Cargo.lock when publishing",
+                                               "fee5dbc ci: use env var for cargo publish token",
+                                               "53b44d3 ci: add crates.io publish job to release workflow",
+                                               "669dce5 chore: security patches and bump version to 1.1.3"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\git-rewind",
+                         "techStack":  [
+                                           "Rust"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: implement sidebar navigation and add landing page components and dashboard routes",
+                                            "date":  "2026-04-28T23:39:02+05:30"
+                                        },
+                         "daysSinceCommit":  8.1,
                          "isActive":  true,
                          "name":  "SCARO-main/SCARO-main",
                          "recentCommits":  [
-                                               "44a4b81 Remove emojis from README",
-                                               "c6682a2 redesign",
-                                               "751a126 Update README to remove team and event details",
-                                               "ed261c0 Initial commit: SCARO project"
+                                               "de88c58 feat: implement sidebar navigation and add landing page components and dashboard routes",
+                                               "4a6156b feat: add project logo to landing page public assets",
+                                               "67a68e8 feat: switch LLM provider from Gemini to NVIDIA NIM and implement comprehensive backend dashboard and RAG infrastructure",
+                                               "79121f9 feat: add brand and landing page logo assets to public directory",
+                                               "aadff53 hella lot of changes"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\SCARO-main\\SCARO-main",
                          "techStack":  [
@@ -25,38 +68,38 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
+                                            "message":  "fix2 (please be last)",
+                                            "date":  "2026-04-20T11:10:57+05:30"
+                                        },
+                         "daysSinceCommit":  16.6,
+                         "isActive":  false,
+                         "name":  "AiYapping",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\AiYapping",
+                         "techStack":  [
+                                           "Node.js",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Vite"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
                                             "message":  "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
                                             "date":  "2026-04-18T23:51:42+05:30"
                                         },
-                         "daysSinceCommit":  3.8,
-                         "isActive":  true,
+                         "daysSinceCommit":  18,
+                         "isActive":  false,
                          "name":  "Rajas-web/my-web-of-social",
                          "recentCommits":  [
-                                               "797eaea Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
-                                               "297b782 feat: make all content dynamic and timeless",
-                                               "bc74d9e feat: implement dynamic age calculation, update profile image, and refresh social media handle",
-                                               "282491a redesign: Signal Terminal aesthetic, cleanup repo"
+
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Rajas-web\\my-web-of-social",
                          "techStack":  [
 
-                                       ]
-                     },
-                     {
-                         "branch":  "master",
-                         "lastCommit":  {
-                                            "message":  "Initial commit: rewind v1.0.0",
-                                            "date":  "2026-04-07T23:50:20+05:30"
-                                        },
-                         "daysSinceCommit":  14.8,
-                         "isActive":  false,
-                         "name":  "Rewind",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Rewind",
-                         "techStack":  [
-                                           "Python"
                                        ]
                      },
                      {
@@ -65,7 +108,7 @@
                                             "message":  "Delete flutter_analyze_results.txt",
                                             "date":  "2026-04-05T00:44:37+05:30"
                                         },
-                         "daysSinceCommit":  17.8,
+                         "daysSinceCommit":  32,
                          "isActive":  false,
                          "name":  "AudioTrimr",
                          "recentCommits":  [
@@ -79,27 +122,10 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "Update github-metrics.svg - [Skip GitHub Action]",
-                                            "date":  "2026-04-03T12:53:09Z"
-                                        },
-                         "daysSinceCommit":  19,
-                         "isActive":  false,
-                         "name":  "Chronos778-profile",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
                                             "message":  "fix: correct casing in URLs for consistency across README and HTML files",
                                             "date":  "2026-04-03T15:21:15+05:30"
                                         },
-                         "daysSinceCommit":  19.2,
+                         "daysSinceCommit":  33.4,
                          "isActive":  false,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
@@ -116,7 +142,7 @@
                                             "message":  "feat: Enhance API configuration with CORS, trust proxy, and payload limits; add health check endpoint and improve error handling",
                                             "date":  "2026-03-31T21:59:53+05:30"
                                         },
-                         "daysSinceCommit":  21.9,
+                         "daysSinceCommit":  36.1,
                          "isActive":  false,
                          "name":  "Quotes/quote.api",
                          "recentCommits":  [
@@ -134,7 +160,7 @@
                                             "message":  "Merge pull request #5 from Chronos778/main",
                                             "date":  "2026-03-28T14:56:13+05:30"
                                         },
-                         "daysSinceCommit":  25.2,
+                         "daysSinceCommit":  39.4,
                          "isActive":  false,
                          "name":  "foodbook/recipe-book",
                          "recentCommits":  [
@@ -151,7 +177,7 @@
                                             "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
                                             "date":  "2026-03-26T19:07:12+05:30"
                                         },
-                         "daysSinceCommit":  27,
+                         "daysSinceCommit":  41.2,
                          "isActive":  false,
                          "name":  "EatWise",
                          "recentCommits":  [
@@ -168,7 +194,7 @@
                                             "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
                                             "date":  "2026-03-11T20:33:59+05:30"
                                         },
-                         "daysSinceCommit":  42,
+                         "daysSinceCommit":  56.2,
                          "isActive":  false,
                          "name":  "advanced-data-visualization-playground",
                          "recentCommits":  [
@@ -186,7 +212,7 @@
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  51.9,
+                         "daysSinceCommit":  66.1,
                          "isActive":  false,
                          "name":  "myportfolio",
                          "recentCommits":  [
@@ -208,7 +234,7 @@
                                             "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
                                             "date":  "2026-02-16T23:06:31+05:30"
                                         },
-                         "daysSinceCommit":  64.8,
+                         "daysSinceCommit":  79.1,
                          "isActive":  false,
                          "name":  "SkillShorts/SkillShorts",
                          "recentCommits":  [
@@ -230,7 +256,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T23:25:56+05:30"
                                         },
-                         "daysSinceCommit":  69.8,
+                         "daysSinceCommit":  84.1,
                          "isActive":  false,
                          "name":  "algox/AlgoLabX",
                          "recentCommits":  [
@@ -251,7 +277,7 @@
                                             "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
                                             "date":  "2026-02-11T19:27:53+05:30"
                                         },
-                         "daysSinceCommit":  70,
+                         "daysSinceCommit":  84.2,
                          "isActive":  false,
                          "name":  "tsrow",
                          "recentCommits":  [
@@ -268,7 +294,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T19:16:21+05:30"
                                         },
-                         "daysSinceCommit":  70,
+                         "daysSinceCommit":  84.2,
                          "isActive":  false,
                          "name":  "neuralnetwork/neural-visualizer",
                          "recentCommits":  [
@@ -285,7 +311,7 @@
                                             "message":  "Merge branch \u0027main\u0027 of https://github.com/SC136/Quotation",
                                             "date":  "2026-01-26T14:57:08+05:30"
                                         },
-                         "daysSinceCommit":  86.2,
+                         "daysSinceCommit":  100.4,
                          "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
@@ -306,7 +332,7 @@
                                             "message":  "feat: change react motion import and fix long repo name overflow with ellipsis",
                                             "date":  "2026-01-21T23:38:26+05:30"
                                         },
-                         "daysSinceCommit":  90.8,
+                         "daysSinceCommit":  105.1,
                          "isActive":  false,
                          "name":  "autoreport",
                          "recentCommits":  [
@@ -323,7 +349,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  136,
+                         "daysSinceCommit":  150.2,
                          "isActive":  false,
                          "name":  "lifetrack/lifetrack",
                          "recentCommits":  [
@@ -340,7 +366,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  136,
+                         "daysSinceCommit":  150.2,
                          "isActive":  false,
                          "name":  "LifeTrack-1",
                          "recentCommits":  [
@@ -352,5 +378,5 @@
                                        ]
                      }
                  ],
-    "totalRepos":  19
+    "totalRepos":  20
 }
