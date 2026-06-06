@@ -1,22 +1,22 @@
 ﻿{
-    "activeRepos":  6,
-    "lastSynced":  "2026-05-19T00:24:40Z",
+    "activeRepos":  2,
+    "lastSynced":  "2026-06-06T20:23:41Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "feat: implement core site structure with about page, product routes, and enquiry modal system",
-                                            "date":  "2026-05-19T00:21:23+05:30"
+                                            "message":  "feat: add dynamic export to enable server-side rendering",
+                                            "date":  "2026-06-06T18:31:04+05:30"
                                         },
-                         "daysSinceCommit":  0,
+                         "daysSinceCommit":  0.1,
                          "isActive":  true,
                          "name":  "Intership/orelli",
                          "recentCommits":  [
-                                               "fb4a017 feat: implement core site structure with about page, product routes, and enquiry modal system",
-                                               "2be5bcb chore: update package-lock.json dependencies",
-                                               "6a8894c chore: normalize project name to lowercase in package.json",
-                                               "9e670f8 feat: implement category browsing system with dynamic routes, carousel components, and associated assets",
-                                               "a91e8de feat: implement contact form component with submission state handling"
+                                               "0c2b7b0 feat: add dynamic export to enable server-side rendering",
+                                               "69d0517 feat: add initial database migration with Category, Project, Blog, HeroImage, UploadedImage, and Faq tables; include foreign key constraints",
+                                               "410e4f5 Fix unused variable ESLint error",
+                                               "d4882eb feat: integrate Supabase for file uploads and management; update database provider to PostgreSQL",
+                                               "208089a feat: improve FAQ edit and creation forms with accessibility enhancements and error handling"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Intership\\orelli",
                          "techStack":  [
@@ -24,7 +24,29 @@
                                            "TypeScript",
                                            "React",
                                            "Tailwind CSS",
+                                           "Prisma",
                                            "Next.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "Merge branch \u0027main\u0027 of https://github.com/Chronos778/Chronos778",
+                                            "date":  "2026-06-04T22:40:25+05:30"
+                                        },
+                         "daysSinceCommit":  1.9,
+                         "isActive":  true,
+                         "name":  "Chronos778-profile",
+                         "recentCommits":  [
+                                               "b54d18c Update README and about-me SVG for improved color consistency",
+                                               "042d9f6 Update github-metrics.svg - [Skip GitHub Action]",
+                                               "220a8e4 Update github-metrics.svg - [Skip GitHub Action]",
+                                               "7890b48 Replace \u0027about-me-ui.svg\u0027 with \u0027about-me.svg\u0027 for improved consistency in README",
+                                               "befa3ce Update github-metrics.svg - [Skip GitHub Action]"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+                         "techStack":  [
+
                                        ]
                      },
                      {
@@ -33,14 +55,11 @@
                                             "message":  "feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
                                             "date":  "2026-05-14T15:01:13+05:30"
                                         },
-                         "daysSinceCommit":  4.4,
-                         "isActive":  true,
+                         "daysSinceCommit":  23.2,
+                         "isActive":  false,
                          "name":  "PantryPulse",
                          "recentCommits":  [
-                                               "3b92a8c feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
-                                               "28e0181 feat: implement environment validation on server startup and improve error handling in ErrorBoundary",
-                                               "a397bdf feat: enhance environment variable validation and wrap app in ErrorBoundary",
-                                               "a6301b1 feat: implement error boundary component and environment variable validation"
+
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\PantryPulse",
                          "techStack":  [
@@ -57,15 +76,11 @@
                                             "message":  "feat(messages): add save-as-quote functionality with modal and profanity filtering",
                                             "date":  "2026-05-14T15:06:45+05:30"
                                         },
-                         "daysSinceCommit":  4.4,
-                         "isActive":  true,
+                         "daysSinceCommit":  23.2,
+                         "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
-                                               "fda0789 feat(messages): add save-as-quote functionality with modal and profanity filtering",
-                                               "5856153 fix(messages): replace scrollIntoView with direct scroll positioning",
-                                               "23c177d fix(messages): improve conversation view layout with proper scroll positioning",
-                                               "9a7c20e feat(messaging): add read receipts, typing indicators, and realtime updates",
-                                               "614d3dc addded image upload"
+
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
                          "techStack":  [
@@ -82,15 +97,11 @@
                                             "message":  "feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
                                             "date":  "2026-05-14T01:00:46+05:30"
                                         },
-                         "daysSinceCommit":  5,
-                         "isActive":  true,
+                         "daysSinceCommit":  23.8,
+                         "isActive":  false,
                          "name":  "LeetCode-Scrapper",
                          "recentCommits":  [
-                                               "6a43ba3 feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
-                                               "ac12707 feat: implement LeetCode submission date synchronization with new data recovery scripts and updated frontend topic detail views",
-                                               "82c3d1a feat: resolve 203/203 problem sync discrepancy and harden upsert logic",
-                                               "bda64c8 docs: update README for v2.1 with 21-bucket taxonomy and port 8081 info",
-                                               "9f8046a fix: switch /problems/all to database-backed implementation to ensure pattern field is present"
+
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\LeetCode-Scrapper",
                          "techStack":  [
@@ -100,39 +111,14 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "fix: offset snake schedule to avoid race condition and pull before pushing",
-                                            "date":  "2026-05-06T23:36:17+05:30"
-                                        },
-                         "daysSinceCommit":  12,
-                         "isActive":  true,
-                         "name":  "Chronos778-profile",
-                         "recentCommits":  [
-                                               "c5962f6 fix: offset snake schedule to avoid race condition and pull before pushing",
-                                               "b076237 Update github-metrics.svg - [Skip GitHub Action]",
-                                               "82dadc2 Update snake SVGs [skip ci]",
-                                               "7ac4d5e Update github-metrics.svg - [Skip GitHub Action]",
-                                               "519891a Update github-metrics.svg - [Skip GitHub Action]"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
                                             "message":  "chore: release 1.1.4",
                                             "date":  "2026-05-06T02:14:31+05:30"
                                         },
-                         "daysSinceCommit":  12.9,
-                         "isActive":  true,
+                         "daysSinceCommit":  31.8,
+                         "isActive":  false,
                          "name":  "git-rewind",
                          "recentCommits":  [
-                                               "4cb5896 chore: release 1.1.4",
-                                               "21c0690 ci: allow dirty Cargo.lock when publishing",
-                                               "fee5dbc ci: use env var for cargo publish token",
-                                               "53b44d3 ci: add crates.io publish job to release workflow",
-                                               "669dce5 chore: security patches and bump version to 1.1.3"
+
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\git-rewind",
                          "techStack":  [
@@ -145,7 +131,7 @@
                                             "message":  "feat: implement sidebar navigation and add landing page components and dashboard routes",
                                             "date":  "2026-04-28T23:39:02+05:30"
                                         },
-                         "daysSinceCommit":  20,
+                         "daysSinceCommit":  38.9,
                          "isActive":  false,
                          "name":  "SCARO-main/SCARO-main",
                          "recentCommits":  [
@@ -162,7 +148,7 @@
                                             "message":  "fix2 (please be last)",
                                             "date":  "2026-04-20T11:10:57+05:30"
                                         },
-                         "daysSinceCommit":  28.6,
+                         "daysSinceCommit":  47.4,
                          "isActive":  false,
                          "name":  "AiYapping",
                          "recentCommits":  [
@@ -182,7 +168,7 @@
                                             "message":  "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
                                             "date":  "2026-04-18T23:51:42+05:30"
                                         },
-                         "daysSinceCommit":  30,
+                         "daysSinceCommit":  48.9,
                          "isActive":  false,
                          "name":  "Rajas-web/my-web-of-social",
                          "recentCommits":  [
@@ -199,7 +185,7 @@
                                             "message":  "Delete flutter_analyze_results.txt",
                                             "date":  "2026-04-05T00:44:37+05:30"
                                         },
-                         "daysSinceCommit":  44,
+                         "daysSinceCommit":  62.8,
                          "isActive":  false,
                          "name":  "AudioTrimr",
                          "recentCommits":  [
@@ -216,7 +202,7 @@
                                             "message":  "fix: correct casing in URLs for consistency across README and HTML files",
                                             "date":  "2026-04-03T15:21:15+05:30"
                                         },
-                         "daysSinceCommit":  45.4,
+                         "daysSinceCommit":  64.2,
                          "isActive":  false,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
@@ -233,7 +219,7 @@
                                             "message":  "feat: Enhance API configuration with CORS, trust proxy, and payload limits; add health check endpoint and improve error handling",
                                             "date":  "2026-03-31T21:59:53+05:30"
                                         },
-                         "daysSinceCommit":  48.1,
+                         "daysSinceCommit":  66.9,
                          "isActive":  false,
                          "name":  "Quotes/quote.api",
                          "recentCommits":  [
@@ -251,7 +237,7 @@
                                             "message":  "Merge pull request #5 from Chronos778/main",
                                             "date":  "2026-03-28T14:56:13+05:30"
                                         },
-                         "daysSinceCommit":  51.4,
+                         "daysSinceCommit":  70.2,
                          "isActive":  false,
                          "name":  "foodbook/recipe-book",
                          "recentCommits":  [
@@ -268,7 +254,7 @@
                                             "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
                                             "date":  "2026-03-26T19:07:12+05:30"
                                         },
-                         "daysSinceCommit":  53.2,
+                         "daysSinceCommit":  72.1,
                          "isActive":  false,
                          "name":  "EatWise",
                          "recentCommits":  [
@@ -285,7 +271,7 @@
                                             "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
                                             "date":  "2026-03-11T20:33:59+05:30"
                                         },
-                         "daysSinceCommit":  68.2,
+                         "daysSinceCommit":  87,
                          "isActive":  false,
                          "name":  "advanced-data-visualization-playground",
                          "recentCommits":  [
@@ -303,7 +289,7 @@
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  78.1,
+                         "daysSinceCommit":  96.9,
                          "isActive":  false,
                          "name":  "myportfolio",
                          "recentCommits":  [
@@ -325,7 +311,7 @@
                                             "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
                                             "date":  "2026-02-16T23:06:31+05:30"
                                         },
-                         "daysSinceCommit":  91.1,
+                         "daysSinceCommit":  109.9,
                          "isActive":  false,
                          "name":  "SkillShorts/SkillShorts",
                          "recentCommits":  [
@@ -347,7 +333,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T23:25:56+05:30"
                                         },
-                         "daysSinceCommit":  96,
+                         "daysSinceCommit":  114.9,
                          "isActive":  false,
                          "name":  "algox/AlgoLabX",
                          "recentCommits":  [
@@ -368,7 +354,7 @@
                                             "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
                                             "date":  "2026-02-11T19:27:53+05:30"
                                         },
-                         "daysSinceCommit":  96.2,
+                         "daysSinceCommit":  115,
                          "isActive":  false,
                          "name":  "tsrow",
                          "recentCommits":  [
@@ -385,7 +371,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T19:16:21+05:30"
                                         },
-                         "daysSinceCommit":  96.2,
+                         "daysSinceCommit":  115,
                          "isActive":  false,
                          "name":  "neuralnetwork/neural-visualizer",
                          "recentCommits":  [
@@ -402,7 +388,7 @@
                                             "message":  "feat: change react motion import and fix long repo name overflow with ellipsis",
                                             "date":  "2026-01-21T23:38:26+05:30"
                                         },
-                         "daysSinceCommit":  117,
+                         "daysSinceCommit":  135.9,
                          "isActive":  false,
                          "name":  "autoreport",
                          "recentCommits":  [
@@ -419,7 +405,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  162.2,
+                         "daysSinceCommit":  181,
                          "isActive":  false,
                          "name":  "lifetrack/lifetrack",
                          "recentCommits":  [
@@ -436,7 +422,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  162.2,
+                         "daysSinceCommit":  181,
                          "isActive":  false,
                          "name":  "LifeTrack-1",
                          "recentCommits":  [
