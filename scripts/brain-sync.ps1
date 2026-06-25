@@ -704,25 +704,40 @@ if (Test-Path (Join-Path $BrainRoot ".git")) {
     }
     $status = git status --porcelain 2>$null
     if ($status) {
-        # Build meaningful commit message
-        $parts = @()
-        if ($changes.Count -gt 0) { $parts += "$($changes.Count) project updates" }
-        if ($newSkills.Count -gt 0) { $parts += "new skills: $($newSkills -join ', ')" }
-        $summary = if ($parts.Count -gt 0) { $parts -join ", " } else { "routine sync" }
-        $commitMsg = "sync: $summary - $($Now.ToString('yyyy-MM-dd HH:mm'))"
+        $shouldCommit = $true
+        
+        # Rate-limit commits to prevent repo clutter, unless there are major insights
+        $lastCommitStr = git log -1 --format="%aI" 2>$null
+        if ($lastCommitStr -and $autoLearnings.Count -eq 0 -and $newSkills.Count -eq 0) {
+            $lastCommitTime = [DateTime]::Parse($lastCommitStr)
+            if (($Now - $lastCommitTime).TotalHours -lt 12) {
+                $shouldCommit = $false
+                Write-Log "Skipping git commit (last commit < 12h ago, routine updates only). Files updated locally."
+            }
+        }
 
-        git commit -m $commitMsg 2>$null
-        Write-Log "Committed: $commitMsg"
+        if ($shouldCommit) {
+            # Build meaningful commit message
+            $parts = @()
+            if ($changes.Count -gt 0) { $parts += "$($changes.Count) project updates" }
+            if ($newSkills.Count -gt 0) { $parts += "new skills: $($newSkills -join ', ')" }
+            if ($autoLearnings.Count -gt 0) { $parts += "$($autoLearnings.Count) new learnings" }
+            $summary = if ($parts.Count -gt 0) { $parts -join ", " } else { "routine sync" }
+            $commitMsg = "sync: $summary - $($Now.ToString('yyyy-MM-dd HH:mm'))"
 
-        if (-not $NoPush) {
-            $remotes = git remote 2>$null
-            if ($remotes) {
-                try {
-                    git push origin main 2>$null
-                    if ($LASTEXITCODE -ne 0) { git push origin master 2>$null }
-                    Write-Log "Pushed to GitHub"
-                } catch {
-                    Write-Log "WARNING: Push failed - $($_.Exception.Message)"
+            git commit -m $commitMsg 2>$null
+            Write-Log "Committed: $commitMsg"
+
+            if (-not $NoPush) {
+                $remotes = git remote 2>$null
+                if ($remotes) {
+                    try {
+                        git push origin main 2>$null
+                        if ($LASTEXITCODE -ne 0) { git push origin master 2>$null }
+                        Write-Log "Pushed to GitHub"
+                    } catch {
+                        Write-Log "WARNING: Push failed - $($_.Exception.Message)"
+                    }
                 }
             }
         }

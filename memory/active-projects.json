@@ -1,443 +1,497 @@
-{
-  "totalRepos": 26,
-  "lastSynced": "2026-06-25T21:55:41Z",
-  "projects": [
-    {
-      "isActive": true,
-      "branch": "main",
-      "daysSinceCommit": 0.9,
-      "lastCommit": {
-        "message": "docs: update README with full-stack architecture, CMS features, and deployment documentation",
-        "date": "2026-06-24T23:36:37+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Intership\\orelli",
-      "techStack": [
-        "Node.js",
-        "React",
-        "Next.js",
-        "Prisma",
-        "Tailwind CSS",
-        "TypeScript"
-      ],
-      "name": "Intership/orelli",
-      "recentCommits": [
-        "a5f3f03 docs: update README with full-stack architecture, CMS features, and deployment documentation",
-        "99e380f Fix category gallery array parsing to include main image",
-        "81883c5 feat: implement core website architecture, including layout shell, navigation, featured project sections, and admin dashboard pages.",
-        "5e8805d Update architect label in enquiry form",
-        "17b35c3 Expand About CMS with Hero and Values sections"
-      ]
-    },
-    {
-      "isActive": true,
-      "branch": "main",
-      "daysSinceCommit": 5.4,
-      "lastCommit": {
-        "message": "fix: resolve broken sha256 checksum URLs in installation scripts",
-        "date": "2026-06-20T12:12:26+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\git-rewind",
-      "techStack": [
-        "Rust"
-      ],
-      "name": "git-rewind",
-      "recentCommits": [
-        "9ce6449 fix: resolve broken sha256 checksum URLs in installation scripts",
-        "48fc8fa fix: flush and unlock file handles before sha256 checksum verification",
-        "2c1bef6 docs: document cryptographic updater and bumped token limits",
-        "76f2cf1 chore: release v1.7.0",
-        "16a02b0 chore: optimize AI token constraints and error boundaries"
-      ]
-    },
-    {
-      "isActive": true,
-      "branch": "fix/issue-948-rate-limits",
-      "daysSinceCommit": 7.9,
-      "lastCommit": {
-        "message": "fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
-        "date": "2026-06-17T23:34:06+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\SpotiFLAC",
-      "techStack": [
-        "Go"
-      ],
-      "name": "SpotiFLAC",
-      "recentCommits": [
-        "572ce13 fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
-        "d030fa6 fix: implement retry and backoff for Qobuz and Amazon APIs to fix #948"
-      ]
-    },
-    {
-      "isActive": true,
-      "branch": "main",
-      "daysSinceCommit": 7.9,
-      "lastCommit": {
-        "message": "refactor: update light mode theme colors and increase cache version for service worker",
-        "date": "2026-06-18T00:01:44+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
-      "techStack": [
-        "Node.js"
-      ],
-      "name": "Quotes/quote.web",
-      "recentCommits": [
-        "a8b2f2a refactor: update light mode theme colors and increase cache version for service worker"
-      ]
-    },
-    {
-      "isActive": true,
-      "branch": "feature/v2-pipeline-improvements",
-      "daysSinceCommit": 9.0,
-      "lastCommit": {
-        "message": "feat: update input index handling for audio and SFX in vertical short rendering",
-        "date": "2026-06-16T21:07:42+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\puff",
-      "techStack": [
-        "Python",
-        "Node.js"
-      ],
-      "name": "puff",
-      "recentCommits": [
-        "1bd9912 feat: update input index handling for audio and SFX in vertical short rendering",
-        "7642696 feat: implement V2 pipeline with dynamic captions, hard cuts, and SFX",
-        "10f1a3b feat: implement cascading TTS system with ElevenLabs, Sarvam, and Edge providers including state tracking and analytics.",
-        "6b85a0f feat: implement multi-provider TTS cascade system with Edge, ElevenLabs, and Sarvam, including automated workflow runners and state-based quota management.",
-        "e339997 feat: final V2.1 retention and narrative tuning optimization"
-      ]
-    },
-    {
-      "isActive": true,
-      "branch": "main",
-      "daysSinceCommit": 13.0,
-      "lastCommit": {
-        "message": "feat: implement editorial-style CSS framework, modular components, and utils with service worker support",
-        "date": "2026-06-12T20:51:27+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
-      "techStack": [],
-      "name": "foodbook/recipe-book",
-      "recentCommits": [
-        "5cb134d feat: implement editorial-style CSS framework, modular components, and utils with service worker support",
-        "b5ce4de feat: implement core recipe features including ingredient parsing, instruction normalization, and custom styling system",
-        "c18a534 feat: implement state management, component architecture, and API integration for recipe book",
-        "a130b3a docs: update README to reflect project modularization and JSON data structure",
-        "c521e8b refactor: reorganize project structure by moving core files into a dedicated js subdirectory"
-      ]
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 14.2,
-      "lastCommit": {
-        "message": "fix(metrics): temporarily disable lines plugin due to api parsing crash",
-        "date": "2026-06-11T16:22:11+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
-      "techStack": [],
-      "name": "Chronos778-profile",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 17.9,
-      "lastCommit": {
-        "message": "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
-        "date": "2026-06-07T23:17:30+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\clickd",
-      "techStack": [
-        "Dart/Flutter"
-      ],
-      "name": "clickd",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 18.0,
-      "lastCommit": {
-        "message": "docs: update README with push notifications, VAPID setup, and updated project structure",
-        "date": "2026-06-07T22:48:32+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
-      "techStack": [
-        "Node.js",
-        "Express"
-      ],
-      "name": "Quotes/quote.api",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "master",
-      "daysSinceCommit": 42.3,
-      "lastCommit": {
-        "message": "feat(messages): add save-as-quote functionality with modal and profanity filtering",
-        "date": "2026-05-14T15:06:45+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
-      "techStack": [
-        "Node.js",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript"
-      ],
-      "name": "Quotationnn/Quotation",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 42.3,
-      "lastCommit": {
-        "message": "feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
-        "date": "2026-05-14T15:01:13+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\PantryPulse",
-      "techStack": [
-        "Node.js",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript"
-      ],
-      "name": "PantryPulse",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 42.9,
-      "lastCommit": {
-        "message": "feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
-        "date": "2026-05-14T01:00:46+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\LeetCode-Scrapper",
-      "techStack": [
-        "Python"
-      ],
-      "name": "LeetCode-Scrapper",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 57.9,
-      "lastCommit": {
-        "message": "feat: implement sidebar navigation and add landing page components and dashboard routes",
-        "date": "2026-04-28T23:39:02+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\SCARO-main\\SCARO-main",
-      "techStack": [
-        "Docker"
-      ],
-      "name": "SCARO-main/SCARO-main",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 66.4,
-      "lastCommit": {
-        "message": "fix2 (please be last)",
-        "date": "2026-04-20T11:10:57+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\AiYapping",
-      "techStack": [
-        "Node.js",
-        "React",
-        "Tailwind CSS",
-        "Vite"
-      ],
-      "name": "AiYapping",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 67.9,
-      "lastCommit": {
-        "message": "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
-        "date": "2026-04-18T23:51:42+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\Rajas-web\\my-web-of-social",
-      "techStack": [],
-      "name": "Rajas-web/my-web-of-social",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "dev/anti-opus-trimr",
-      "daysSinceCommit": 81.9,
-      "lastCommit": {
-        "message": "Delete flutter_analyze_results.txt",
-        "date": "2026-04-05T00:44:37+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\AudioTrimr",
-      "techStack": [
-        "Dart/Flutter"
-      ],
-      "name": "AudioTrimr",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 91.1,
-      "lastCommit": {
-        "message": "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
-        "date": "2026-03-26T19:07:12+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\EatWise",
-      "techStack": [],
-      "name": "EatWise",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 106.1,
-      "lastCommit": {
-        "message": "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
-        "date": "2026-03-11T20:33:59+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\advanced-data-visualization-playground",
-      "techStack": [
-        "Node.js",
-        "React"
-      ],
-      "name": "advanced-data-visualization-playground",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 116.0,
-      "lastCommit": {
-        "message": ".",
-        "date": "2026-03-01T22:15:24+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\myportfolio",
-      "techStack": [
-        "Node.js",
-        "Three.js",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "TypeScript"
-      ],
-      "name": "myportfolio",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 129.0,
-      "lastCommit": {
-        "message": "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
-        "date": "2026-02-16T23:06:31+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts",
-      "techStack": [
-        "Bun",
-        "Node.js",
-        "React",
-        "Tailwind CSS",
-        "TypeScript",
-        "Vite"
-      ],
-      "name": "SkillShorts/SkillShorts",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "master",
-      "daysSinceCommit": 133.9,
-      "lastCommit": {
-        "message": ".",
-        "date": "2026-02-11T23:25:56+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX",
-      "techStack": [
-        "Node.js",
-        "Three.js",
-        "React",
-        "Tailwind CSS",
-        "Vite"
-      ],
-      "name": "algox/AlgoLabX",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 134.1,
-      "lastCommit": {
-        "message": "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
-        "date": "2026-02-11T19:27:53+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\tsrow",
-      "techStack": [],
-      "name": "tsrow",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 134.1,
-      "lastCommit": {
-        "message": ".",
-        "date": "2026-02-11T19:16:21+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
-      "techStack": [
-        "Python"
-      ],
-      "name": "neuralnetwork/neural-visualizer",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "master",
-      "daysSinceCommit": 154.9,
-      "lastCommit": {
-        "message": "feat: change react motion import and fix long repo name overflow with ellipsis",
-        "date": "2026-01-21T23:38:26+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\autoreport",
-      "techStack": [],
-      "name": "autoreport",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 200.1,
-      "lastCommit": {
-        "message": "some changes",
-        "date": "2025-12-07T19:42:56+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack",
-      "techStack": [],
-      "name": "lifetrack/lifetrack",
-      "recentCommits": []
-    },
-    {
-      "isActive": false,
-      "branch": "main",
-      "daysSinceCommit": 200.1,
-      "lastCommit": {
-        "message": "some changes",
-        "date": "2025-12-07T19:42:56+05:30"
-      },
-      "path": "C:\\Users\\Maithil\\Projects\\LifeTrack-1",
-      "techStack": [],
-      "name": "LifeTrack-1",
-      "recentCommits": []
-    }
-  ],
-  "activeRepos": 6
+﻿{
+    "activeRepos":  6,
+    "lastSynced":  "2026-06-26T00:24:17Z",
+    "projects":  [
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: implement reactive UI components and state-driven recipe rendering system",
+                                            "date":  "2026-06-26T00:24:16+05:30"
+                                        },
+                         "daysSinceCommit":  0,
+                         "isActive":  true,
+                         "name":  "foodbook/recipe-book",
+                         "recentCommits":  [
+                                               "fcbc59d feat: implement reactive UI components and state-driven recipe rendering system",
+                                               "5cb134d feat: implement editorial-style CSS framework, modular components, and utils with service worker support",
+                                               "b5ce4de feat: implement core recipe features including ingredient parsing, instruction normalization, and custom styling system"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: add Tiptap editor with image support and implement dynamic blog article page rendering",
+                                            "date":  "2026-06-25T23:26:18+05:30"
+                                        },
+                         "daysSinceCommit":  0,
+                         "isActive":  true,
+                         "name":  "Intership/orelli",
+                         "recentCommits":  [
+                                               "f35896e feat: add Tiptap editor with image support and implement dynamic blog article page rendering",
+                                               "a8ee73d feat: add image upload API route and reusable client-side ImageUploader component with Supabase storage integration",
+                                               "a5f3f03 docs: update README with full-stack architecture, CMS features, and deployment documentation",
+                                               "99e380f Fix category gallery array parsing to include main image",
+                                               "81883c5 feat: implement core website architecture, including layout shell, navigation, featured project sections, and admin dashboard pages."
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Intership\\orelli",
+                         "techStack":  [
+                                           "Node.js",
+                                           "TypeScript",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Prisma",
+                                           "Next.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "fix: resolve broken sha256 checksum URLs in installation scripts",
+                                            "date":  "2026-06-20T12:12:26+05:30"
+                                        },
+                         "daysSinceCommit":  5.5,
+                         "isActive":  true,
+                         "name":  "git-rewind",
+                         "recentCommits":  [
+                                               "9ce6449 fix: resolve broken sha256 checksum URLs in installation scripts",
+                                               "48fc8fa fix: flush and unlock file handles before sha256 checksum verification",
+                                               "2c1bef6 docs: document cryptographic updater and bumped token limits",
+                                               "76f2cf1 chore: release v1.7.0",
+                                               "16a02b0 chore: optimize AI token constraints and error boundaries"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\git-rewind",
+                         "techStack":  [
+                                           "Rust"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "refactor: update light mode theme colors and increase cache version for service worker",
+                                            "date":  "2026-06-18T00:01:44+05:30"
+                                        },
+                         "daysSinceCommit":  8,
+                         "isActive":  true,
+                         "name":  "Quotes/quote.web",
+                         "recentCommits":  [
+                                               "a8b2f2a refactor: update light mode theme colors and increase cache version for service worker"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.web",
+                         "techStack":  [
+                                           "Node.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "fix/issue-948-rate-limits",
+                         "lastCommit":  {
+                                            "message":  "fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
+                                            "date":  "2026-06-17T23:34:06+05:30"
+                                        },
+                         "daysSinceCommit":  8,
+                         "isActive":  true,
+                         "name":  "SpotiFLAC",
+                         "recentCommits":  [
+                                               "572ce13 fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
+                                               "d030fa6 fix: implement retry and backoff for Qobuz and Amazon APIs to fix #948"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\SpotiFLAC",
+                         "techStack":  [
+                                           "Go"
+                                       ]
+                     },
+                     {
+                         "branch":  "feature/v2-pipeline-improvements",
+                         "lastCommit":  {
+                                            "message":  "feat: update input index handling for audio and SFX in vertical short rendering",
+                                            "date":  "2026-06-16T21:07:42+05:30"
+                                        },
+                         "daysSinceCommit":  9.1,
+                         "isActive":  true,
+                         "name":  "puff",
+                         "recentCommits":  [
+                                               "1bd9912 feat: update input index handling for audio and SFX in vertical short rendering",
+                                               "7642696 feat: implement V2 pipeline with dynamic captions, hard cuts, and SFX",
+                                               "10f1a3b feat: implement cascading TTS system with ElevenLabs, Sarvam, and Edge providers including state tracking and analytics.",
+                                               "6b85a0f feat: implement multi-provider TTS cascade system with Edge, ElevenLabs, and Sarvam, including automated workflow runners and state-based quota management.",
+                                               "e339997 feat: final V2.1 retention and narrative tuning optimization"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\puff",
+                         "techStack":  [
+                                           "Python",
+                                           "Node.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "fix(metrics): temporarily disable lines plugin due to api parsing crash",
+                                            "date":  "2026-06-11T16:22:11+05:30"
+                                        },
+                         "daysSinceCommit":  14.3,
+                         "isActive":  false,
+                         "name":  "Chronos778-profile",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
+                                            "date":  "2026-06-07T23:17:30+05:30"
+                                        },
+                         "daysSinceCommit":  18,
+                         "isActive":  false,
+                         "name":  "clickd",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\clickd",
+                         "techStack":  [
+                                           "Dart/Flutter"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "docs: update README with push notifications, VAPID setup, and updated project structure",
+                                            "date":  "2026-06-07T22:48:32+05:30"
+                                        },
+                         "daysSinceCommit":  18.1,
+                         "isActive":  false,
+                         "name":  "Quotes/quote.api",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
+                         "techStack":  [
+                                           "Node.js",
+                                           "Express"
+                                       ]
+                     },
+                     {
+                         "branch":  "master",
+                         "lastCommit":  {
+                                            "message":  "feat(messages): add save-as-quote functionality with modal and profanity filtering",
+                                            "date":  "2026-05-14T15:06:45+05:30"
+                                        },
+                         "daysSinceCommit":  42.4,
+                         "isActive":  false,
+                         "name":  "Quotationnn/Quotation",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Quotationnn\\Quotation",
+                         "techStack":  [
+                                           "Node.js",
+                                           "TypeScript",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Next.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
+                                            "date":  "2026-05-14T15:01:13+05:30"
+                                        },
+                         "daysSinceCommit":  42.4,
+                         "isActive":  false,
+                         "name":  "PantryPulse",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\PantryPulse",
+                         "techStack":  [
+                                           "Node.js",
+                                           "TypeScript",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Next.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
+                                            "date":  "2026-05-14T01:00:46+05:30"
+                                        },
+                         "daysSinceCommit":  43,
+                         "isActive":  false,
+                         "name":  "LeetCode-Scrapper",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\LeetCode-Scrapper",
+                         "techStack":  [
+                                           "Python"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: implement sidebar navigation and add landing page components and dashboard routes",
+                                            "date":  "2026-04-28T23:39:02+05:30"
+                                        },
+                         "daysSinceCommit":  58,
+                         "isActive":  false,
+                         "name":  "SCARO-main/SCARO-main",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\SCARO-main\\SCARO-main",
+                         "techStack":  [
+                                           "Docker"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "fix2 (please be last)",
+                                            "date":  "2026-04-20T11:10:57+05:30"
+                                        },
+                         "daysSinceCommit":  66.6,
+                         "isActive":  false,
+                         "name":  "AiYapping",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\AiYapping",
+                         "techStack":  [
+                                           "Node.js",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Vite"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
+                                            "date":  "2026-04-18T23:51:42+05:30"
+                                        },
+                         "daysSinceCommit":  68,
+                         "isActive":  false,
+                         "name":  "Rajas-web/my-web-of-social",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Rajas-web\\my-web-of-social",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "dev/anti-opus-trimr",
+                         "lastCommit":  {
+                                            "message":  "Delete flutter_analyze_results.txt",
+                                            "date":  "2026-04-05T00:44:37+05:30"
+                                        },
+                         "daysSinceCommit":  82,
+                         "isActive":  false,
+                         "name":  "AudioTrimr",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\AudioTrimr",
+                         "techStack":  [
+                                           "Dart/Flutter"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
+                                            "date":  "2026-03-26T19:07:12+05:30"
+                                        },
+                         "daysSinceCommit":  91.2,
+                         "isActive":  false,
+                         "name":  "EatWise",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\EatWise",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
+                                            "date":  "2026-03-11T20:33:59+05:30"
+                                        },
+                         "daysSinceCommit":  106.2,
+                         "isActive":  false,
+                         "name":  "advanced-data-visualization-playground",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\advanced-data-visualization-playground",
+                         "techStack":  [
+                                           "Node.js",
+                                           "React"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  ".",
+                                            "date":  "2026-03-01T22:15:24+05:30"
+                                        },
+                         "daysSinceCommit":  116.1,
+                         "isActive":  false,
+                         "name":  "myportfolio",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\myportfolio",
+                         "techStack":  [
+                                           "Node.js",
+                                           "TypeScript",
+                                           "Three.js",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Next.js"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
+                                            "date":  "2026-02-16T23:06:31+05:30"
+                                        },
+                         "daysSinceCommit":  129.1,
+                         "isActive":  false,
+                         "name":  "SkillShorts/SkillShorts",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\SkillShorts\\SkillShorts",
+                         "techStack":  [
+                                           "Bun",
+                                           "Node.js",
+                                           "TypeScript",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Vite"
+                                       ]
+                     },
+                     {
+                         "branch":  "master",
+                         "lastCommit":  {
+                                            "message":  ".",
+                                            "date":  "2026-02-11T23:25:56+05:30"
+                                        },
+                         "daysSinceCommit":  134,
+                         "isActive":  false,
+                         "name":  "algox/AlgoLabX",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\algox\\AlgoLabX",
+                         "techStack":  [
+                                           "Node.js",
+                                           "Three.js",
+                                           "React",
+                                           "Tailwind CSS",
+                                           "Vite"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
+                                            "date":  "2026-02-11T19:27:53+05:30"
+                                        },
+                         "daysSinceCommit":  134.2,
+                         "isActive":  false,
+                         "name":  "tsrow",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\tsrow",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  ".",
+                                            "date":  "2026-02-11T19:16:21+05:30"
+                                        },
+                         "daysSinceCommit":  134.2,
+                         "isActive":  false,
+                         "name":  "neuralnetwork/neural-visualizer",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\neuralnetwork\\neural-visualizer",
+                         "techStack":  [
+                                           "Python"
+                                       ]
+                     },
+                     {
+                         "branch":  "master",
+                         "lastCommit":  {
+                                            "message":  "feat: change react motion import and fix long repo name overflow with ellipsis",
+                                            "date":  "2026-01-21T23:38:26+05:30"
+                                        },
+                         "daysSinceCommit":  155,
+                         "isActive":  false,
+                         "name":  "autoreport",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\autoreport",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "some changes",
+                                            "date":  "2025-12-07T19:42:56+05:30"
+                                        },
+                         "daysSinceCommit":  200.2,
+                         "isActive":  false,
+                         "name":  "lifetrack/lifetrack",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\lifetrack\\lifetrack",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "some changes",
+                                            "date":  "2025-12-07T19:42:56+05:30"
+                                        },
+                         "daysSinceCommit":  200.2,
+                         "isActive":  false,
+                         "name":  "LifeTrack-1",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\LifeTrack-1",
+                         "techStack":  [
+
+                                       ]
+                     }
+                 ],
+    "totalRepos":  26
 }
