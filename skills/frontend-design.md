@@ -1,3 +1,7 @@
+---
+name: frontend-design
+description: Dark aesthetic design system with glassmorphism, neon accents, and motion-first UI
+---
 # Frontend Design
 
 Dark, intentional, slightly dangerous. Never generic. Never safe.

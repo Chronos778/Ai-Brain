@@ -437,9 +437,19 @@ if ($allMemoryEntries.Count -gt 0) {
     $latestMemoryDate = ($allMemoryEntries | Sort-Object Date -Descending | Select-Object -First 1).Date
 }
 
-$freshnessDays = if ($latestMemoryDate) { ($Now - $latestMemoryDate).TotalDays } else { 999 }
+# Consider both memory entries AND commit recency for freshness
+$latestCommitDate = $null
+if ($activeProjects.Count -gt 0) {
+    try {
+        $latestCommitDate = ($activeProjects | ForEach-Object { [DateTime]::Parse($_.lastCommit.date) } | Sort-Object -Descending | Select-Object -First 1)
+    } catch {}
+}
+$memoryFreshnessDays = if ($latestMemoryDate) { ($Now - $latestMemoryDate).TotalDays } else { 999 }
+$commitFreshnessDays = if ($latestCommitDate) { ($Now - $latestCommitDate).TotalDays } else { 999 }
+$freshnessDays = [Math]::Min($memoryFreshnessDays, $commitFreshnessDays)
 $activeRatio = if ($projects.Count -gt 0) { $activeProjects.Count / $projects.Count } else { 0 }
-$contextFreshnessScore = Get-Score -Value (100 - ($freshnessDays * 2.2) + ($activeRatio * 20))
+$memoryEntryBonus = [Math]::Min(($allMemoryEntries.Count * 2), 20)
+$contextFreshnessScore = Get-Score -Value (100 - ($freshnessDays * 2.2) + ($activeRatio * 20) + $memoryEntryBonus)
 
 $decisionRaw = if (Test-Path $decisionsPath) { Get-Content $decisionsPath -Raw -Encoding UTF8 } else { "" }
 $unresolvedDecisions = ([regex]::Matches($decisionRaw, '(?im)\b(todo|tbd|revisit)\b')).Count
@@ -465,6 +475,32 @@ $ctx += ""
 
 Set-Content -Path (Join-Path $MemoryDir "active-context.md") -Value ($ctx -join "`n") -Encoding UTF8
 Write-Log "Updated active-context.md"
+
+# ─── Auto-extract learnings from fix: commits ────────────────────────
+
+$existingLearnings = ""
+if (Test-Path $learningsPath) {
+    $existingLearnings = (Get-Content $learningsPath -Raw -Encoding UTF8).ToLower()
+}
+
+$autoLearnings = @()
+foreach ($p in $activeProjects) {
+    foreach ($c in $p.recentCommits) {
+        if ($c -match '^\w+\s+fix:\s+(.+)$') {
+            $fixMsg = $Matches[1].Trim()
+            $fingerprint = ($fixMsg -replace '\s+', ' ').ToLower()
+            if ($existingLearnings -notmatch [regex]::Escape($fingerprint.Substring(0, [Math]::Min(40, $fingerprint.Length)))) {
+                $techTag = if ($p.techStack.Count -gt 0) { " [$($p.techStack[0].ToLower())]" } else { "" }
+                $autoLearnings += "`n### $($Now.ToString('yyyy-MM-dd')) | $($p.name)$techTag`n$fixMsg"
+            }
+        }
+    }
+}
+
+if ($autoLearnings.Count -gt 0) {
+    $autoLearnings | ForEach-Object { Add-Content -Path $learningsPath -Value $_ -Encoding UTF8 }
+    Write-Log "Auto-extracted $($autoLearnings.Count) learnings from fix: commits"
+}
 
 # ─── Propagate project instruction files to active repos ─────────────
 

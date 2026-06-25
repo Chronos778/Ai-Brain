@@ -1,3 +1,7 @@
+---
+name: node-js
+description: Node.js patterns with ES modules, async/await, streams, and structured logging
+---
 # Node.js
 
 ES modules everywhere. Async/await only. Never block the event loop.

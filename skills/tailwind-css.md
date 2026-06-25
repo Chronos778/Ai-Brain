@@ -1,3 +1,7 @@
+---
+name: tailwind-css
+description: Tailwind CSS patterns with dark-first design, CVA variants, and cn() utility
+---
 # Tailwind CSS
 
 Dark mode first. CSS variables for theming. CVA for component variants.

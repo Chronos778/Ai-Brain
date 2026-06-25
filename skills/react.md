@@ -1,3 +1,7 @@
+---
+name: react
+description: React 19 patterns with Server Components, Zustand, TanStack Query, and Framer Motion
+---
 # React
 
 My primary UI layer. React 19 + TypeScript on everything.

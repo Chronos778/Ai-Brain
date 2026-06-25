@@ -1,3 +1,7 @@
+---
+name: vite
+description: Vite configuration for React projects with TypeScript and manual chunks
+---
 # Vite
 
 For all non-Next.js React projects. TypeScript config always.

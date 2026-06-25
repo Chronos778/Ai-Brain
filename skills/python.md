@@ -1,3 +1,7 @@
+---
+name: python
+description: Type-hinted Python with Pydantic, FastAPI, and ML pipeline patterns
+---
 # Python
 
 Type hints everywhere. Pydantic for data. Flask for APIs, FastAPI for async.

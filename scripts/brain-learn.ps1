@@ -48,6 +48,12 @@ $SkillKeywords = @{
     "vite"        = @("vite", "rollup", "hmr", "import.meta")
     "bun"         = @("bun", "bunx", "bun.lockb")
     "frontend-design" = @("design", "accessibility", "a11y", "animation", "typography", "color", "layout", "ux", "ui")
+    "go"              = @("go", "golang", "goroutine", "channel", "go.mod", "cobra", "gin")
+    "rust"            = @("rust", "cargo", "crate", "ownership", "borrow", "lifetime", "tokio", "serde")
+    "prisma"          = @("prisma", "schema.prisma", "migration", "prisma-client", "prisma generate", "drizzle")
+    "dart-flutter"    = @("flutter", "dart", "widget", "riverpod", "provider", "pubspec", "hive", "supabase")
+    "docker"          = @("docker", "dockerfile", "container", "docker-compose", "image", "volume")
+    "deployment"      = @("deploy", "vercel", "netlify", "ci", "cd", "pipeline", "github-actions")
 }
 
 function Find-RelatedSkills {

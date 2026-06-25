@@ -1,3 +1,7 @@
+---
+name: review-playbook
+description: Severity-first code review checklist for risk and regression detection
+---
 # Review Playbook
 
 Use this checklist when reviewing code or proposing fixes.

@@ -1,3 +1,7 @@
+---
+name: firebase
+description: Firebase patterns for Firestore, Auth, Cloud Functions, and Storage
+---
 # Firebase
 
 Full Google Cloud stack. Firestore + Auth + Functions + Storage + Hosting.

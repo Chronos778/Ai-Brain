@@ -1,3 +1,7 @@
+---
+name: typescript
+description: Strict TypeScript patterns with Zod schemas, discriminated unions, and branded types
+---
 # TypeScript
 
 Strict mode, every project, no exceptions.

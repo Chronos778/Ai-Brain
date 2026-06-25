@@ -1,3 +1,7 @@
+---
+name: testing-playbook
+description: Behavior-first testing strategy with quality gates
+---
 # Testing Playbook
 
 How to generate and evaluate tests for this brain.

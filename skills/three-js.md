@@ -1,3 +1,7 @@
+---
+name: three-js
+description: Three.js and React Three Fiber for declarative 3D with GSAP timelines
+---
 # Three.js / React Three Fiber
 
 R3F always in React projects. GSAP for camera timelines. Drei for the boring parts.

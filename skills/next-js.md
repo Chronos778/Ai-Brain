@@ -1,3 +1,7 @@
+---
+name: next-js
+description: Next.js App Router patterns with Server Actions, ISR, and Vercel deployment
+---
 # Next.js
 
 App Router only. Server-first architecture. Deploy to Vercel.

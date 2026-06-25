@@ -1,3 +1,7 @@
+---
+name: express
+description: Express.js layered architecture with Zod validation and centralized error handling
+---
 # Express
 
 Layered architecture. Thin routes, fat services. Consistent error format.
