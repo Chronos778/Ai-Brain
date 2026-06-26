@@ -1,41 +1,22 @@
 ﻿{
     "activeRepos":  6,
-    "lastSynced":  "2026-06-26T00:24:17Z",
+    "lastSynced":  "2026-06-26T21:30:16Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "feat: implement reactive UI components and state-driven recipe rendering system",
-                                            "date":  "2026-06-26T00:24:16+05:30"
-                                        },
-                         "daysSinceCommit":  0,
-                         "isActive":  true,
-                         "name":  "foodbook/recipe-book",
-                         "recentCommits":  [
-                                               "fcbc59d feat: implement reactive UI components and state-driven recipe rendering system",
-                                               "5cb134d feat: implement editorial-style CSS framework, modular components, and utils with service worker support",
-                                               "b5ce4de feat: implement core recipe features including ingredient parsing, instruction normalization, and custom styling system"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: add Tiptap editor with image support and implement dynamic blog article page rendering",
-                                            "date":  "2026-06-25T23:26:18+05:30"
+                                            "message":  "feat: add contact form API route with rate limiting and file attachment support",
+                                            "date":  "2026-06-26T21:30:15+05:30"
                                         },
                          "daysSinceCommit":  0,
                          "isActive":  true,
                          "name":  "Intership/orelli",
                          "recentCommits":  [
+                                               "9743dc8 feat: add contact form API route with rate limiting and file attachment support",
                                                "f35896e feat: add Tiptap editor with image support and implement dynamic blog article page rendering",
                                                "a8ee73d feat: add image upload API route and reusable client-side ImageUploader component with Supabase storage integration",
                                                "a5f3f03 docs: update README with full-stack architecture, CMS features, and deployment documentation",
-                                               "99e380f Fix category gallery array parsing to include main image",
-                                               "81883c5 feat: implement core website architecture, including layout shell, navigation, featured project sections, and admin dashboard pages."
+                                               "99e380f Fix category gallery array parsing to include main image"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Intership\\orelli",
                          "techStack":  [
@@ -50,10 +31,27 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
+                                            "message":  "Merge branch \u0027SC136:main\u0027 into main",
+                                            "date":  "2026-06-26T00:25:08+05:30"
+                                        },
+                         "daysSinceCommit":  0.9,
+                         "isActive":  true,
+                         "name":  "foodbook/recipe-book",
+                         "recentCommits":  [
+                                               "fcbc59d feat: implement reactive UI components and state-driven recipe rendering system"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
                                             "message":  "fix: resolve broken sha256 checksum URLs in installation scripts",
                                             "date":  "2026-06-20T12:12:26+05:30"
                                         },
-                         "daysSinceCommit":  5.5,
+                         "daysSinceCommit":  6.4,
                          "isActive":  true,
                          "name":  "git-rewind",
                          "recentCommits":  [
@@ -74,7 +72,7 @@
                                             "message":  "refactor: update light mode theme colors and increase cache version for service worker",
                                             "date":  "2026-06-18T00:01:44+05:30"
                                         },
-                         "daysSinceCommit":  8,
+                         "daysSinceCommit":  8.9,
                          "isActive":  true,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
@@ -91,7 +89,7 @@
                                             "message":  "fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
                                             "date":  "2026-06-17T23:34:06+05:30"
                                         },
-                         "daysSinceCommit":  8,
+                         "daysSinceCommit":  8.9,
                          "isActive":  true,
                          "name":  "SpotiFLAC",
                          "recentCommits":  [
@@ -109,7 +107,7 @@
                                             "message":  "feat: update input index handling for audio and SFX in vertical short rendering",
                                             "date":  "2026-06-16T21:07:42+05:30"
                                         },
-                         "daysSinceCommit":  9.1,
+                         "daysSinceCommit":  10,
                          "isActive":  true,
                          "name":  "puff",
                          "recentCommits":  [
@@ -131,7 +129,7 @@
                                             "message":  "fix(metrics): temporarily disable lines plugin due to api parsing crash",
                                             "date":  "2026-06-11T16:22:11+05:30"
                                         },
-                         "daysSinceCommit":  14.3,
+                         "daysSinceCommit":  15.2,
                          "isActive":  false,
                          "name":  "Chronos778-profile",
                          "recentCommits":  [
@@ -145,27 +143,10 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
-                                            "date":  "2026-06-07T23:17:30+05:30"
-                                        },
-                         "daysSinceCommit":  18,
-                         "isActive":  false,
-                         "name":  "clickd",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\clickd",
-                         "techStack":  [
-                                           "Dart/Flutter"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
                                             "message":  "docs: update README with push notifications, VAPID setup, and updated project structure",
                                             "date":  "2026-06-07T22:48:32+05:30"
                                         },
-                         "daysSinceCommit":  18.1,
+                         "daysSinceCommit":  18.9,
                          "isActive":  false,
                          "name":  "Quotes/quote.api",
                          "recentCommits":  [
@@ -178,12 +159,29 @@
                                        ]
                      },
                      {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
+                                            "date":  "2026-06-07T23:17:30+05:30"
+                                        },
+                         "daysSinceCommit":  18.9,
+                         "isActive":  false,
+                         "name":  "clickd",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\clickd",
+                         "techStack":  [
+                                           "Dart/Flutter"
+                                       ]
+                     },
+                     {
                          "branch":  "master",
                          "lastCommit":  {
                                             "message":  "feat(messages): add save-as-quote functionality with modal and profanity filtering",
                                             "date":  "2026-05-14T15:06:45+05:30"
                                         },
-                         "daysSinceCommit":  42.4,
+                         "daysSinceCommit":  43.3,
                          "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
@@ -204,7 +202,7 @@
                                             "message":  "feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
                                             "date":  "2026-05-14T15:01:13+05:30"
                                         },
-                         "daysSinceCommit":  42.4,
+                         "daysSinceCommit":  43.3,
                          "isActive":  false,
                          "name":  "PantryPulse",
                          "recentCommits":  [
@@ -225,7 +223,7 @@
                                             "message":  "feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
                                             "date":  "2026-05-14T01:00:46+05:30"
                                         },
-                         "daysSinceCommit":  43,
+                         "daysSinceCommit":  43.9,
                          "isActive":  false,
                          "name":  "LeetCode-Scrapper",
                          "recentCommits":  [
@@ -242,7 +240,7 @@
                                             "message":  "feat: implement sidebar navigation and add landing page components and dashboard routes",
                                             "date":  "2026-04-28T23:39:02+05:30"
                                         },
-                         "daysSinceCommit":  58,
+                         "daysSinceCommit":  58.9,
                          "isActive":  false,
                          "name":  "SCARO-main/SCARO-main",
                          "recentCommits":  [
@@ -259,7 +257,7 @@
                                             "message":  "fix2 (please be last)",
                                             "date":  "2026-04-20T11:10:57+05:30"
                                         },
-                         "daysSinceCommit":  66.6,
+                         "daysSinceCommit":  67.4,
                          "isActive":  false,
                          "name":  "AiYapping",
                          "recentCommits":  [
@@ -279,7 +277,7 @@
                                             "message":  "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
                                             "date":  "2026-04-18T23:51:42+05:30"
                                         },
-                         "daysSinceCommit":  68,
+                         "daysSinceCommit":  68.9,
                          "isActive":  false,
                          "name":  "Rajas-web/my-web-of-social",
                          "recentCommits":  [
@@ -296,7 +294,7 @@
                                             "message":  "Delete flutter_analyze_results.txt",
                                             "date":  "2026-04-05T00:44:37+05:30"
                                         },
-                         "daysSinceCommit":  82,
+                         "daysSinceCommit":  82.9,
                          "isActive":  false,
                          "name":  "AudioTrimr",
                          "recentCommits":  [
@@ -313,7 +311,7 @@
                                             "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
                                             "date":  "2026-03-26T19:07:12+05:30"
                                         },
-                         "daysSinceCommit":  91.2,
+                         "daysSinceCommit":  92.1,
                          "isActive":  false,
                          "name":  "EatWise",
                          "recentCommits":  [
@@ -330,7 +328,7 @@
                                             "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
                                             "date":  "2026-03-11T20:33:59+05:30"
                                         },
-                         "daysSinceCommit":  106.2,
+                         "daysSinceCommit":  107,
                          "isActive":  false,
                          "name":  "advanced-data-visualization-playground",
                          "recentCommits":  [
@@ -348,7 +346,7 @@
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  116.1,
+                         "daysSinceCommit":  117,
                          "isActive":  false,
                          "name":  "myportfolio",
                          "recentCommits":  [
@@ -370,7 +368,7 @@
                                             "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
                                             "date":  "2026-02-16T23:06:31+05:30"
                                         },
-                         "daysSinceCommit":  129.1,
+                         "daysSinceCommit":  129.9,
                          "isActive":  false,
                          "name":  "SkillShorts/SkillShorts",
                          "recentCommits":  [
@@ -392,7 +390,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T23:25:56+05:30"
                                         },
-                         "daysSinceCommit":  134,
+                         "daysSinceCommit":  134.9,
                          "isActive":  false,
                          "name":  "algox/AlgoLabX",
                          "recentCommits":  [
@@ -413,7 +411,7 @@
                                             "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
                                             "date":  "2026-02-11T19:27:53+05:30"
                                         },
-                         "daysSinceCommit":  134.2,
+                         "daysSinceCommit":  135.1,
                          "isActive":  false,
                          "name":  "tsrow",
                          "recentCommits":  [
@@ -430,7 +428,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T19:16:21+05:30"
                                         },
-                         "daysSinceCommit":  134.2,
+                         "daysSinceCommit":  135.1,
                          "isActive":  false,
                          "name":  "neuralnetwork/neural-visualizer",
                          "recentCommits":  [
@@ -447,7 +445,7 @@
                                             "message":  "feat: change react motion import and fix long repo name overflow with ellipsis",
                                             "date":  "2026-01-21T23:38:26+05:30"
                                         },
-                         "daysSinceCommit":  155,
+                         "daysSinceCommit":  155.9,
                          "isActive":  false,
                          "name":  "autoreport",
                          "recentCommits":  [
@@ -464,7 +462,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  200.2,
+                         "daysSinceCommit":  201.1,
                          "isActive":  false,
                          "name":  "lifetrack/lifetrack",
                          "recentCommits":  [
@@ -481,7 +479,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  200.2,
+                         "daysSinceCommit":  201.1,
                          "isActive":  false,
                          "name":  "LifeTrack-1",
                          "recentCommits":  [
