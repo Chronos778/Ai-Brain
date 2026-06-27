@@ -43,3 +43,9 @@ add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issu
 
 ### 2026-06-25 | SpotiFLAC [go]
 implement retry and backoff for Qobuz and Amazon APIs to fix #948
+
+### 2026-06-28 | foodbook/recipe-book
+use dedicated fridge-panel class instead of modal-box to prevent style conflicts
+
+### 2026-06-28 | foodbook/recipe-book
+bump SW cache version to bust stale cache
