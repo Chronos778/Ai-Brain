@@ -1,43 +1,22 @@
 ﻿{
-    "activeRepos":  6,
-    "lastSynced":  "2026-06-28T00:49:39Z",
+    "activeRepos":  7,
+    "lastSynced":  "2026-06-29T22:02:28Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "feat: implement recipe detail drawer, cooking mode, and ingredient tracking system",
-                                            "date":  "2026-06-28T00:49:38+05:30"
+                                            "message":  "style: update background and footer color palette in tailwind config",
+                                            "date":  "2026-06-29T22:02:26+05:30"
                                         },
                          "daysSinceCommit":  0,
                          "isActive":  true,
-                         "name":  "foodbook/recipe-book",
-                         "recentCommits":  [
-                                               "87d845e feat: implement recipe detail drawer, cooking mode, and ingredient tracking system",
-                                               "10bc4b2 fix: use dedicated fridge-panel class instead of modal-box to prevent style conflicts",
-                                               "a86447d style: switch to kinfolk editorial aesthetic for pantry modal",
-                                               "d010307 style: ultra premium overhaul for fridge modal and pills",
-                                               "75edd43 fix: bump SW cache version to bust stale cache"
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
-                         "techStack":  [
-
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: add cron route to ping database and prevent sleep on free-tier projects",
-                                            "date":  "2026-06-26T21:59:42+05:30"
-                                        },
-                         "daysSinceCommit":  1.1,
-                         "isActive":  true,
                          "name":  "Intership/orelli",
                          "recentCommits":  [
+                                               "3019d50 style: update background and footer color palette in tailwind config",
                                                "0430032 feat: add cron route to ping database and prevent sleep on free-tier projects",
                                                "66bac70 feat: add cron job endpoint to keep Supabase database active",
                                                "b7e9503 feat: implement contact form API with Nodemailer and IP-based rate limiting",
-                                               "9743dc8 feat: add contact form API route with rate limiting and file attachment support",
-                                               "f35896e feat: add Tiptap editor with image support and implement dynamic blog article page rendering"
+                                               "9743dc8 feat: add contact form API route with rate limiting and file attachment support"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\Intership\\orelli",
                          "techStack":  [
@@ -52,10 +31,52 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
+                                            "message":  "chore: explicitly disable stargazers plugin",
+                                            "date":  "2026-06-28T01:39:05+05:30"
+                                        },
+                         "daysSinceCommit":  1.8,
+                         "isActive":  true,
+                         "name":  "Chronos778-profile",
+                         "recentCommits":  [
+                                               "37bf277 chore: explicitly disable stargazers plugin",
+                                               "914c955 Update github-metrics.svg - [Skip GitHub Action]",
+                                               "baaaf2c Update snake SVGs [skip ci]",
+                                               "6611f3c chore: remove stargazers section from metrics",
+                                               "27a82d1 Update snake SVGs [skip ci]"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "chore: update .gitignore to ignore copilot instructions file",
+                                            "date":  "2026-06-28T01:10:22+05:30"
+                                        },
+                         "daysSinceCommit":  1.9,
+                         "isActive":  true,
+                         "name":  "foodbook/recipe-book",
+                         "recentCommits":  [
+                                               "5154a51 chore: update .gitignore to ignore copilot instructions file",
+                                               "7397fa1 chore: update CSP to allow WebSocket connections and inline scripts",
+                                               "2509de5 feat: implement core frontend initialization and event delegation in main.js",
+                                               "0d0c27e feat: implement API service module with caching for recipe data and search functionality",
+                                               "e686bb7 feat: implement TheMealDB API client with IndexedDB caching and state management integration"
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\foodbook\\recipe-book",
+                         "techStack":  [
+
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
                                             "message":  "fix: resolve broken sha256 checksum URLs in installation scripts",
                                             "date":  "2026-06-20T12:12:26+05:30"
                                         },
-                         "daysSinceCommit":  7.5,
+                         "daysSinceCommit":  9.4,
                          "isActive":  true,
                          "name":  "git-rewind",
                          "recentCommits":  [
@@ -76,7 +97,7 @@
                                             "message":  "refactor: update light mode theme colors and increase cache version for service worker",
                                             "date":  "2026-06-18T00:01:44+05:30"
                                         },
-                         "daysSinceCommit":  10,
+                         "daysSinceCommit":  11.9,
                          "isActive":  true,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
@@ -93,12 +114,11 @@
                                             "message":  "fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
                                             "date":  "2026-06-17T23:34:06+05:30"
                                         },
-                         "daysSinceCommit":  10.1,
+                         "daysSinceCommit":  11.9,
                          "isActive":  true,
                          "name":  "SpotiFLAC",
                          "recentCommits":  [
-                                               "572ce13 fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues",
-                                               "d030fa6 fix: implement retry and backoff for Qobuz and Amazon APIs to fix #948"
+                                               "572ce13 fix: add retry logic for Qobuz and Amazon APIs and resolve Qobuz search fallback issues"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\SpotiFLAC",
                          "techStack":  [
@@ -111,7 +131,7 @@
                                             "message":  "feat: update input index handling for audio and SFX in vertical short rendering",
                                             "date":  "2026-06-16T21:07:42+05:30"
                                         },
-                         "daysSinceCommit":  11.2,
+                         "daysSinceCommit":  13,
                          "isActive":  true,
                          "name":  "puff",
                          "recentCommits":  [
@@ -130,18 +150,18 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "fix(metrics): temporarily disable lines plugin due to api parsing crash",
-                                            "date":  "2026-06-11T16:22:11+05:30"
+                                            "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
+                                            "date":  "2026-06-07T23:17:30+05:30"
                                         },
-                         "daysSinceCommit":  16.4,
+                         "daysSinceCommit":  21.9,
                          "isActive":  false,
-                         "name":  "Chronos778-profile",
+                         "name":  "clickd",
                          "recentCommits":  [
 
                                            ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Chronos778-profile",
+                         "path":  "C:\\Users\\Maithil\\Projects\\clickd",
                          "techStack":  [
-
+                                           "Dart/Flutter"
                                        ]
                      },
                      {
@@ -150,7 +170,7 @@
                                             "message":  "docs: update README with push notifications, VAPID setup, and updated project structure",
                                             "date":  "2026-06-07T22:48:32+05:30"
                                         },
-                         "daysSinceCommit":  20.1,
+                         "daysSinceCommit":  22,
                          "isActive":  false,
                          "name":  "Quotes/quote.api",
                          "recentCommits":  [
@@ -163,29 +183,12 @@
                                        ]
                      },
                      {
-                         "branch":  "main",
-                         "lastCommit":  {
-                                            "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
-                                            "date":  "2026-06-07T23:17:30+05:30"
-                                        },
-                         "daysSinceCommit":  20.1,
-                         "isActive":  false,
-                         "name":  "clickd",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\clickd",
-                         "techStack":  [
-                                           "Dart/Flutter"
-                                       ]
-                     },
-                     {
                          "branch":  "master",
                          "lastCommit":  {
                                             "message":  "feat(messages): add save-as-quote functionality with modal and profanity filtering",
                                             "date":  "2026-05-14T15:06:45+05:30"
                                         },
-                         "daysSinceCommit":  44.4,
+                         "daysSinceCommit":  46.3,
                          "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
@@ -206,7 +209,7 @@
                                             "message":  "feat: enhance GET request handling with client-provided threshold date and improve expiry logic",
                                             "date":  "2026-05-14T15:01:13+05:30"
                                         },
-                         "daysSinceCommit":  44.4,
+                         "daysSinceCommit":  46.3,
                          "isActive":  false,
                          "name":  "PantryPulse",
                          "recentCommits":  [
@@ -227,7 +230,7 @@
                                             "message":  "feat: implement API routes for LeetCode syncing, AI configuration, and background processing management",
                                             "date":  "2026-05-14T01:00:46+05:30"
                                         },
-                         "daysSinceCommit":  45,
+                         "daysSinceCommit":  46.9,
                          "isActive":  false,
                          "name":  "LeetCode-Scrapper",
                          "recentCommits":  [
@@ -244,7 +247,7 @@
                                             "message":  "feat: implement sidebar navigation and add landing page components and dashboard routes",
                                             "date":  "2026-04-28T23:39:02+05:30"
                                         },
-                         "daysSinceCommit":  60,
+                         "daysSinceCommit":  61.9,
                          "isActive":  false,
                          "name":  "SCARO-main/SCARO-main",
                          "recentCommits":  [
@@ -261,7 +264,7 @@
                                             "message":  "fix2 (please be last)",
                                             "date":  "2026-04-20T11:10:57+05:30"
                                         },
-                         "daysSinceCommit":  68.6,
+                         "daysSinceCommit":  70.5,
                          "isActive":  false,
                          "name":  "AiYapping",
                          "recentCommits":  [
@@ -281,7 +284,7 @@
                                             "message":  "Please provide the specific code changes or a summary of the modifications made to `script.js` so I can generate an accurate commit message for you.",
                                             "date":  "2026-04-18T23:51:42+05:30"
                                         },
-                         "daysSinceCommit":  70,
+                         "daysSinceCommit":  71.9,
                          "isActive":  false,
                          "name":  "Rajas-web/my-web-of-social",
                          "recentCommits":  [
@@ -298,7 +301,7 @@
                                             "message":  "Delete flutter_analyze_results.txt",
                                             "date":  "2026-04-05T00:44:37+05:30"
                                         },
-                         "daysSinceCommit":  84,
+                         "daysSinceCommit":  85.9,
                          "isActive":  false,
                          "name":  "AudioTrimr",
                          "recentCommits":  [
@@ -315,7 +318,7 @@
                                             "message":  "Refactor chatbot integration: Remove client-side API key, implement backend proxy for chat requests, and update README for new architecture",
                                             "date":  "2026-03-26T19:07:12+05:30"
                                         },
-                         "daysSinceCommit":  93.2,
+                         "daysSinceCommit":  95.1,
                          "isActive":  false,
                          "name":  "EatWise",
                          "recentCommits":  [
@@ -332,7 +335,7 @@
                                             "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
                                             "date":  "2026-03-11T20:33:59+05:30"
                                         },
-                         "daysSinceCommit":  108.2,
+                         "daysSinceCommit":  110.1,
                          "isActive":  false,
                          "name":  "advanced-data-visualization-playground",
                          "recentCommits":  [
@@ -350,7 +353,7 @@
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  118.1,
+                         "daysSinceCommit":  120,
                          "isActive":  false,
                          "name":  "myportfolio",
                          "recentCommits":  [
@@ -372,7 +375,7 @@
                                             "message":  "feat: Introduce video reel display with playback, reactions, and comments, along with new Admin and SwissDashboard pages and foundational button UI.",
                                             "date":  "2026-02-16T23:06:31+05:30"
                                         },
-                         "daysSinceCommit":  131.1,
+                         "daysSinceCommit":  133,
                          "isActive":  false,
                          "name":  "SkillShorts/SkillShorts",
                          "recentCommits":  [
@@ -394,7 +397,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T23:25:56+05:30"
                                         },
-                         "daysSinceCommit":  136.1,
+                         "daysSinceCommit":  137.9,
                          "isActive":  false,
                          "name":  "algox/AlgoLabX",
                          "recentCommits":  [
@@ -415,7 +418,7 @@
                                             "message":  "feat: Document new \"Selected Works Showcase\" with performance-optimized video previews, enhanced responsive design, and updated tech stack in README.",
                                             "date":  "2026-02-11T19:27:53+05:30"
                                         },
-                         "daysSinceCommit":  136.2,
+                         "daysSinceCommit":  138.1,
                          "isActive":  false,
                          "name":  "tsrow",
                          "recentCommits":  [
@@ -432,7 +435,7 @@
                                             "message":  ".",
                                             "date":  "2026-02-11T19:16:21+05:30"
                                         },
-                         "daysSinceCommit":  136.2,
+                         "daysSinceCommit":  138.1,
                          "isActive":  false,
                          "name":  "neuralnetwork/neural-visualizer",
                          "recentCommits":  [
@@ -449,7 +452,7 @@
                                             "message":  "feat: change react motion import and fix long repo name overflow with ellipsis",
                                             "date":  "2026-01-21T23:38:26+05:30"
                                         },
-                         "daysSinceCommit":  157,
+                         "daysSinceCommit":  158.9,
                          "isActive":  false,
                          "name":  "autoreport",
                          "recentCommits":  [
@@ -466,7 +469,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  202.2,
+                         "daysSinceCommit":  204.1,
                          "isActive":  false,
                          "name":  "lifetrack/lifetrack",
                          "recentCommits":  [
@@ -483,7 +486,7 @@
                                             "message":  "some changes",
                                             "date":  "2025-12-07T19:42:56+05:30"
                                         },
-                         "daysSinceCommit":  202.2,
+                         "daysSinceCommit":  204.1,
                          "isActive":  false,
                          "name":  "LifeTrack-1",
                          "recentCommits":  [
