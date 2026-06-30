@@ -49,3 +49,6 @@ use dedicated fridge-panel class instead of modal-box to prevent style conflicts
 
 ### 2026-06-28 | foodbook/recipe-book
 bump SW cache version to bust stale cache
+
+### 2026-06-30 | git-rewind [rust]
+improve error message formatting for invalid or expired API keys
