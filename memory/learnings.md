@@ -52,3 +52,6 @@ bump SW cache version to bust stale cache
 
 ### 2026-06-30 | git-rewind [rust]
 improve error message formatting for invalid or expired API keys
+
+### 2026-07-01 | git-rewind [rust]
+remove unused api_key variable

@@ -5,16 +5,6 @@ When future-you or an AI wonders "why was it done this way?" - the answer is her
 
 ---
 
-### 2026-06-01 | quote.web | PWA architecture with service worker
-**Problem**: Quote app needed offline support and fast loading, plus light/dark theme persistence.
-**Options considered**:
-- Standard SPA with localStorage
-- Full PWA with Service Worker caching
-**Chosen approach**: PWA architecture with service worker caching
-**Tradeoffs**: Cache invalidation complexity (stale CSS on theme updates), but native app feel.
-**Revisit trigger**: If we port to React Native/Flutter.
-**Why this won**: Instant loading is critical for a quotes app; service worker handles offline gracefully.
-
 ### 2026-06-10 | foodbook/recipe-book | Vanilla JS with no framework
 **Problem**: Need an editorial-style CSS framework and modular components for recipe display.
 **Options considered**:
