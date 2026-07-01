@@ -1,17 +1,19 @@
 ﻿{
     "activeRepos":  6,
-    "lastSynced":  "2026-07-01T21:36:07Z",
+    "lastSynced":  "2026-07-01T21:51:28Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "style: refactor CSS formatting for background images and box-shadow declarations",
-                                            "date":  "2026-07-01T21:36:06+05:30"
+                                            "message":  "refactor: replace ambient clouds with animated light mode orbs and centralize accent color management using CSS variables",
+                                            "date":  "2026-07-01T21:51:27+05:30"
                                         },
                          "daysSinceCommit":  0,
                          "isActive":  true,
                          "name":  "Quotes/quote.web",
                          "recentCommits":  [
+                                               "3815a61 refactor: replace ambient clouds with animated light mode orbs and centralize accent color management using CSS variables",
+                                               "6d90b9a feat: update background styling and implement theme-aware canvas animations with clouds for light mode",
                                                "8fbf244 style: refactor CSS formatting for background images and box-shadow declarations",
                                                "e715e1f style: refine light mode theme with updated color palette, gradients, and subtle UI enhancements",
                                                "a8b2f2a refactor: update light mode theme colors and increase cache version for service worker"
@@ -148,24 +150,6 @@
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "docs: update README with push notifications, VAPID setup, and updated project structure",
-                                            "date":  "2026-06-07T22:48:32+05:30"
-                                        },
-                         "daysSinceCommit":  23.9,
-                         "isActive":  false,
-                         "name":  "Quotes/quote.api",
-                         "recentCommits":  [
-
-                                           ],
-                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
-                         "techStack":  [
-                                           "Node.js",
-                                           "Express"
-                                       ]
-                     },
-                     {
-                         "branch":  "main",
-                         "lastCommit":  {
                                             "message":  "feat: initialize app with Firebase, Supabase, Hive, and Riverpod providers",
                                             "date":  "2026-06-07T23:17:30+05:30"
                                         },
@@ -178,6 +162,24 @@
                          "path":  "C:\\Users\\Maithil\\Projects\\clickd",
                          "techStack":  [
                                            "Dart/Flutter"
+                                       ]
+                     },
+                     {
+                         "branch":  "main",
+                         "lastCommit":  {
+                                            "message":  "docs: update README with push notifications, VAPID setup, and updated project structure",
+                                            "date":  "2026-06-07T22:48:32+05:30"
+                                        },
+                         "daysSinceCommit":  24,
+                         "isActive":  false,
+                         "name":  "Quotes/quote.api",
+                         "recentCommits":  [
+
+                                           ],
+                         "path":  "C:\\Users\\Maithil\\Projects\\Quotes\\quote.api",
+                         "techStack":  [
+                                           "Node.js",
+                                           "Express"
                                        ]
                      },
                      {
@@ -333,7 +335,7 @@
                                             "message":  "feat: configure SPA routing for Netlify and Vercel, specify Node.js version, and set package homepage.",
                                             "date":  "2026-03-11T20:33:59+05:30"
                                         },
-                         "daysSinceCommit":  112,
+                         "daysSinceCommit":  112.1,
                          "isActive":  false,
                          "name":  "advanced-data-visualization-playground",
                          "recentCommits":  [
