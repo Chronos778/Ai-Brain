@@ -55,3 +55,9 @@ improve error message formatting for invalid or expired API keys
 
 ### 2026-07-01 | git-rewind [rust]
 remove unused api_key variable
+
+### 2026-07-03 | git-rewind [rust]
+resolve Anthropic edge cases (400 cache fallback & non-streaming token usage)
+
+### 2026-07-03 | git-rewind [rust]
+resolve syntax error in client.rs

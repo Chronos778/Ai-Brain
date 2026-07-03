@@ -1,22 +1,22 @@
 ﻿{
     "activeRepos":  5,
-    "lastSynced":  "2026-07-03T13:50:25Z",
+    "lastSynced":  "2026-07-03T14:04:04Z",
     "projects":  [
                      {
                          "branch":  "main",
                          "lastCommit":  {
-                                            "message":  "feat: implement AI client with support for model discovery, caching, and retry logic",
-                                            "date":  "2026-07-03T13:50:23+05:30"
+                                            "message":  "feat: implement AI client with support for Anthropic and OpenAI API providers, including auto-discovery and response streaming",
+                                            "date":  "2026-07-03T14:04:01+05:30"
                                         },
                          "daysSinceCommit":  0,
                          "isActive":  true,
                          "name":  "git-rewind",
                          "recentCommits":  [
-                                               "978626e feat: implement AI client with support for model discovery, caching, and retry logic",
-                                               "cd063e9 feat: handle cached model 404s with auto-discovery",
-                                               "343a278 fix: remove unused api_key variable",
-                                               "d0bb833 fix: improve error message formatting for invalid or expired API keys",
-                                               "2f98384 feat: prompt for API key on 401/403 errors"
+                                               "d4b2aca feat: implement AI client with support for Anthropic and OpenAI API providers, including auto-discovery and response streaming",
+                                               "3ba8128 fix: resolve Anthropic edge cases (400 cache fallback \u0026 non-streaming token usage)",
+                                               "43187c3 fix: resolve syntax error in client.rs",
+                                               "ea5d862 feat: add support for Anthropic (Claude) provider",
+                                               "978626e feat: implement AI client with support for model discovery, caching, and retry logic"
                                            ],
                          "path":  "C:\\Users\\Maithil\\Projects\\git-rewind",
                          "techStack":  [
@@ -188,7 +188,7 @@
                                             "message":  "feat(messages): add save-as-quote functionality with modal and profanity filtering",
                                             "date":  "2026-05-14T15:06:45+05:30"
                                         },
-                         "daysSinceCommit":  49.9,
+                         "daysSinceCommit":  50,
                          "isActive":  false,
                          "name":  "Quotationnn/Quotation",
                          "recentCommits":  [
@@ -301,7 +301,7 @@
                                             "message":  "Delete flutter_analyze_results.txt",
                                             "date":  "2026-04-05T00:44:37+05:30"
                                         },
-                         "daysSinceCommit":  89.5,
+                         "daysSinceCommit":  89.6,
                          "isActive":  false,
                          "name":  "AudioTrimr",
                          "recentCommits":  [
@@ -353,7 +353,7 @@
                                             "message":  ".",
                                             "date":  "2026-03-01T22:15:24+05:30"
                                         },
-                         "daysSinceCommit":  123.6,
+                         "daysSinceCommit":  123.7,
                          "isActive":  false,
                          "name":  "myportfolio",
                          "recentCommits":  [
