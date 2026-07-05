@@ -61,3 +61,9 @@ resolve Anthropic edge cases (400 cache fallback & non-streaming token usage)
 
 ### 2026-07-03 | git-rewind [rust]
 resolve syntax error in client.rs
+
+### 2026-07-06 | Quotes/quote.web [node.js]
+restore previous quote button functionality
+
+### 2026-07-06 | Quotes/quote.web [node.js]
+correct brand logo css path resolution
